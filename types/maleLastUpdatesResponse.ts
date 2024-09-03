@@ -165,6 +165,7 @@ interface UpdateEntry {
       image_url?: string;
       small_image_url?: string;
       large_image_url?: string;
+      base64?: string;
     };
     webp?: {
       image_url?: string;
@@ -194,6 +195,7 @@ interface LastUpdatesManga {
 }
 
 interface MalLastUpdatesResponse {
+  [key: string]: any;
   anime: LastUpdatesAnime[];
   manga: LastUpdatesManga[];
 }

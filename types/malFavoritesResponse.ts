@@ -385,47 +385,7 @@ ex
 
 */
 
-interface AnimeFavorites {
-  mal_id: number;
-  url: string;
-  images: {
-    jpg?: {
-      image_url?: string;
-      small_image_url?: string;
-      large_image_url?: string;
-    };
-    webp?: {
-      image_url?: string;
-      small_image_url?: string;
-      large_image_url?: string;
-    };
-  };
-  title: string;
-  type: string;
-  start_year: number;
-}
-
-interface MangaFavorites {
-  mal_id: number;
-  url: string;
-  images: {
-    jpg?: {
-      image_url?: string;
-      small_image_url?: string;
-      large_image_url?: string;
-    };
-    webp?: {
-      image_url?: string;
-      small_image_url?: string;
-      large_image_url?: string;
-    };
-  };
-  title: string;
-  type: string;
-  start_year: number;
-}
-
-interface CharacterFavorites {
+interface BaseFavorite {
   mal_id: number;
   url: string;
   images: {
@@ -433,6 +393,7 @@ interface CharacterFavorites {
       image_url: string;
       small_image_url?: string;
       large_image_url?: string;
+      base64?: string;
     };
     webp?: {
       image_url?: string;
@@ -440,38 +401,37 @@ interface CharacterFavorites {
       large_image_url?: string;
     };
   };
+}
+
+interface AnimeFavorites extends BaseFavorite {
+  title: string;
+  type: string;
+  start_year: number;
+}
+
+interface MangaFavorites extends BaseFavorite {
+  title: string;
+  type: string;
+  start_year: number;
+}
+
+interface CharacterFavorites extends BaseFavorite {
   name: string;
 }
 
-interface PeopleFavorites {
-  mal_id: number;
-  url: string;
-  images: {
-    jpg?: {
-      image_url: string;
-      small_image_url?: string;
-      large_image_url?: string;
-    };
-    webp?: {
-      image_url?: string;
-      small_image_url?: string;
-      large_image_url?: string;
-    };
-  };
+interface PeopleFavorites extends BaseFavorite {
   name: string;
 }
 
 interface MalFavoritesResponse {
+  [key: string]: any;
   anime: AnimeFavorites[];
   manga: MangaFavorites[];
   characters: CharacterFavorites[];
   people: PeopleFavorites[];
 }
 
-export {
-  MalFavoritesResponse,
-  AnimeFavorites,
-  MangaFavorites,
-  CharacterFavorites,
-  PeopleFavorites,
-};
+type AnyMalFavoriteUnique = AnimeFavorites | MangaFavorites | CharacterFavorites | PeopleFavorites;
+type AnyMalFavorite = AnimeFavorites[] | MangaFavorites[] | CharacterFavorites[] | PeopleFavorites[];
+
+export { MalFavoritesResponse, AnimeFavorites, MangaFavorites, CharacterFavorites, PeopleFavorites, AnyMalFavorite, AnyMalFavoriteUnique };

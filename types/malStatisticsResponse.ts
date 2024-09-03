@@ -28,6 +28,7 @@ interface MangaStatistics {
 }
 
 interface MalStatisticsResponse {
+  [key: string]: any;
   anime: AnimeStatistics;
   manga: MangaStatistics;
 }
