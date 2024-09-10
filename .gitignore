@@ -398,3 +398,6 @@ FodyWeavers.xsd
 *.sln.iml
 .env
 .env_old
+.vscode/settings.json
+.src/config.ts
+src/config.ts

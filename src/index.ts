@@ -1,17 +1,20 @@
 import dotenv from "dotenv";
 import loadEnv from "./loadEnv";
 import storeInGist from "./methods/gist/storeInGist";
-import renderBody from "./RenderBody";
+import renderBodyString from "./RenderBodyString";
 
 dotenv.config();
 
 async function main() {
+  console.log("Starting...");
+
   //load env
   const loadedEnv = loadEnv(process.env);
   //destructure env
   const { gistId, ghToken, filename, base, sortOrder, storeMethod, hideMain, pluginMal, pluginLastfm, svg_columns, activePlugins } = loadedEnv;
   //render body
-  const htmlString = await renderBody({ env: loadedEnv });
+  const htmlString = await renderBodyString({ env: loadedEnv });
+
   //store data
   switch (storeMethod) {
     case "gist":

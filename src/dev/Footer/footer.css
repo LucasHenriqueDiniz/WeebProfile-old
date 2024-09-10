@@ -1,0 +1,43 @@
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 25px 32px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.footer-line {
+  max-width: 1280px;
+  width: 100%;
+  border-top: 1px solid var(--borderColor-default);
+}
+
+.footer-github-logo {
+  fill: var(--borderColor-default);
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.footer-github-logo:hover {
+  fill: var(--link);
+  cursor: pointer;
+}
+
+.footer-links {
+  display: flex;
+  margin-top: 16px;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer-links a {
+  font-size: 14px;
+  color: var(--fgColor-muted);
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+  color: var(--link);
+}

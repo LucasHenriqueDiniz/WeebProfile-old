@@ -19,6 +19,7 @@ export interface Env {
 }
 
 function loadEnv(env: NodeJS.ProcessEnv): Env {
+  console.log("LOADING ENV");
   const GIST_ID = env.GIST_ID as string;
   const GH_TOKEN = env.GH_TOKEN as string;
 
@@ -63,22 +64,23 @@ function loadEnv(env: NodeJS.ProcessEnv): Env {
     const plugin_mal_sections = process.env.PLUGIN_MAL_SECTIONS ?? envDefaults.PLUGIN_MAL_SECTIONS;
     const plugin_mal_style = process.env.PLUGIN_MAL_STYLE ?? envDefaults.PLUGIN_MAL_STYLE;
 
-    const plugin_mal_profile_media = process.env.PLUGIN_MAL_PROFILE_MEDIA ?? envDefaults.PLUGIN_MAL_PROFILE_MEDIA;
-
-    const plugin_mal_favorites_media = process.env.PLUGIN_MAL_FAVORITE_MEDIA ?? envDefaults.PLUGIN_MAL_FAVORITES_MEDIA;
-    const plugin_mal_favorites_rows = process.env.PLUGIN_MAL_FAVORITES_ROWS ?? envDefaults.PLUGIN_MAL_FAVORITES_ROWS;
-
-    const plugin_mal_lastactivity_media = process.env.PLUGIN_MAL_LASTACTIVITY_MEDIA ?? envDefaults.PLUGIN_MAL_LASTACTIVITY_MEDIA;
+    const plugin_mal_lastupdates_max = parseInt(process.env.PLUGIN_MAL_LASTUPDATES_MAX ?? envDefaults.PLUGIN_MAL_LASTUPDATES_MAX);
+    const plugin_mal_anime_favorites_max = parseInt(process.env.PLUGIN_MAL_ANIME_FAVORITES_MAX ?? envDefaults.PLUGIN_MAL_ANIME_FAVORITES_MAX);
+    const plugin_mal_characters_favorites_max = parseInt(process.env.PLUGIN_MAL_CHARACTERS_FAVORITES_MAX ?? envDefaults.PLUGIN_MAL_CHARACTERS_FAVORITES_MAX);
+    const plugin_mal_people_favorites_max = parseInt(process.env.PLUGIN_MAL_PEOPLE_FAVORITES_MAX ?? envDefaults.PLUGIN_MAL_PEOPLE_FAVORITES_MAX);
+    const plugin_mal_manga_favorites_max = parseInt(process.env.PLUGIN_MAL_MANGA_FAVORITES_MAX ?? envDefaults.PLUGIN_MAL_MANGA_FAVORITES_MAX);
 
     return {
       pluginMal: {
         plugin_mal_username: plugin_mal_username,
         plugin_mal_sections: splitString(plugin_mal_sections),
-        plugin_mal_style: plugin_mal_style as "classic" | "terminal",
-        plugin_mal_profile_media: splitString(plugin_mal_profile_media),
-        plugin_mal_favorites_media: splitString(plugin_mal_favorites_media),
-        plugin_mal_favorites_rows: parseInt(plugin_mal_favorites_rows),
-        plugin_mal_lastactivity_media: splitString(plugin_mal_lastactivity_media),
+        plugin_mal_style: plugin_mal_style as "classic" | "terminal" | "default",
+        plugin_mal_hide_title: toBoolean(env.PLUGIN_MAL_HIDE_TITLE),
+        plugin_mal_lastupdates_max: plugin_mal_lastupdates_max,
+        plugin_mal_anime_favorites_max: plugin_mal_anime_favorites_max,
+        plugin_mal_characters_favorites_max: plugin_mal_characters_favorites_max,
+        plugin_mal_people_favorites_max: plugin_mal_people_favorites_max,
+        plugin_mal_manga_favorites_max: plugin_mal_manga_favorites_max,
       },
     };
   }
@@ -100,6 +102,7 @@ function loadEnv(env: NodeJS.ProcessEnv): Env {
     };
   }
 
+  console.log("LOADED ENV");
   return {
     ...baseEnv,
     ...loadPluginMal(),

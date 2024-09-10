@@ -4,13 +4,12 @@ const envDefaults = {
   FILENAME: "README_GRAPHS.svg",
   SVG_COLUMNS: "2",
 
-  PLUGIN_MAL_SECTIONS: "favorites, last_updated, profile",
-  PLUGIN_MAL_PROFILE_MEDIA: "anime,manga",
-
-  PLUGIN_MAL_FAVORITES_MEDIA: "anime, manga, characters, people",
-  PLUGIN_MAL_FAVORITES_ROWS: "2",
-
-  PLUGIN_MAL_LASTACTIVITY_MEDIA: "anime,manga",
+  PLUGIN_MAL_SECTIONS: "statistics, anime_favorites, manga_favorites, character_favorites, last_activity",
+  PLUGIN_MAL_LASTUPDATES_MAX: "5",
+  PLUGIN_MAL_ANIME_FAVORITES_MAX: "5",
+  PLUGIN_MAL_CHARACTERS_FAVORITES_MAX: "5",
+  PLUGIN_MAL_PEOPLE_FAVORITES_MAX: "5",
+  PLUGIN_MAL_MANGA_FAVORITES_MAX: "5",
 
   PLUGIN_MAL_STYLE: "classic",
 

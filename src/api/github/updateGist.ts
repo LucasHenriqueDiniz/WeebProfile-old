@@ -29,7 +29,6 @@ export default async function updateGithubGist(gistId: string, ghToken: string, 
     if (response.status !== 200) {
       throw new Error(`Error updating Gist: ${response.status} - ${response.statusText}`);
     } else {
-      console.log("Data -------------------\n", formattedHtml, "\n-------------------");
       console.log("Gist updated successfully:", response.status);
     }
   } catch (error) {

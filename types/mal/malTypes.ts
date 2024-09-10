@@ -1,5 +1,5 @@
-import { LastUpdatesAnime, LastUpdatesManga, MalLastUpdatesResponse } from "../maleLastUpdatesResponse";
-import { AnyMalFavorite, MalFavoritesResponse } from "../malFavoritesResponse";
+import { LastUpdatesAnime, LastUpdatesManga, MalLastUpdatesResponse } from "../malLastUpdatesResponse";
+import { AnyMalFavorite, FullMalAnimeResponse, MalFavoritesResponse, MalFullFavoritesResponse } from "../malFavoritesResponse";
 import { MalProfileResponse } from "../malProfileResponse";
 import { AnimeStatistics, MalStatisticsResponse, MangaStatistics } from "../malStatisticsResponse";
 
@@ -54,8 +54,23 @@ interface MalProfileStatsProps {
 interface MalData {
   profile: MalProfileResponse;
   favorites: MalFavoritesResponse;
+  favorites_full: MalFullFavoritesResponse;
   last_updated: MalLastUpdatesResponse;
   statistics: MalStatisticsResponse;
+}
+
+interface MalImage {
+  jpg?: {
+    image_url?: string;
+    small_image_url?: string;
+    large_image_url?: string;
+    base64?: string;
+  };
+  webp?: {
+    image_url?: string;
+    small_image_url?: string;
+    large_image_url?: string;
+  };
 }
 
 export {
@@ -68,4 +83,5 @@ export {
   MalProfileStatsProps,
   ProgressBarProps,
   StatisticsBarProps,
+  MalImage,
 };

@@ -1,0 +1,38 @@
+import { APIUser } from "../types";
+
+const dummyProfileData = {
+  login: "LucasHenriqueDiniz",
+  id: 63087780,
+  node_id: "MDQ6VXNlcjYzMDg3Nzgw",
+  avatar_url: "https://avatars.githubusercontent.com/u/63087780?v=4",
+  gravatar_id: "",
+  url: "https://api.github.com/users/LucasHenriqueDiniz",
+  html_url: "https://github.com/LucasHenriqueDiniz",
+  followers_url: "https://api.github.com/users/LucasHenriqueDiniz/followers",
+  following_url: "https://api.github.com/users/LucasHenriqueDiniz/following{/other_user}",
+  gists_url: "https://api.github.com/users/LucasHenriqueDiniz/gists{/gist_id}",
+  starred_url: "https://api.github.com/users/LucasHenriqueDiniz/starred{/owner}{/repo}",
+  subscriptions_url: "https://api.github.com/users/LucasHenriqueDiniz/subscriptions",
+  organizations_url: "https://api.github.com/users/LucasHenriqueDiniz/orgs",
+  repos_url: "https://api.github.com/users/LucasHenriqueDiniz/repos",
+  events_url: "https://api.github.com/users/LucasHenriqueDiniz/events{/privacy}",
+  received_events_url: "https://api.github.com/users/LucasHenriqueDiniz/received_events",
+  type: "User",
+  site_admin: false,
+  name: "Lucas Diniz",
+  company: null,
+  blog: "",
+  location: "Brasil",
+  email: null,
+  hireable: true,
+  bio: "bio",
+  twitter_username: null,
+  public_repos: 34,
+  public_gists: 3,
+  followers: 9,
+  following: 14,
+  created_at: "2020-04-03T04:25:06Z",
+  updated_at: "2024-09-07T23:08:23Z",
+} as APIUser;
+
+export default dummyProfileData;

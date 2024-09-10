@@ -1,7 +1,7 @@
 import { format } from "date-fns";
 import React from "react";
 import { StatisticsBarProps, ProgressBarProps, MalProfileBoxProps, LastUpdateItemProps } from "../../../../types/mal/malTypes";
-import { LastUpdatesAnime, LastUpdatesManga } from "../../../../types/maleLastUpdatesResponse";
+import { LastUpdatesAnime, LastUpdatesManga } from "../../../../types/malLastUpdatesResponse";
 import Img64 from "../../../base/ImageComponent";
 
 function StatisticsBar({ watching, completed, onHold, dropped, planToWatch }: StatisticsBarProps) {
@@ -63,8 +63,8 @@ function LastUpdateItem({ data, stat }: LastUpdateItemProps) {
   const status = data.status;
   const date = format(new Date(data.date), "MMM d, h:mm a");
 
-  const episodes_seen = isAnime ? ((data as LastUpdatesAnime).episodes_seen ?? 0) : ((data as LastUpdatesManga).chapters_read ?? 0);
-  const episodes_total = isAnime ? ((data as LastUpdatesAnime).episodes_total ?? 0) : ((data as LastUpdatesManga).chapters_total ?? 0);
+  const episodes_seen = isAnime ? (data as LastUpdatesAnime).episodes_seen ?? 0 : (data as LastUpdatesManga).chapters_read ?? 0;
+  const episodes_total = isAnime ? (data as LastUpdatesAnime).episodes_total ?? 0 : (data as LastUpdatesManga).chapters_total ?? 0;
   const animeHref = data.entry.url;
 
   return (

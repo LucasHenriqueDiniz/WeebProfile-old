@@ -1,0 +1,38 @@
+#svg-main.half .half\:xs-text {
+  font-size: 10px !important;
+}
+
+#svg-main.half .half\:sm-text {
+  font-size: 12px !important;
+}
+
+#svg-main.half .half\:md-text {
+  font-size: 16px !important;
+}
+
+#svg-main.half .half\:lg-text {
+  font-size: 20px !important;
+}
+
+#svg-main.half section.default-status {
+  height: 105px;
+}
+
+#svg-main.half .half\:hidden {
+  display: none;
+}
+
+#svg-main.half .default-status-horizontal {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+}
+/* align odd default-stat from horizontal to start */
+#svg-main.half .default-status-horizontal .default-stat:nth-child(odd) {
+  justify-content: flex-start;
+}
+
+/* align even default-stat from horizontal to end */
+#svg-main.half .default-status-horizontal .default-stat:nth-child(even) {
+  justify-content: flex-end;
+}
