@@ -1,100 +1,111 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { fetchMalData } from "./api/axios/malApi";
 import { Env } from "./loadEnv";
 import RenderLastFM from "./plugins/lastfm/lastfm";
 import RenderMyAnimeList from "./plugins/mal/Mal";
+import LastFmApi from "./api/axios/lastFmApi";
+import { renderToString } from "react-dom/server";
+import { LoadCss } from "./base/SvgContainer";
+import isNodeEnvironment from "../utils/isNodeEnv";
+import getSvgWidth from "../utils/getSvgWidth";
 
-function calculateHeight(env: Env): number {
-  const activePlugins = env.activePlugins;
-  const titleHeight = 34.5;
-  let height = 50;
+async function calculateRealHeight(activePlugins: React.ReactNode[], env: Env) {
+  const isNodeEnv = isNodeEnvironment();
+  const isHalf = env.size === "half";
+  const customCss = env.customCss;
+  const css = LoadCss(isHalf, customCss);
 
-  activePlugins.forEach((plugin) => {
-    if (plugin === "base") {
-      height += 15;
-    } else if (plugin === "mal") {
-      if (env.pluginMal) {
-        // title
-        height += 50;
-        env.pluginMal.plugin_mal_sections.forEach((section) => {
-          switch (section) {
-            case "statistics":
-              height += 159;
-              break;
-            case "stats_circle":
-              height += 23;
-              break;
-            case "stats_verticalbar":
-              height += 159;
-              break;
-            case "anime_bar" || "manga_bar":
-              height += 68;
-              break;
-            case "stats_simple":
-              height += 80; // caso for half é 105px
-              break;
-            case "anime_favorites":
-              height += titleHeight + 124 * (env.pluginMal?.plugin_mal_anime_favorites_max || 0);
-              break;
-            case "manga_favorites":
-              height += 250;
-              break;
-            case "people_favorites":
-              height += 250;
-              break;
-            case "character_favorites":
-              height += titleHeight + 54 * (env.pluginMal?.plugin_mal_characters_favorites_max || 0);
-              break;
-            case "anime_simple_favorites" || "manga_simple_favorites" || "people_simple_favorites" || "character_simple_favorites":
-              height += 158;
-              break;
-            case "last_activity":
-              height += titleHeight + 84 * (env.pluginMal?.plugin_mal_lastupdates_max || 0); //confererir ele fica 91px sem half com half ele fica os 80 certinho, arruar isso
-              break;
-            default:
-              height += 23;
-              break;
-          }
-        });
-      }
-    } else if (plugin === "lastfm") {
-      if (env.pluginLastfm) {
-        height += 23;
-      }
-    }
-  });
+  const htmlstring = () => {
+    return renderToString(
+      <html lang="en" data-color-mode="dark" data-light-theme="light" data-dark-theme="dark">
+        <head>
+          <meta charSet="UTF-8" />
+          <title>WeebProfile</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet"
+          />
+          {css}
+        </head>
+        <body>
+          <div id="svg-main" className={`${env.size}`} style={{ width: "100%", maxWidth: getSvgWidth(isHalf), display: "flex", flexDirection: "column" }}>
+            {activePlugins.map((plugin, index) => (
+              <React.Fragment key={index}>{plugin}</React.Fragment>
+            ))}
+          </div>
+        </body>
+      </html>
+    );
+  };
 
-  return height;
-}
+  if (isNodeEnv) {
+    const puppeteer = require("puppeteer");
 
-async function fetchLastFMData() {
-  return null;
+    const browser = await puppeteer.launch({
+      headless: false,
+      defaultViewport: null,
+      args: ["--no-sandbox", "--disable-setuid-sandbox", "--start-minimized", "--window-size=1920,1080"],
+    });
+    const page = await browser.newPage();
+
+    // Renderizar os activePlugins em uma página HTML temporária
+    await page.setContent(htmlstring());
+
+    await page.waitForSelector("#svg-main");
+
+    //wait 1s to test if the height is correct
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    // Obter o elemento que contém os activePlugins
+    const pluginsContainer = await page.$("#svg-main");
+
+    // Verificar se o elemento existe antes de obter as dimensões do container
+    const boundingBox = pluginsContainer ? await pluginsContainer.boundingBox() : null;
+
+    // body height
+    const height = boundingBox?.height ?? 0;
+    console.log("MAIN > REAL HEIGHT SERVER", height);
+
+    //wait 10 s
+    await new Promise((resolve) => setTimeout(resolve, 10000));
+
+    await browser.close();
+
+    return height;
+  } else {
+    // Not in Node env so we need to calculate the height in the browser
+    const div = document.createElement("div");
+    div.innerHTML = htmlstring();
+    document.body.appendChild(div);
+
+    const height = div.getBoundingClientRect().height;
+    document.body.removeChild(div);
+
+    console.log("MAIN > REAL HEIGHT CLIENT", height);
+    return height;
+  }
 }
 
 async function renderActivePlugins(env: Env) {
   console.log("RENDER ACTIVE PLUGINS");
+
   const pluginComponents: { [key: string]: JSX.Element | null } = {
-    base: null,
     mal: null,
     lastfm: null,
   };
 
-  if (env.base) {
-    console.log("RENDER BASE");
-    //   const splitBase = base.split(",");
-    pluginComponents.base = <div key="base">B A S E</div>;
-  }
-
   if (env.pluginMal) {
     console.log("RENDER MAL");
-    const malData = await fetchMalData(env.pluginMal, env.pluginMal.plugin_mal_username);
+    const malData = await fetchMalData(env.pluginMal, env.pluginMal.username);
     pluginComponents.mal = <RenderMyAnimeList malPlugin={env.pluginMal} malData={malData} key="mal" />;
   }
 
   if (env.pluginLastfm) {
     console.log("RENDER LASTFM");
-    const lastfmData = await fetchLastFMData();
-    pluginComponents.lastfm = <RenderLastFM lastfmPlugin={env.pluginLastfm} key="lastfm" />;
+    const lastfmData = await LastFmApi(env.pluginLastfm);
+    pluginComponents.lastfm = <RenderLastFM lastfmPlugin={env.pluginLastfm} key="lastfm" lastfmData={lastfmData} />;
   }
 
   //remove null vales from active plugins
@@ -105,12 +116,7 @@ async function renderActivePlugins(env: Env) {
   });
 
   //sort active plugins based on sortOrder if sortOrder is defined
-  let activePlugins = Object.values(pluginComponents);
-  if (env.sortOrder) {
-    activePlugins = env.sortOrder.map((key) => pluginComponents[key]);
-  }
-
-  return activePlugins;
+  return Object.values(pluginComponents);
 }
 
-export { calculateHeight, fetchLastFMData, fetchMalData, renderActivePlugins };
+export { fetchMalData, renderActivePlugins, calculateRealHeight };

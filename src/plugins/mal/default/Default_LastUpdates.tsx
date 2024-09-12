@@ -5,12 +5,15 @@ import { LastUpdatesAnime, LastUpdatesManga, MalLastUpdatesResponse } from "../.
 import Img64 from "../../../base/ImageComponent";
 import DefaultTitle from "./Title";
 
-function Bar({ current, total }: { current: number; total: number }): JSX.Element {
-  const percentage = total > 0 ? (current / total) * 100 : 50;
+function Bar({ current, total, status }: { current: number; total: number; status: string }): JSX.Element {
+  let percentage = total > 0 ? (current / total) * 100 : 50;
+
+  if (status === "Completed") percentage = 100;
+  if (status === "Plan to Watch" || status === "Plan to Read") percentage = 0;
 
   return (
     <div className="w100 flex drop-shadow color-bg-primary-15 radius-16">
-      <span className="flex-end color-bg-primary align-center pr-8 radius-16 sm-text half:xs-text" style={{ width: `${percentage > 1 ? percentage : 8}%` }}>
+      <span className="flex-end color-bg-primary align-center pr-8 radius-16 sm-text half:xs-text" style={{ width: `${percentage > 1 ? percentage : 4}%` }}>
         <p>{percentage.toFixed()}%</p>
       </span>
       {percentage < 97 && <p className="flex-end pr-8 sm-text align-center color-white-50 absolute right-0 h100 half:xs-text">{total}</p>}
@@ -29,22 +32,22 @@ function Update({ update }: { update: LastUpdatesAnime | LastUpdatesManga }): JS
   const score = update.score ?? 0;
 
   return (
-    <div className="flex gap-8 items-center h-80">
+    <div className="last-update-grid">
       <div className="default-update-image drop-shadow">
-        <Img64 url64={imgSrc} alt={title} />
+        <Img64 url64={imgSrc} alt={title} width={74} className="image-center-full" />
       </div>
-      <div className="flex-d gap-4 w100">
-        <div className="flex justify-between items-center">
-          <h3 className="lg-text-bold">{title}</h3>
+      <div className="flex-d w100 justify-evenly">
+        <div className="title-grid">
+          <h3 className="lg-text-bold text-nowrap text-overflow">{title}</h3>
           <span className="flex items-center justify-center xl-text color-primary gap-2">
             {score === 0 || !score ? "-" : score} <FaStar className="color-primary pb-4" />
           </span>
         </div>
 
-        <Bar current={current} total={total} />
+        <Bar current={current} total={total} status={status} />
 
         <div className="flex justify-between">
-          <div className="lg-text gap-4 flex items-center half:md-text">
+          <div className="md-text gap-4 flex items-center">
             <span className={`default-${status === "Reading" ? "watching" : status === "Plan to Read" ? "plan-to-watch" : status.toLowerCase().split(" ").join("-")}`}>
               {status}
             </span>

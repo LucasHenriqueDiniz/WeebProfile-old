@@ -1,4 +1,4 @@
-import { MalImage } from "./mal/malTypes";
+import { MalImage } from "./plugins/malTypes";
 
 interface BaseFavorite {
   mal_id: number;

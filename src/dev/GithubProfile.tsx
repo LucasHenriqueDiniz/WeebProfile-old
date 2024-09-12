@@ -6,8 +6,8 @@ import Footer from "./Footer/Footer";
 import "./global.css";
 import Header from "./Header/Header";
 import ProfileData from "./ProfileData";
-import dummyProfileData from "./test/profileData";
-import dummyRepoData from "./test/repoData";
+import dummyProfileData from "./data/profileData";
+import dummyRepoData from "./data/repoData";
 import { APIRepo, APIUser, ThemeName } from "./types";
 import "../styles/default.css";
 import "../styles/fonts.css";
@@ -23,8 +23,6 @@ async function getGithubRepoData(username: string) {
 }
 
 interface Props {
-  themeName: ThemeName;
-  setThemeName: (newName: ThemeName) => void;
   children: React.ReactNode;
 }
 
@@ -71,10 +69,9 @@ interface Props {
 //   );
 // };
 
-const GithubProfile: React.FC<Props> = ({ themeName, setThemeName, children }) => {
+const GithubProfile: React.FC<Props> = ({ children }) => {
   const [profileData, setProfileData] = useState<APIUser>(dummyProfileData);
   const [repoData, setRepoData] = useState<APIRepo[]>(dummyRepoData);
-
   const [username, setUsername] = useState(null);
 
   useEffect(() => {
@@ -91,7 +88,7 @@ const GithubProfile: React.FC<Props> = ({ themeName, setThemeName, children }) =
 
   return (
     <>
-      <Header themeName={themeName} setThemeName={setThemeName} profileData={profileData} />
+      <Header profileData={profileData} />
 
       <div className="profile-container">
         <main className="profile-main">

@@ -1,3 +1,5 @@
 export default function toBoolean(value: string | undefined): boolean {
-  return value === "true" || value === "TRUE" || value === "True";
+  if (!value) return false;
+
+  return value?.toLocaleLowerCase().trim() === "true";
 }

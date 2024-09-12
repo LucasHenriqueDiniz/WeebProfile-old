@@ -15,6 +15,8 @@ const loadedEnv = loadEnv(process.env);
 
 const configContent = `
 // This file is generated automatically, do not edit directly!
+// Generated at ${new Date().toISOString()}
+
 import { Env } from "./loadEnv";
 
 const config = ${JSON.stringify(loadedEnv, null, 2)} as Env;

@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { AiOutlineLoading } from "react-icons/ai";
+import { CiDark, CiLight } from "react-icons/ci";
+import changeTheme from "../utils/changeHtmlTheme";
 import RenderBodyReact from "./RenderBodyReact";
 import config from "./config";
 import GithubProfile from "./dev/GithubProfile";
-import "./styles/default.css";
-import "./styles/fonts.css";
-import { CiDark, CiLight } from "react-icons/ci";
-
-type ThemeName = "light" | "dark";
+import { ThemeName } from "./dev/types";
 
 function App() {
   const loadedEnv = config;
   const [themeName, setThemeName] = useState<ThemeName>("dark");
 
-  const { gistId, ghToken, filename, base, sortOrder, storeMethod, hideMain, pluginMal, pluginLastfm, svg_columns, activePlugins } = loadedEnv;
+  const { gistId, ghToken, filename, storeMethod, pluginMal, pluginLastfm, activePlugins } = loadedEnv;
 
   const [element, setElement] = useState<JSX.Element | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -34,28 +32,28 @@ function App() {
 
   const changeSvgWidth = () => {
     const svgElement = document.getElementById("svg-main");
-    // const currentWidth = svgElement?.getAttribute("width");
-    const height = svgElement?.getAttribute("height");
-
-    const newWidth = svgElement?.classList.contains("half") ? "840" : "480";
+    const newWidth = svg_width === "half" ? "840" : "480";
 
     if (svgElement) {
-      setSvgWidth(svg_width === "half" ? "full" : "half");
-      svgElement.setAttribute("width", newWidth);
-      svgElement.setAttribute("viewBox", `0 0 ${newWidth} ${height}`);
       svgElement.classList.toggle("half");
+      setSvgWidth(svg_width === "half" ? "full" : "half");
+
+      const newHeight = document.querySelector(".items-wrapper")!.getBoundingClientRect().height;
+      svgElement.setAttribute("width", newWidth);
+      svgElement.setAttribute("height", newHeight.toString());
+      svgElement.setAttribute("viewBox", `0 0 ${newWidth} ${newHeight}`);
     }
   };
 
   return (
     <>
-      <GithubProfile themeName={themeName} setThemeName={setThemeName}>
+      <GithubProfile>
         <div className="button-section monospace w100">
           <div className="profile-name">Github Profile</div>
           <div className="flex-d gap-8">
             <div className="flex gap-8 items-center">
               <p>Change Theme:</p>
-              <button className="button-readme" onClick={() => setThemeName(themeName === "dark" ? "light" : "dark")}>
+              <button className="button-readme" onClick={() => changeTheme(setThemeName)}>
                 {themeName === "dark" ? <CiLight color="white" /> : <CiDark color="black" />}
               </button>
             </div>

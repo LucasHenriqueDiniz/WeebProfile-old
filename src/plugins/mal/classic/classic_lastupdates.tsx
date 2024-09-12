@@ -1,5 +1,5 @@
 import React from "react";
-import { ClassicLastUpdatesProps } from "../../../../types/mal/malTypes";
+import { ClassicLastUpdatesProps } from "../../../../types/plugins/malTypes";
 import { LastUpdateItem, ProfileHeader } from "./classic_components";
 
 function ClassicLastUpdates({ lastUpdatesData, username }: ClassicLastUpdatesProps): JSX.Element {
@@ -8,7 +8,7 @@ function ClassicLastUpdates({ lastUpdatesData, username }: ClassicLastUpdatesPro
   const lastUpdatesHtml = lastUpdatesData.map((data) => LastUpdateItem({ data, stat: media }));
 
   return (
-    <div className="profile-stats">
+    <div className="profile-stats half:flex-d">
       {lastUpdatesHtml.length > 0 && (
         <ProfileHeader
           title={isAnime ? "Last Anime Updates" : "Last Manga Updates"}

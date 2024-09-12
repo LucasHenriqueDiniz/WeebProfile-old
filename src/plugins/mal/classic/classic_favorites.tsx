@@ -1,5 +1,5 @@
 import React from "react";
-import { ClassicFavoritesProps } from "../../../../types/mal/malTypes";
+import { ClassicFavoritesProps } from "../../../../types/plugins/malTypes";
 import { AnyMalFavorite, AnyMalFavoriteUnique } from "../../../../types/malFavoritesResponse";
 import { ProfileHeader } from "./classic_components";
 import Img64 from "../../../base/ImageComponent";
@@ -50,7 +50,7 @@ function ClassicFavorites({ favoritesData, username, media }: ClassicFavoritesPr
   const favoritesHtml = RenderFavorites(favoritesData);
 
   return (
-    <div className="profile-stats">
+    <div className="profile-stats half:flex-d">
       <ProfileHeader title={title} secondTitle={secondTitle} secondTitleHref={secondTitleHref} children={favoritesHtml} />
     </div>
   );

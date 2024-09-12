@@ -1,6 +1,6 @@
 import React from "react";
-import { ClassicProfileProps, MalProfileStatsProps } from "../../../../types/mal/malTypes";
-import SvgCircle from "../../../base/svgCircle";
+import { LuCircleDot } from "react-icons/lu";
+import { ClassicProfileProps, MalProfileStatsProps } from "../../../../types/plugins/malTypes";
 import { LastUpdateItem, ProfileHeader, StatisticsBar } from "./classic_components";
 
 function ProfileStats({ data, userName }: MalProfileStatsProps) {
@@ -37,35 +37,35 @@ function ProfileStats({ data, userName }: MalProfileStatsProps) {
         <ul className="stats-status fl-l">
           <li className="stats-status-li mb12">
             <a href={`https://myanimelist.net/${isAnime ? "animelist" : "mangalist"}/Amayacrab?status=1`} className="status-text">
-              <SvgCircle className="f_watching" />
+              <LuCircleDot size={20} className="f_watching" />
               {isAnime ? "Watching" : "Reading"}
             </a>
             <span className="di-ib lh10">{watching}</span>
           </li>
           <li className="stats-status-li mb12">
             <a href={`https://myanimelist.net/${isAnime ? "animelist" : "mangalist"}/Amayacrab?status=2`} className="status-text">
-              <SvgCircle className="f_completed" />
+              <LuCircleDot size={20} className="f_completed" />
               Completed
             </a>
             <span className="di-ib lh10">{completed}</span>
           </li>
           <li className="stats-status-li mb12">
             <a href={`https://myanimelist.net/${isAnime ? "animelist" : "mangalist"}/Amayacrab?status=3`} className="status-text">
-              <SvgCircle className="f_on_hold" />
+              <LuCircleDot size={20} className="f_on_hold" />
               On-Hold
             </a>
             <span className="di-iblh10">{onHold}</span>
           </li>
           <li className="stats-status-li mb12">
             <a href={`https://myanimelist.net/${isAnime ? "animelist" : "mangalist"}/Amayacrab?status=4`} className="status-text">
-              <SvgCircle className="f_dropped" />
+              <LuCircleDot size={20} className="f_dropped" />
               Dropped
             </a>
             <span className="di-ib lh10">{dropped}</span>
           </li>
           <li className="stats-status-li mb12">
             <a href={`https://myanimelist.net/${isAnime ? "animelist" : "mangalist"}/Amayacrab?status=6`} className="status-text">
-              <SvgCircle className="f_plan_to_watch" />
+              <LuCircleDot size={20} className="f_plan_to_watch" />
               {isAnime ? "Plan to Watch" : "Plan to Read"}
             </a>
             <span className="di-ib lh10">{planToWatch}</span>
@@ -110,7 +110,7 @@ function ClassicProfile({ statisticsData, lastUpdatesData, username }: ClassicPr
   const profileStatsHtml = ProfileStats({ data: statisticsData, userName: username });
 
   return (
-    <div className="profile-stats">
+    <div className="profile-stats half:flex-d">
       <ProfileHeader
         title={isAnime ? "Anime Stats" : "Manga Stats"}
         secondTitle={isAnime ? "All Anime Stats" : "All Manga Stats"}

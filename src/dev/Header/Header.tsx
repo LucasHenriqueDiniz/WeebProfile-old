@@ -7,19 +7,9 @@ import { LuBookOpen, LuCircleDot, LuMenu } from "react-icons/lu";
 import { RiGitRepositoryLine } from "react-icons/ri";
 import { SlDrawer } from "react-icons/sl";
 import { VscGithubProject } from "react-icons/vsc";
+import changeTheme from "../../../utils/changeHtmlTheme";
 import { APIUser, ThemeName } from "../types";
 import "./header.css";
-
-function changeTheme(themeName: ThemeName) {
-  //change html class
-  document.documentElement.className = themeName === "light" ? "light-theme" : "dark-theme";
-}
-
-interface Props {
-  themeName: ThemeName;
-  setThemeName: (newName: ThemeName) => void;
-  profileData: APIUser;
-}
 
 const TabContent = [
   { label: "Overview", active: true, icon: <LuBookOpen size={16} color="inherit" /> },
@@ -39,16 +29,9 @@ const TabItem = ({ label, number, active, icon }: { label: string; number?: numb
   </div>
 );
 
-const Header: React.FC<Props> = ({ themeName, setThemeName, profileData }) => {
+function Header({ profileData }: { profileData: APIUser }) {
   const [search, setSearch] = useState("");
-
-  const toggleTheme = () => {
-    setThemeName(themeName === "light" ? "dark" : "light");
-  };
-
-  useEffect(() => {
-    changeTheme(themeName);
-  }, [themeName]);
+  const [themeName, setThemeName] = useState<ThemeName>("dark");
 
   return (
     <>
@@ -57,7 +40,7 @@ const Header: React.FC<Props> = ({ themeName, setThemeName, profileData }) => {
           <div className="drawer-button">
             <LuMenu size={20} color="inherit" />
           </div>
-          <FaGithub className="header-github-logo" onClick={toggleTheme} />
+          <FaGithub className="header-github-logo" onClick={() => changeTheme()} />
           <div className="header-name">{profileData.login}</div>
         </div>
         <div className="header-right">
@@ -94,6 +77,6 @@ const Header: React.FC<Props> = ({ themeName, setThemeName, profileData }) => {
       <span className="line" />
     </>
   );
-};
+}
 
 export default Header;

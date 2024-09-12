@@ -14,7 +14,7 @@ function FavoriteImage({ favorite }: { favorite: AnyMalFavoriteUnique }): JSX.El
   const title = "name" in favorite ? favorite.name : favorite.title;
 
   return (
-    <div className="default-favorite-box">
+    <div className="w100 h100 radius-8 max-h-150 relative overflow-hidden">
       <Img64 url64={imageUrl} alt={title} className="fav-image" />
       <div className="fav-overlay">
         <span className="fav-title">{title}</span>
@@ -25,7 +25,7 @@ function FavoriteImage({ favorite }: { favorite: AnyMalFavoriteUnique }): JSX.El
 
 function RenderFavorites({ favoritesData }: { favoritesData: AnyMalFavorite }) {
   return (
-    <div className="default-favorites-container">
+    <div className="grid-col-10 half:grid-col-5 gap-4">
       {favoritesData.map((data) => (
         <FavoriteImage favorite={data} key={data.mal_id} />
       ))}

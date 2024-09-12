@@ -1,6 +1,6 @@
 import { format } from "date-fns";
 import React from "react";
-import { StatisticsBarProps, ProgressBarProps, MalProfileBoxProps, LastUpdateItemProps } from "../../../../types/mal/malTypes";
+import { StatisticsBarProps, ProgressBarProps, MalProfileBoxProps, LastUpdateItemProps } from "../../../../types/plugins/malTypes";
 import { LastUpdatesAnime, LastUpdatesManga } from "../../../../types/malLastUpdatesResponse";
 import Img64 from "../../../base/ImageComponent";
 

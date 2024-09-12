@@ -1,12 +1,12 @@
 import Axios from "axios";
 import { CacheOptions, setupCache } from "axios-cache-interceptor";
 import Bottleneck from "bottleneck";
-import { MalData } from "../../../types/mal/malTypes";
+import MyAnimeListPlugin from "../../../types/env/MalPluginType";
+import { MalData } from "../../../types/plugins/malTypes";
 import { FullMalAnimeResponse, MalFavoritesResponse, MalFullFavoritesResponse } from "../../../types/malFavoritesResponse";
 import { MalLastUpdatesResponse } from "../../../types/malLastUpdatesResponse";
 import { MalProfileResponse } from "../../../types/malProfileResponse";
 import imageToBase64 from "../../../utils/imageToBase64";
-import { MyAnimeListPlugin } from "../../plugins/mal/Mal";
 
 const limiter = new Bottleneck({
   maxConcurrent: 1,
@@ -259,23 +259,23 @@ export async function fetchMalData(malPlugin: MyAnimeListPlugin, username: strin
   console.log("Fetching MAL data for", username);
   const fullRequest = await limiter.schedule(() => myAnimeListFullRequest(username));
 
-  const sections = malPlugin.plugin_mal_sections;
+  const sections = malPlugin.sections;
 
   // Get the last updates and favorites data
-  const lastUpdatesMax = malPlugin.plugin_mal_lastupdates_max;
+  const lastUpdatesMax = malPlugin.lastupdates_max;
   const lastUpdatesAnime = fullRequest.data.updates.anime.slice(0, lastUpdatesMax);
   const lastUpdatesManga = fullRequest.data.updates.manga.slice(0, lastUpdatesMax);
 
-  const animeFavoritesMax = malPlugin.plugin_mal_anime_favorites_max;
+  const animeFavoritesMax = malPlugin.anime_favorites_max;
   const animeFavorites = fullRequest.data.favorites.anime.slice(0, animeFavoritesMax);
 
-  const mangaFavoritesMax = malPlugin.plugin_mal_manga_favorites_max;
+  const mangaFavoritesMax = malPlugin.manga_favorites_max;
   const mangaFavorites = fullRequest.data.favorites.manga.slice(0, mangaFavoritesMax);
 
-  const characterFavoritesMax = malPlugin.plugin_mal_characters_favorites_max;
+  const characterFavoritesMax = malPlugin.characters_favorites_max;
   const characterFavorites = fullRequest.data.favorites.characters.slice(0, characterFavoritesMax);
 
-  const peopleFavoritesMax = malPlugin.plugin_mal_people_favorites_max;
+  const peopleFavoritesMax = malPlugin.people_favorites_max;
   const peopleFavorites = fullRequest.data.favorites.people.slice(0, peopleFavoritesMax);
 
   const malFavorites: MalFavoritesResponse = {

@@ -1,7 +1,7 @@
 import { MalLastUpdatesResponse } from "./malLastUpdatesResponse";
 import { MalFavoritesResponse } from "./malFavoritesResponse";
 import { MalStatisticsResponse } from "./malStatisticsResponse";
-import { MalImage } from "./mal/malTypes";
+import { MalImage } from "./plugins/malTypes";
 
 export interface MalProfileResponse {
   data: {

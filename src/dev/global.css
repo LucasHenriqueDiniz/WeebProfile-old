@@ -51,8 +51,8 @@ button {
   --fgColor-default: #1f2328;
 }
 
-/* Dark Theme - You'll need to apply this class to the <html> tag to activate it */
-.dark-theme {
+/* Dark Theme - data-color-mode="dark" */
+[data-color-mode="dark"] {
   color-scheme: dark;
   --bgColor-default: #0d1117;
   --error: #d73a49;

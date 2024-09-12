@@ -1,12 +1,12 @@
 import imageToBase64 from "image-to-base64";
+import isNodeEnvironment from "./isNodeEnv";
 
-async function getImage64(imageUrl: string): Promise<string | null> {
+async function getImage64(imageUrl: string | undefined): Promise<string | null> {
   if (!imageUrl) {
-    return "";
+    return null;
   }
-
-  // Check if we're in a Node.js environment
-  if (typeof process !== "undefined" && process.versions && process.versions.node) {
+  const isNodeEnv = isNodeEnvironment();
+  if (isNodeEnv) {
     try {
       const base64 = await imageToBase64(imageUrl);
       return base64;

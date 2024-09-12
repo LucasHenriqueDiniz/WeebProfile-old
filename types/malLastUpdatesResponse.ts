@@ -1,4 +1,4 @@
-import { MalImage } from "./mal/malTypes";
+import { MalImage } from "./plugins/malTypes";
 
 interface UpdateEntry {
   mal_id: number;
