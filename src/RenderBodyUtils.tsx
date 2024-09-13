@@ -46,7 +46,7 @@ async function calculateRealHeight(activePlugins: React.ReactNode[], env: Env) {
     const browser = await puppeteer.launch({
       headless: false,
       defaultViewport: null,
-      args: ["--no-sandbox", "--disable-setuid-sandbox", "--start-minimized", "--window-size=1920,1080"],
+      args: ["--no-sandbox", "--disable-setuid-sandbox", "--start-minimized", "--window-size=1024,768"],
     });
     const page = await browser.newPage();
 

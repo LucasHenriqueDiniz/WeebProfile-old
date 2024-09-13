@@ -118,11 +118,16 @@ runs:
       working-directory: ./WeebProfile
       run: npm i
       shell: bash
+    - name: Install Xvfb
+      run: sudo apt-get update && sudo apt-get install -y xvfb
+    - name: Start Xvfb
+      run: Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
     - name: Run the script
       working-directory: ./WeebProfile
       run: npm run start
       shell: bash
       env:
+        DISPLAY: :99
         GIST_ID: ${{ inputs.GIST_ID }}
         GH_TOKEN: ${{ inputs.GH_TOKEN }}
         FILENAME: ${{ inputs.FILENAME }}
