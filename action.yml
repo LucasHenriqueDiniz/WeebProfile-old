@@ -17,7 +17,7 @@ inputs:
     default: "gist"
     required: true
   SIZE:
-    description: "Size of the svg | "half [415px]" or "full [830px]"
+    description: "Size of the svg | half [415px] or full [830px]"
     default: "half"
     required: false
   # ====================================================================================
@@ -31,11 +31,11 @@ inputs:
     default: ""
     required: false
   PLUGIN_MAL_STYLE:
-    description: "MAL Style | "classic", "default", "terminal"
+    description: "MAL Style | classic, default, terminal"
     default: "default"
     required: false
   PLUGIN_MAL_SECTIONS:
-    description: "MAL Sections | "ststatistics, stats_circle, stats_verticalbar, anime_bar, manga_bar, stats_simple, anime_simple_favorites, manga_simple_favorites, people_simple_favorites, character_simple_favorites, anime_favorites, manga_favorites, people_favorites, character_favorites, last_activity"
+    description: "MAL Sections | ststatistics, stats_circle, stats_verticalbar, anime_bar, manga_bar, stats_simple, anime_simple_favorites, manga_simple_favorites, people_simple_favorites, character_simple_favorites, anime_favorites, manga_favorites, people_favorites, character_favorites, last_activity"
     default: "stats_simple, anime_simple_favorites, character_simple_favorites"
     required: false
   PLUGIN_MAL_LASTUPDATES_MAX:
@@ -59,7 +59,7 @@ inputs:
     default: "10"
     required: false
   PLUGIN_MAL_HIDE_HEADER:
-    description: "Hide Header with Mal logo and "MyAnimeList" text"
+    description: "Hide Header with Mal logo and MyAnimeList text"
     default: "true"
     required: false
   # ====================================================================================
@@ -73,15 +73,15 @@ inputs:
     default: ""
     required: false
   PLUGIN_LASTFM_STYLE:
-    description: "Last.fm Style | "default", "terminal"
+    description: "Last.fm Style | default, terminal"
     default: "default"
     required: false
   PLUGIN_LASTFM_HIDE_HEADER:
-    description: "Hide Header with Last.fm logo and "Last.fm" text"
+    description: "Hide Header with Last.fm logo and Last.fm text"
     default: "true"
     required: false
   PLUGIN_LASTFM_SECTIONS:
-    description: "Last.fm Sections | "recent_tracks, statistics, top_albums_grid, top_albums_list, top_albums_default, top_artists_grid, top_artists_list, top_artists_default, top_tracks_grid, top_tracks_list, top_tracks_default"
+    description: "Last.fm Sections | recent_tracks, statistics, top_albums_grid, top_albums_list, top_albums_default, top_artists_grid, top_artists_list, top_artists_default, top_tracks_grid, top_tracks_list, top_tracks_default"
     default: "statistics, recent_tracks, top_artists_default, top_albums_grid"
     required: false
   PLUGIN_LASTFM_RECENTTRACKS_MAX:
