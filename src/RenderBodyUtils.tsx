@@ -68,9 +68,6 @@ async function calculateRealHeight(activePlugins: React.ReactNode[], env: Env) {
     const height = boundingBox?.height ?? 0;
     console.log("MAIN > REAL HEIGHT SERVER", height);
 
-    //wait 10 s
-    await new Promise((resolve) => setTimeout(resolve, 10000));
-
     await browser.close();
 
     return height;
