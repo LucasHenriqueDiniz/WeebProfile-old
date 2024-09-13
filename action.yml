@@ -120,9 +120,10 @@ runs:
       shell: bash
     - name: Run the script
       working-directory: ./WeebProfile
+      uses: LucasHenriqueDiniz/WeebProfile@main
       run: npm run start
       shell: bash
-      env:
+      with:
         GIST_ID: ${{ github.GIST_ID }}
         GH_TOKEN: ${{ github.GH_TOKEN }}
         FILENAME: ${{ inputs.FILENAME }}
