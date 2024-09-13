@@ -1,0 +1,186 @@
+name: "MyAnimeList readme workflow"
+author: "MoonLGH"
+description: "Puts your newest activity from MyAnimeList into your readme"
+
+inputs:
+  GIST_ID:
+    description: "Github Gist ID to store the svg"
+    default: ${{ secrets.GIST_ID }}
+    required: true
+
+  GH_TOKEN:
+    description: "Github Access Token"
+    default: ${{ secrets.GH_TOKEN }}
+    required: true
+
+  FILENAME:
+    description: "Filename of the svg"
+    default: "WeebProfile.svg"
+    required: false
+
+  STORAGE_METHOD:
+    description: "Method to store the svg"
+    default: "gist"
+    required: true
+
+  SIZE:
+    description: "Size of the svg | "half [415px]" or "full [830px]"
+    default: "half"
+    required: false
+
+  # ====================================================================================
+  # 🌸 MyAnimeList Plugin
+
+  PLUGIN_MAL:
+    description: "Enable MAL Plugin"
+    default: "false"
+    required: false
+
+  PLUGIN_MAL_USERNAME:
+    description: "MAL Username"
+    default: ""
+    required: false
+
+  PLUGIN_MAL_STYLE:
+    description: "MAL Style | "classic", "default", "terminal"
+    default: "default"
+    required: false
+
+  PLUGIN_MAL_SECTIONS:
+    description: "MAL Sections | "ststatistics, stats_circle, stats_verticalbar, anime_bar, manga_bar, stats_simple, anime_simple_favorites, manga_simple_favorites, people_simple_favorites, character_simple_favorites, anime_favorites, manga_favorites, people_favorites, character_favorites, last_activity"
+    default: "stats_simple, anime_simple_favorites, character_simple_favorites"
+    required: false
+  
+  PLUGIN_MAL_LASTUPDATES_MAX:
+    description: "Max number of last updates"
+    default: "6"
+    required: false
+  
+  PLUGIN_MAL_ANIME_FAVORITES_MAX:
+    description: "Max number of anime favorites"
+    default: "10"
+    required: false
+
+  PLUGIN_MAL_MANGA_FAVORITES_MAX:
+    description: "Max number of manga favorites"
+    default: "10"
+    required: false
+
+  PLUGIN_MAL_CHARACTER_FAVORITES_MAX:
+    description: "Max number of character favorites"
+    default: "10"
+    required: false
+
+  PLUGIN_MAL_PEOPLE_FAVORITES_MAX:
+    description: "Max number of people favorites"
+    default: "10"
+    required: false
+
+  PLUGIN_MAL_HIDE_HEADER:
+    description: "Hide Header with Mal logo and "MyAnimeList" text"
+    default: "true"
+    required: false
+    
+  # ====================================================================================
+  # 🎵 Last.fm Plugin
+
+  PLUGIN_LASTFM:
+    description: "Enable Last.fm Plugin"
+    default: "false"
+    required: false
+
+  PLUGIN_LASTFM_USERNAME:
+    description: "Last.fm Username"
+    default: ""
+    required: false
+  
+  PLUGIN_LASTFM_STYLE:
+    description: "Last.fm Style | "default", "terminal"
+    default: "default"
+    required: false
+
+  PLUGIN_LASTFM_HIDE_HEADER:
+    description: "Hide Header with Last.fm logo and "Last.fm" text"
+    default: "true"
+    required: false
+    
+  PLUGIN_LASTFM_SECTIONS:
+    description: "Last.fm Sections | "recent_tracks, statistics, top_albums_grid, top_albums_list, top_albums_default, top_artists_grid, top_artists_list, top_artists_default, top_tracks_grid, top_tracks_list, top_tracks_default"
+    default: "statistics, recent_tracks, top_artists_default, top_albums_grid"
+    required: false
+
+  PLUGIN_LASTFM_RECENTTRACKS_MAX:
+    description: "Max number of recent tracks"
+    default: "5"
+    required: false
+  
+  PLUGIN_LASTFM_TOPARTISTS_MAX:
+    description: "Max number of top artists"
+    default: "5"
+    required: false
+  
+  PLUGIN_LASTFM_TOPALBUMS_MAX:
+    description: "Max number of top albums"
+    default: "5"
+    required: false
+
+  PLUGIN_LASTFM_TOPTRACKS_MAX:
+    description: "Max number of top tracks"
+    default: "5"
+    required: false
+
+  # ====================================================================================
+
+
+runs:
+  name: "WeebProfile Workflow"
+  description: "Puts your newest activity from multiple sources into your readme"
+  using: composite
+  steps:
+    - uses: actions/checkout@v2
+    - name: cloning WeebProfile
+      run: git clone https://github.com/LucasHenriqueDiniz/WeebProfile.git
+      shell: bash
+
+    - name: Set Node.js 22
+      uses: actions/setup-node@v2.4.1
+      with:
+        node-version: 22
+
+    - name: Install dependencies
+      working-directory: ./WeebProfile
+      run: npm i
+      shell: bash
+
+    - name: Run the script
+      working-directory: ./WeebProfile
+      run: npm run start
+      shell: bash
+      env:
+        GIST_ID: ${{ inputs.GIST_ID }}
+        GH_TOKEN: ${{ inputs.GH_TOKEN }}
+        FILENAME: ${{ inputs.FILENAME }}
+        STORAGE_METHOD: ${{ inputs.STORAGE_METHOD }}
+        SIZE: ${{ inputs.SIZE }}
+
+        PLUGIN_MAL: ${{ inputs.PLUGIN_MAL }}
+        PLUGIN_MAL_USERNAME: ${{ inputs.PLUGIN_MAL_USERNAME }}
+        PLUGIN_MAL_STYLE: ${{ inputs.PLUGIN_MAL_STYLE }}
+        PLUGIN_MAL_SECTIONS: ${{ inputs.PLUGIN_MAL_SECTIONS }}
+        PLUGIN_MAL_LASTUPDATES_MAX: ${{ inputs.PLUGIN_MAL_LASTUPDATES_MAX }}
+        PLUGIN_MAL_ANIME_FAVORITES_MAX: ${{ inputs.PLUGIN_MAL_ANIME_FAVORITES_MAX }}
+        PLUGIN_MAL_MANGA_FAVORITES_MAX: ${{ inputs.PLUGIN_MAL_MANGA_FAVORITES_MAX }}
+        PLUGIN_MAL_CHARACTER_FAVORITES_MAX: ${{ inputs.PLUGIN_MAL_CHARACTER_FAVORITES_MAX }}
+        PLUGIN_MAL_PEOPLE_FAVORITES_MAX: ${{ inputs.PLUGIN_MAL_PEOPLE_FAVORITES_MAX }}
+        PLUGIN_MAL_HIDE_HEADER: ${{ inputs.PLUGIN_MAL_HIDE_HEADER }}
+
+        PLUGIN_LASTFM: ${{ inputs.PLUGIN_LASTFM }}
+        PLUGIN_LASTFM_USERNAME: ${{ inputs.PLUGIN_LASTFM_USERNAME }}
+        PLUGIN_LASTFM_STYLE: ${{ inputs.PLUGIN_LASTFM_STYLE }}
+        PLUGIN_LASTFM_HIDE_HEADER: ${{ inputs.PLUGIN_LASTFM_HIDE_HEADER }}
+        PLUGIN_LASTFM_SECTIONS: ${{ inputs.PLUGIN_LASTFM_SECTIONS }}
+        PLUGIN_LASTFM_RECENTTRACKS_MAX: ${{ inputs.PLUGIN_LASTFM_RECENTTRACKS_MAX }}
+        PLUGIN_LASTFM_TOPARTISTS_MAX: ${{ inputs.PLUGIN_LASTFM_TOPARTISTS_MAX }}
+        PLUGIN_LASTFM_TOPALBUMS_MAX: ${{ inputs.PLUGIN_LASTFM_TOPALBUMS_MAX }}
+        PLUGIN_LASTFM_TOPTRACKS_MAX: ${{ inputs.PLUGIN_LASTFM_TOPTRACKS_MAX }}
+
