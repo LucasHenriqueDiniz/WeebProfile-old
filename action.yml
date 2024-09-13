@@ -119,8 +119,10 @@ runs:
       run: npm i
       shell: bash
     - name: Install Xvfb
+      shell: bash
       run: sudo apt-get update && sudo apt-get install -y xvfb
     - name: Start Xvfb
+      shell: bash
       run: Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
     - name: Run the script
       working-directory: ./WeebProfile
