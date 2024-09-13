@@ -5,12 +5,10 @@ description: "Puts your newest activity from MyAnimeList into your readme"
 inputs:
   GIST_ID:
     description: "Github Gist ID to store the svg"
-    default: ${{ secrets.GIST_ID }}
     required: true
 
   GH_TOKEN:
     description: "Github Access Token"
-    default: ${{ secrets.GH_TOKEN }}
     required: true
 
   FILENAME:
