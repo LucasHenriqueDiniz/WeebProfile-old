@@ -123,9 +123,9 @@ runs:
       uses: LucasHenriqueDiniz/WeebProfile@main
       run: npm run start
       shell: bash
-      with:
-        GIST_ID: ${{ github.GIST_ID }}
-        GH_TOKEN: ${{ github.GH_TOKEN }}
+      env:
+        GIST_ID: ${{ inputs.GIST_ID }}
+        GH_TOKEN: ${{ inputs.GH_TOKEN }}
         FILENAME: ${{ inputs.FILENAME }}
         STORAGE_METHOD: ${{ inputs.STORAGE_METHOD }}
         SIZE: ${{ inputs.SIZE }}
