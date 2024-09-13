@@ -123,8 +123,8 @@ runs:
       run: npm run start
       shell: bash
       env:
-        GIST_ID: ${{ secrets.GIST_ID }}
-        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        GIST_ID: ${{ github.GIST_ID }}
+        GH_TOKEN: ${{ github.GH_TOKEN }}
         FILENAME: ${{ inputs.FILENAME }}
         STORAGE_METHOD: ${{ inputs.STORAGE_METHOD }}
         SIZE: ${{ inputs.SIZE }}
