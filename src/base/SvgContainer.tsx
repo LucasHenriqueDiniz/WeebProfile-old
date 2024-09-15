@@ -24,11 +24,15 @@ export function LoadCss(isHalf: boolean, customCss: string | undefined): JSX.Ele
     const halfCssFile = fs.readFileSync(path.resolve(__dirname, "../styles/half.css"), "utf8");
     const halfMimizedCss = halfCssFile.replace(/\s{2,10}/g, " ").replace(/(\r\n|\n|\r)/gm, "");
 
+    const terminalCss = fs.readFileSync(path.resolve(__dirname, "../styles/terminal.css"), "utf8");
+    const terminalMimizedCss = terminalCss.replace(/\s{2,10}/g, " ").replace(/(\r\n|\n|\r)/gm, "");
+
     return (
       <>
         {isHalf ? <style>{halfMimizedCss}</style> : null}
         <style>{fontsFile}</style>
         <style>{mimizedCss}</style>
+        <style>{terminalMimizedCss}</style>
         {customCss && <style>{customCss}</style>}
       </>
     );
@@ -38,6 +42,13 @@ export function LoadCss(isHalf: boolean, customCss: string | undefined): JSX.Ele
     const defaultLink = "../styles/default.css";
     const fontsLink = "../styles/fonts.css";
     const halfLink = "../styles/half.css";
+    const terminalLink = "../styles/terminal.css";
+    const mainLink = "../styles/main.css";
+
+    const mainCss = document.createElement("link");
+    mainCss.rel = "stylesheet";
+    mainCss.href = mainLink;
+    document.head.appendChild(mainCss);
 
     const defaultCss = document.createElement("link");
     defaultCss.rel = "stylesheet";
@@ -56,16 +67,14 @@ export function LoadCss(isHalf: boolean, customCss: string | undefined): JSX.Ele
 
     const customCssElement = document.createElement("style");
     customCssElement.innerHTML = `<style>${customCss}</style>`;
-    document.head.appendChild(customCssElement);
+    customCss && document.head.appendChild(customCssElement);
 
-    return (
-      <>
-        <link rel="stylesheet" href={defaultLink} />
-        <link rel="stylesheet" href={fontsLink} />
-        {isHalf && <link rel="stylesheet" href="./styles/half.css" />}
-        {customCss && { customCss }}
-      </>
-    );
+    const terminalCss = document.createElement("link");
+    terminalCss.rel = "stylesheet";
+    terminalCss.href = terminalLink;
+    document.head.appendChild(terminalCss);
+
+    return <></>;
   }
 }
 

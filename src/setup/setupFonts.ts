@@ -3,6 +3,11 @@ import path from "path";
 import asyncReplace from "../../utils/AsyncReplace";
 import imageToBase64 from "image-to-base64";
 
+//
+// This script is used to convert all the fonts in the raw_fonts.css to base64 and save it in the fonts.css
+// This need to be used every time you change the raw_fonts.css (npm run setup-fonts)
+//
+
 async function setupFonts() {
   //check if raw_fonts.css exists
   if (!fs.existsSync(path.resolve(__dirname, "../styles/raw_fonts.css"))) {

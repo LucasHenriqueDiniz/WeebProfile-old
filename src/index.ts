@@ -1,15 +1,11 @@
-import dotenv from "dotenv";
 import loadEnv from "./loadEnv";
 import storeInGist from "./methods/gist/storeInGist";
 import renderBodyString from "./RenderBodyString";
 
-dotenv.config();
-
 async function main() {
   console.log("Starting...");
-
   //load env
-  const loadedEnv = loadEnv(process.env);
+  const loadedEnv = loadEnv();
   //destructure env
   const { gistId, ghToken, filename, storeMethod, pluginMal, pluginLastfm, activePlugins } = loadedEnv;
   //render body

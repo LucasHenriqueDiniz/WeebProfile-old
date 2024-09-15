@@ -1,9 +1,27 @@
+// recent_tracks
+// statistics
+// top_artists_grid
+// top_artists_list
+// top_artists_default
+// top_albums_list
+// top_albums_grid
+// top_albums_default
+// top_tracks_list
+// top_tracks_grid
+// top_tracks_default
+
 export interface LastFmPlugin {
   username: string;
   sections: string[];
-  style: string;
   hide_intervals: boolean;
   hide_header: boolean;
+
+  // Custom titles
+  statistics_title: string;
+  recent_tracks_title: string;
+  top_artists_title: string;
+  top_albums_title: string;
+  top_tracks_title: string;
 
   statistics_hide_title: boolean;
 

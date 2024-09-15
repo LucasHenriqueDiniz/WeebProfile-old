@@ -1,23 +1,9 @@
 import formatDisplay from "./formatDisplay";
-import { DISPLAY_STYLE_TYPE, LASTUPDATED_TYPE } from "../../../types/envTypes";
 
-async function filterLastUpdatedGist(
-  data: any[],
-  count: any,
-  displayStyle: DISPLAY_STYLE_TYPE,
-  lastUpdatedType: LASTUPDATED_TYPE
-) {
+async function filterLastUpdatedGist(data: any[], count: any, displayStyle: string, lastUpdatedType: string) {
   const lastUpdated = data.slice(0, count);
   const filteredLastUpdated = lastUpdated.map(
-    (item: {
-      entry: { title: any };
-      score: any;
-      episodes_seen?: any;
-      episodes_total?: any;
-      status: any;
-      chapters_read?: any;
-      chapters_total?: any;
-    }) => {
+    (item: { entry: { title: any }; score: any; episodes_seen?: any; episodes_total?: any; status: any; chapters_read?: any; chapters_total?: any }) => {
       switch (lastUpdatedType) {
         case "anime":
           var title = item.entry.title;

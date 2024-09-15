@@ -332,6 +332,7 @@ svg.main {
   align-items: center;
   padding: 10px; /* Add some padding */
   border-bottom: 1px solid #ccc; /* Add a subtle bottom border */
+  margin-bottom: 10px; /* Add some space between the content and the border */
 }
 
 .profile-name {

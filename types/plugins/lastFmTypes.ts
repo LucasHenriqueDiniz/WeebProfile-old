@@ -32,6 +32,7 @@ interface TopTrack {
 }
 
 interface LastFmData {
+  [key: string]: any;
   totalScrobbles: string;
   totalArtists: string;
   lovedTracks: string;

@@ -1,22 +1,33 @@
 import LastFmPlugin from "../types/env/LastFmPluginType";
 import MyAnimeListPlugin from "../types/env/MalPluginType";
-import splitString from "../utils/splitEnvString";
+import isNodeEnvironment from "../utils/isNodeEnv";
+import splitString from "../utils/splitString";
 import toBoolean from "../utils/toBoolean";
 import envDefaults from "./envDefaults";
+import dotenv from "dotenv";
+
+if (isNodeEnvironment()) {
+  dotenv.config();
+}
 
 export interface Env {
   gistId: string;
   ghToken: string;
   filename: string;
   storeMethod: string;
-  size?: string;
+  size: string;
+  style: string;
+  customCss?: string;
+  activePlugins: string[];
+
+  // Plugins
   pluginMal?: MyAnimeListPlugin;
   pluginLastfm?: LastFmPlugin;
-  activePlugins: string[];
-  customCss?: string;
 }
 
-function loadEnv(env: NodeJS.ProcessEnv): Env {
+function loadEnv(): Env {
+  const env = process.env;
+
   console.log("LOADING ENV");
   const GIST_ID = env.GIST_ID as string;
   const GH_TOKEN = env.GH_TOKEN as string;
@@ -30,7 +41,7 @@ function loadEnv(env: NodeJS.ProcessEnv): Env {
   }
 
   const filename = (env.FILENAME as string) ?? envDefaults.FILENAME;
-  const store_method = (env.STORE_METHOD as string) ?? envDefaults.STORE_METHOD;
+  const store_method = (env.STORE_METHOD?.toLowerCase() as string) ?? envDefaults.STORE_METHOD;
   const activePlugins = [] as string[];
   const size = (env.SIZE?.toLowerCase() as string) ?? envDefaults.SIZE;
 
@@ -47,6 +58,7 @@ function loadEnv(env: NodeJS.ProcessEnv): Env {
     ghToken: GH_TOKEN,
     filename: filename,
     size: size, // default to  "half" | full [410px] or "full" [820px]
+    style: env.STYLE ?? envDefaults.STYLE, // default to "default" | "terminal"
     storeMethod: store_method,
     customCss: env.CUSTOM_CSS,
   };
@@ -64,40 +76,79 @@ function loadEnv(env: NodeJS.ProcessEnv): Env {
 
     activePlugins.push("mal");
     const plugin_mal_sections = process.env.PLUGIN_MAL_SECTIONS ?? envDefaults.PLUGIN_MAL_SECTIONS;
-    const plugin_mal_style = process.env.PLUGIN_MAL_STYLE ?? envDefaults.PLUGIN_MAL_STYLE;
     const plugin_mal_hide_header = toBoolean(env.PLUGIN_MAL_HIDE_HEADER);
-
-    const plugin_mal_lastupdates_max = parseInt(process.env.PLUGIN_MAL_LASTUPDATES_MAX ?? envDefaults.PLUGIN_MAL_LASTUPDATES_MAX);
-    const plugin_mal_lastupdates_hide_title = toBoolean(env.PLUGIN_MAL_LASTUPDATES_HIDE_TITLE);
+    const plugin_mal_hide_terminal_emojis = toBoolean(env.PLUGIN_MAL_HIDE_TERMINAL_EMOJIS);
 
     const plugin_mal_anime_favorites_max = parseInt(process.env.PLUGIN_MAL_ANIME_FAVORITES_MAX ?? envDefaults.PLUGIN_MAL_ANIME_FAVORITES_MAX);
     const plugin_mal_anime_favorites_hide_title = toBoolean(env.PLUGIN_MAL_ANIME_FAVORITES_HIDE_TITLE);
+    const plugin_mal_anime_favorites_title = env.PLUGIN_MAL_ANIME_FAVORITES_TITLE ?? envDefaults.PLUGIN_MAL_ANIME_FAVORITES_TITLE;
 
-    const plugin_mal_characters_favorites_max = parseInt(process.env.PLUGIN_MAL_CHARACTERS_FAVORITES_MAX ?? envDefaults.PLUGIN_MAL_CHARACTERS_FAVORITES_MAX);
     const plugin_mal_people_favorites_hide_title = toBoolean(env.PLUGIN_MAL_CHARACTERS_FAVORITES_HIDE_TITLE);
-
+    const plugin_mal_people_favorites_title = env.PLUGIN_MAL_PEOPLE_FAVORITES_TITLE ?? envDefaults.PLUGIN_MAL_PEOPLE_FAVORITES_TITLE;
     const plugin_mal_people_favorites_max = parseInt(process.env.PLUGIN_MAL_PEOPLE_FAVORITES_MAX ?? envDefaults.PLUGIN_MAL_PEOPLE_FAVORITES_MAX);
-    const plugin_mal_manga_favorites_hide_title = toBoolean(env.PLUGIN_MAL_PEOPLE_FAVORITES_HIDE_TITLE);
 
-    const plugin_mal_manga_favorites_max = parseInt(process.env.PLUGIN_MAL_MANGA_FAVORITES_MAX ?? envDefaults.PLUGIN_MAL_MANGA_FAVORITES_MAX);
+    const plugin_mal_characters_favorites_title = env.PLUGIN_MAL_CHARACTERS_FAVORITES_TITLE ?? envDefaults.PLUGIN_MAL_CHARACTERS_FAVORITES_TITLE;
+    const plugin_mal_characters_favorites_max = parseInt(process.env.PLUGIN_MAL_CHARACTERS_FAVORITES_MAX ?? envDefaults.PLUGIN_MAL_CHARACTERS_FAVORITES_MAX);
     const plugin_mal_characters_favorites_hide_title = toBoolean(env.PLUGIN_MAL_MANGA_FAVORITES_HIDE_TITLE);
+
+    const plugin_mal_manga_favorites_hide_title = toBoolean(env.PLUGIN_MAL_PEOPLE_FAVORITES_HIDE_TITLE);
+    const plugin_mal_manga_favorites_max = parseInt(process.env.PLUGIN_MAL_MANGA_FAVORITES_MAX ?? envDefaults.PLUGIN_MAL_MANGA_FAVORITES_MAX);
+    const plugin_mal_manga_favorites_title = env.PLUGIN_MAL_MANGA_FAVORITES_TITLE ?? envDefaults.PLUGIN_MAL_MANGA_FAVORITES_TITLE;
+
+    const plugin_mal_statistics_title = env.PLUGIN_MAL_STATISTICS_TITLE ?? envDefaults.PLUGIN_MAL_STATISTICS_TITLE;
+    const plugin_mal_statistics_hide_title = toBoolean(env.PLUGIN_MAL_STATISTICS_HIDE_TITLE);
+
+    const plugin_mal_anime_bar_title = env.PLUGIN_MAL_ANIME_BAR_TITLE ?? envDefaults.PLUGIN_MAL_ANIME_BAR_TITLE;
+    const plugin_mal_anime_bar_hide_title = toBoolean(env.PLUGIN_MAL_ANIME_BAR_HIDE_TITLE);
+
+    const plugin_mal_manga_bar_title = env.PLUGIN_MAL_MANGA_BAR_TITLE ?? envDefaults.PLUGIN_MAL_MANGA_BAR_TITLE;
+    const plugin_mal_manga_bar_hide_title = toBoolean(env.PLUGIN_MAL_MANGA_BAR_HIDE_TITLE);
+
+    const plugin_mal_stats_simple_title = env.PLUGIN_MAL_STATS_SIMPLE_TITLE ?? envDefaults.PLUGIN_MAL_STATS_SIMPLE_TITLE;
+    const plugin_mal_stats_simple_hide_title = toBoolean(env.PLUGIN_MAL_STATS_SIMPLE_HIDE_TITLE);
+
+    const plugin_mal_last_activity_title = env.PLUGIN_MAL_LAST_ACTIVITY_TITLE ?? envDefaults.PLUGIN_MAL_LAST_ACTIVITY_TITLE;
+    const plugin_mal_last_activity_max = parseInt(process.env.PLUGIN_MAL_LAST_ACTIVITY_MAX ?? envDefaults.PLUGIN_MAL_LAST_ACTIVITY_MAX);
+    const plugin_mal_last_activity_hide_title = toBoolean(env.PLUGIN_MAL_LAST_ACTIVITY_HIDE_TITLE);
 
     return {
       pluginMal: {
         username: plugin_mal_username,
         sections: splitString(plugin_mal_sections),
-        style: plugin_mal_style,
         hide_header: plugin_mal_hide_header,
-        lastupdates_max: plugin_mal_lastupdates_max,
-        lastupdates_hide_title: plugin_mal_lastupdates_hide_title,
+        hide_terminal_emojis: plugin_mal_hide_terminal_emojis,
+
         anime_favorites_max: plugin_mal_anime_favorites_max,
+        anime_favorites_title: plugin_mal_anime_favorites_title,
         anime_favorites_hide_title: plugin_mal_anime_favorites_hide_title,
+
         characters_favorites_max: plugin_mal_characters_favorites_max,
         characters_favorites_hide_title: plugin_mal_characters_favorites_hide_title,
+        character_favorites_title: plugin_mal_characters_favorites_title,
+
         people_favorites_max: plugin_mal_people_favorites_max,
         people_favorites_hide_title: plugin_mal_people_favorites_hide_title,
+        people_favorites_title: plugin_mal_people_favorites_title,
+        manga_favorites_title: plugin_mal_manga_favorites_title,
+
         manga_favorites_max: plugin_mal_manga_favorites_max,
         manga_favorites_hide_title: plugin_mal_manga_favorites_hide_title,
+
+        stats_simple_title: plugin_mal_stats_simple_title,
+        stats_simple_hide_title: plugin_mal_stats_simple_hide_title,
+
+        statistics_title: plugin_mal_statistics_title,
+        statistics_hide_title: plugin_mal_statistics_hide_title,
+
+        anime_bar_title: plugin_mal_anime_bar_title,
+        anime_bar_hide_title: plugin_mal_anime_bar_hide_title,
+
+        manga_bar_title: plugin_mal_manga_bar_title,
+        manga_bar_hide_title: plugin_mal_manga_bar_hide_title,
+
+        last_activity_title: plugin_mal_last_activity_title,
+        last_activity_max: plugin_mal_last_activity_max,
+        last_activity_hide_title: plugin_mal_last_activity_hide_title,
       } as MyAnimeListPlugin,
     };
   }
@@ -117,7 +168,6 @@ function loadEnv(env: NodeJS.ProcessEnv): Env {
     }
 
     const plugin_lastfm_sections = process.env.PLUGIN_LASTFM_SECTIONS ?? envDefaults.PLUGIN_LASTFM_SECTIONS;
-    const plugin_lastfm_style = process.env.PLUGIN_LASTFM_STYLE ?? envDefaults.PLUGIN_LASTFM_STYLE;
     const plugin_lastfm_hide_header = toBoolean(env.PLUGIN_LASTFM_HIDE_HEADER);
     const plugin_lastfm_hide_intervals = toBoolean(env.PLUGIN_LASTFM_SHOW_INTERVALS);
 
@@ -135,11 +185,16 @@ function loadEnv(env: NodeJS.ProcessEnv): Env {
 
     const plugin_lastfm_statistics_hide_title = toBoolean(env.PLUGIN_LASTFM_STATISTICS_HIDE_TITLE);
 
+    const plugin_lastfm_toptracks_title = env.PLUGIN_LASTFM_TOPTRACKS_TITLE ?? envDefaults.PLUGIN_LASTFM_TOPTRACKS_TITLE;
+    const plugin_lastfm_topartists_title = env.PLUGIN_LASTFM_TOPARTISTS_TITLE ?? envDefaults.PLUGIN_LASTFM_TOPARTISTS_TITLE;
+    const plugin_lastfm_topalbums_title = env.PLUGIN_LASTFM_TOPALBUMS_TITLE ?? envDefaults.PLUGIN_LASTFM_TOPALBUMS_TITLE;
+    const plugin_lastfm_recenttracks_title = env.PLUGIN_LASTFM_RECENTTRACKS_TITLE ?? envDefaults.PLUGIN_LASTFM_RECENTTRACKS_TITLE;
+    const plugin_lastfm_statistics_title = env.PLUGIN_LASTFM_STATISTICS_TITLE ?? envDefaults.PLUGIN_LASTFM_STATISTICS_TITLE;
+
     return {
       pluginLastfm: {
         username: plugin_lastfm_username,
         sections: splitString(plugin_lastfm_sections),
-        style: plugin_lastfm_style,
         hide_header: plugin_lastfm_hide_header,
         hide_intervals: plugin_lastfm_hide_intervals,
 
@@ -156,7 +211,13 @@ function loadEnv(env: NodeJS.ProcessEnv): Env {
 
         top_tracks_max: plugin_lastfm_toptracks_max,
         top_tracks_hide_title: plugin_lastfm_toptracks_hide_title,
-      },
+
+        statistics_title: plugin_lastfm_statistics_title,
+        recent_tracks_title: plugin_lastfm_recenttracks_title,
+        top_artists_title: plugin_lastfm_topartists_title,
+        top_albums_title: plugin_lastfm_topalbums_title,
+        top_tracks_title: plugin_lastfm_toptracks_title,
+      } as LastFmPlugin,
     };
   }
 

@@ -18,6 +18,26 @@
   display: none;
 }
 
+#svg-main.half .half\:flex {
+  display: flex;
+}
+
+#svg-main.half .half\:flex-row {
+  flex-direction: row;
+}
+
+#svg-main.half .half\:flex-col {
+  flex-direction: column;
+}
+
+#svg-main.half .half\:flex-wrap {
+  flex-wrap: wrap;
+}
+
+#svg-main.half .half\:block {
+  display: block;
+}
+
 #svg-main.half .default-status-horizontal {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -60,4 +80,7 @@
 }
 #svg-main.half .half\:grid-col-5 {
   grid-template-columns: repeat(5, 1fr);
+}
+#svg-main.half .half\:w100 {
+  width: 100%;
 }

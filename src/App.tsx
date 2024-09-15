@@ -46,29 +46,27 @@ function App() {
   };
 
   return (
-    <>
-      <GithubProfile>
-        <div className="button-section monospace w100">
-          <div className="profile-name">Github Profile</div>
-          <div className="flex-d gap-8">
-            <div className="flex gap-8 items-center">
-              <p>Change Theme:</p>
-              <button className="button-readme" onClick={() => changeTheme(setThemeName)}>
-                {themeName === "dark" ? <CiLight color="white" /> : <CiDark color="black" />}
-              </button>
-            </div>
-            <div className="flex gap-8 items-center">
-              <p>Change SVG Width to:</p>
-              <button className="button-readme" onClick={() => changeSvgWidth()}>
-                {svg_width === "half" ? "Full" : "Half"}
-              </button>
-            </div>
+    <GithubProfile>
+      <div className="button-section monospace w100">
+        <div className="profile-name">Github Profile</div>
+        <div className="flex-d gap-8">
+          <div className="flex gap-8 items-center">
+            <p>Change Theme:</p>
+            <button className="button-readme" onClick={() => changeTheme(setThemeName)}>
+              {themeName === "dark" ? <CiLight color="white" /> : <CiDark color="black" />}
+            </button>
+          </div>
+          <div className="flex gap-8 items-center">
+            <p>Change SVG Width to:</p>
+            <button className="button-readme" onClick={() => changeSvgWidth()}>
+              {svg_width === "half" ? "Full" : "Half"}
+            </button>
           </div>
         </div>
-        {element && !error ? element : <AiOutlineLoading size={50} className="loading-icon" />}
-        {error && <div className="error">{error}</div>}
-      </GithubProfile>
-    </>
+      </div>
+      {element && !error ? element : <AiOutlineLoading size={50} className="loading-icon" />}
+      {error && <div className="error">{error}</div>}
+    </GithubProfile>
   );
 }
 

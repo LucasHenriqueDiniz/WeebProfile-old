@@ -1,4 +1,3 @@
-import { DISPLAY_STYLE_TYPE } from "../../../types/envTypes";
 import fillEmptySpaces from "../../../utils/fillEmptySpaces";
 import getEmojiNumber from "../../../utils/getEmojiNumber";
 import getEmojiStatus from "../../../utils/getEmojiStatus";
@@ -22,14 +21,7 @@ function getPorcentageBar(watched: number, total: number, title: string) {
   return `${title} ${fillEmptySpaces(title, 23, ".")} ${bar} ${percentage}%`;
 }
 
-function formatDisplay(
-  title: string,
-  displayType: DISPLAY_STYLE_TYPE,
-  watched: number,
-  total: number,
-  score: number,
-  status: string
-) {
+function formatDisplay(title: string, displayType: string, watched: number, total: number, score: number, status: string) {
   switch (displayType) {
     case "images":
       // Not supported in Gists
@@ -39,11 +31,7 @@ function formatDisplay(
       return getPorcentageBar(watched, total, title);
     case "number":
       // Bakemonogatari ............................................ 12/15
-      return `${title} ${fillEmptySpaces(
-        title,
-        watched.toString().length + total.toString().length + 1,
-        "."
-      )} ${watched}/${total}`;
+      return `${title} ${fillEmptySpaces(title, watched.toString().length + total.toString().length + 1, ".")} ${watched}/${total}`;
     case "none":
       // Bakemonogatari
       return `${title}`;

@@ -1,17 +1,12 @@
 import fs from "fs";
 import path from "path";
-import dotenv from "dotenv";
-import loadEnv, { Env } from "../loadEnv";
+import loadEnv from "../loadEnv";
 
-dotenv.config();
+const loadedEnv = loadEnv();
 
-const env = process.env;
-
-if (!env) {
-  throw new Error("No env found");
+if (!loadedEnv.gistId) {
+  throw new Error("Missing GIST_ID");
 }
-
-const loadedEnv = loadEnv(process.env);
 
 const configContent = `
 // This file is generated automatically, do not edit directly!
