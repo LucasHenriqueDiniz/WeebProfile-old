@@ -17,6 +17,10 @@ inputs:
     description: "Size of the svg | half [415px] or full [830px]"
     default: "half"
     required: false
+  STYLE:
+    description: "Style of the svg | default, terminal"
+    default: "default"
+    required: false
   # ====================================================================================
   # 🌸 MyAnimeList Plugin
   PLUGIN_MAL:
@@ -24,40 +28,79 @@ inputs:
     default: "false"
     required: false
   PLUGIN_MAL_USERNAME:
-    description: "MAL Username"
-    default: ""
+    description: "MAL Username | Required to enable MAL Plugin"
     required: false
-  PLUGIN_MAL_STYLE:
-    description: "MAL Style | classic, default, terminal"
-    default: "default"
+  PLUGIN_MAL_HIDE_TERMINAL_EMOJIS:
+    description: "Hide Emojis in the terminal style"
+    default: "false"
     required: false
   PLUGIN_MAL_SECTIONS:
-    description: "MAL Sections | ststatistics, stats_circle, stats_verticalbar, anime_bar, manga_bar, stats_simple, anime_simple_favorites, manga_simple_favorites, people_simple_favorites, character_simple_favorites, anime_favorites, manga_favorites, people_favorites, character_favorites, last_activity"
+    description: "MAL Sections | statistics, anime_bar, manga_bar, statistics_simple, anime_simple_favorites, manga_simple_favorites, people_simple_favorites, character_simple_favorites, anime_favorites, manga_favorites, people_favorites, character_favorites, last_activity"
     default: "stats_simple, anime_simple_favorites, character_simple_favorites"
     required: false
-  PLUGIN_MAL_LASTUPDATES_MAX:
+  PLUGIN_MAL_HIDE_HEADER:
+    description: "Hide Header with Mal logo and MyAnimeList text"
+    default: "true"
+    required: false
+  PLUGIN_MAL_LAST_ACTIVITY_TITLE:
+    description: "Title of the last activity section"
+    default: "Last Activity"
+    required: false
+  PLUGIN_MAL_LAST_ACTIVITY_MAX:
     description: "Max number of last updates"
     default: "6"
+    required: false
+  PLUGIN_MAL_LAST_ACTIVITY_HIDE_TITLE:
+    description: "Hide Title of the last activity section"
+    default: "false"
     required: false
   PLUGIN_MAL_ANIME_FAVORITES_MAX:
     description: "Max number of anime favorites"
     default: "10"
     required: false
+  PLUGIN_MAL_ANIME_FAVORITES_TITLE:
+    description: "Title of the anime favorites section"
+    default: "Anime Favorites"
+    required: false
+  PLUGIN_MAL_ANIME_FAVORITES_HIDE_TITLE:
+    description: "Hide Title of the anime favorites section"
+    default: "false"
+    required: false
   PLUGIN_MAL_MANGA_FAVORITES_MAX:
     description: "Max number of manga favorites"
     default: "10"
+    required: false
+  PLUGIN_MAL_MANGA_FAVORITES_TITLE:
+    description: "Title of the manga favorites section"
+    default: "Manga Favorites"
+    required: false
+  PLUGIN_MAL_MANGA_FAVORITES_HIDE_TITLE:
+    description: "Hide Title of the manga favorites section"
+    default: "false"
     required: false
   PLUGIN_MAL_CHARACTER_FAVORITES_MAX:
     description: "Max number of character favorites"
     default: "10"
     required: false
+  PLUGIN_MAL_CHARACTER_FAVORITES_TITLE:
+    description: "Title of the character favorites section"
+    default: "Character Favorites"
+    required: false
+  PLUGIN_MAL_CHARACTER_FAVORITES_HIDE_TITLE:
+    description: "Hide Title of the character favorites section"
+    default: "false"
+    required: false
   PLUGIN_MAL_PEOPLE_FAVORITES_MAX:
     description: "Max number of people favorites"
     default: "10"
     required: false
-  PLUGIN_MAL_HIDE_HEADER:
-    description: "Hide Header with Mal logo and MyAnimeList text"
-    default: "true"
+  PLUGIN_MAL_PEOPLE_FAVORITES_TITLE:
+    description: "Title of the people favorites section"
+    default: "People Favorites"
+    required: false
+  PLUGIN_MAL_PEOPLE_FAVORITES_HIDE_TITLE:
+    description: "Hide Title of the people favorites section"
+    default: "false"
     required: false
   # ====================================================================================
   # 🎵 Last.fm Plugin
@@ -66,12 +109,7 @@ inputs:
     default: "false"
     required: false
   PLUGIN_LASTFM_USERNAME:
-    description: "Last.fm Username"
-    default: ""
-    required: false
-  PLUGIN_LASTFM_STYLE:
-    description: "Last.fm Style | default, terminal"
-    default: "default"
+    description: "Last.fm Username | Required to enable Last.fm Plugin"
     required: false
   PLUGIN_LASTFM_HIDE_HEADER:
     description: "Hide Header with Last.fm logo and Last.fm text"
@@ -85,19 +123,50 @@ inputs:
     description: "Max number of recent tracks"
     default: "5"
     required: false
+  PLUGIN_LASTFM_RECENTTRACKS_TITLE:
+    description: "Title of the recent tracks section"
+    default: "Recent Tracks"
+    required: false
+  PLUGIN_LASTFM_RECENTTRACKS_HIDE_TITLE:
+    description: "Hide Title of the recent tracks section"
+    default: "false"
+    required: false
   PLUGIN_LASTFM_TOPARTISTS_MAX:
     description: "Max number of top artists"
     default: "5"
+    required: false
+  PLUGIN_LASTFM_TOPARTISTS_TITLE:
+    description: "Title of the top artists section"
+    default: "Top Artists"
+    required: false
+  PLUGIN_LASTFM_TOPARTISTS_HIDE_TITLE:
+    description: "Hide Title of the top artists section"
+    default: "false"
     required: false
   PLUGIN_LASTFM_TOPALBUMS_MAX:
     description: "Max number of top albums"
     default: "5"
     required: false
+  PLUGIN_LASTFM_TOPALBUMS_TITLE:
+    description: "Title of the top albums section"
+    default: "Top Albums"
+    required: false
+  PLUGIN_LASTFM_TOPALBUMS_HIDE_TITLE:
+    description: "Hide Title of the top albums section"
+    default: "false"
+    required: false
   PLUGIN_LASTFM_TOPTRACKS_MAX:
     description: "Max number of top tracks"
     default: "5"
     required: false
-
+  PLUGIN_LASTFM_TOPTRACKS_TITLE:
+    description: "Title of the top tracks section"
+    default: "Top Tracks"
+    required: false
+  PLUGIN_LASTFM_TOPTRACKS_HIDE_TITLE:
+    description: "Hide Title of the top tracks section"
+    default: "false"
+    required: false
 # ====================================================================================
 # 🦀 Action metadata
 name: "WeebProfile Action"
@@ -135,22 +204,40 @@ runs:
         FILENAME: ${{ inputs.FILENAME }}
         STORAGE_METHOD: ${{ inputs.STORAGE_METHOD }}
         SIZE: ${{ inputs.SIZE }}
+        STYLE: ${{ inputs.STYLE }}
         PLUGIN_MAL: ${{ inputs.PLUGIN_MAL }}
         PLUGIN_MAL_USERNAME: ${{ inputs.PLUGIN_MAL_USERNAME }}
-        PLUGIN_MAL_STYLE: ${{ inputs.PLUGIN_MAL_STYLE }}
+        PLUGIN_MAL_HIDE_TERMINAL_EMOJIS: ${{ inputs.PLUGIN_MAL_HIDE_TERMINAL_EMOJIS }}
         PLUGIN_MAL_SECTIONS: ${{ inputs.PLUGIN_MAL_SECTIONS }}
-        PLUGIN_MAL_LASTUPDATES_MAX: ${{ inputs.PLUGIN_MAL_LASTUPDATES_MAX }}
-        PLUGIN_MAL_ANIME_FAVORITES_MAX: ${{ inputs.PLUGIN_MAL_ANIME_FAVORITES_MAX }}
-        PLUGIN_MAL_MANGA_FAVORITES_MAX: ${{ inputs.PLUGIN_MAL_MANGA_FAVORITES_MAX }}
-        PLUGIN_MAL_CHARACTER_FAVORITES_MAX: ${{ inputs.PLUGIN_MAL_CHARACTER_FAVORITES_MAX }}
-        PLUGIN_MAL_PEOPLE_FAVORITES_MAX: ${{ inputs.PLUGIN_MAL_PEOPLE_FAVORITES_MAX }}
         PLUGIN_MAL_HIDE_HEADER: ${{ inputs.PLUGIN_MAL_HIDE_HEADER }}
+        PLUGIN_MAL_LAST_ACTIVITY_TITLE: ${{ inputs.PLUGIN_MAL_LAST_ACTIVITY_TITLE }}
+        PLUGIN_MAL_LAST_ACTIVITY_MAX: ${{ inputs.PLUGIN_MAL_LAST_ACTIVITY_MAX }}
+        PLUGIN_MAL_LAST_ACTIVITY_HIDE_TITLE: ${{ inputs.PLUGIN_MAL_LAST_ACTIVITY_HIDE_TITLE }}
+        PLUGIN_MAL_ANIME_FAVORITES_MAX: ${{ inputs.PLUGIN_MAL_ANIME_FAVORITES_MAX }}
+        PLUGIN_MAL_ANIME_FAVORITES_TITLE: ${{ inputs.PLUGIN_MAL_ANIME_FAVORITES_TITLE }}
+        PLUGIN_MAL_ANIME_FAVORITES_HIDE_TITLE: ${{ inputs.PLUGIN_MAL_ANIME_FAVORITES_HIDE_TITLE }}
+        PLUGIN_MAL_MANGA_FAVORITES_MAX: ${{ inputs.PLUGIN_MAL_MANGA_FAVORITES_MAX }}
+        PLUGIN_MAL_MANGA_FAVORITES_TITLE: ${{ inputs.PLUGIN_MAL_MANGA_FAVORITES_TITLE }}
+        PLUGIN_MAL_MANGA_FAVORITES_HIDE_TITLE: ${{ inputs.PLUGIN_MAL_MANGA_FAVORITES_HIDE_TITLE }}
+        PLUGIN_MAL_CHARACTER_FAVORITES_MAX: ${{ inputs.PLUGIN_MAL_CHARACTER_FAVORITES_MAX }}
+        PLUGIN_MAL_CHARACTER_FAVORITES_TITLE: ${{ inputs.PLUGIN_MAL_CHARACTER_FAVORITES_TITLE }}
+        PLUGIN_MAL_CHARACTER_FAVORITES_HIDE_TITLE: ${{ inputs.PLUGIN_MAL_CHARACTER_FAVORITES_HIDE_TITLE }}
+        PLUGIN_MAL_PEOPLE_FAVORITES_MAX: ${{ inputs.PLUGIN_MAL_PEOPLE_FAVORITES_MAX }}
+        PLUGIN_MAL_PEOPLE_FAVORITES_TITLE: ${{ inputs.PLUGIN_MAL_PEOPLE_FAVORITES_TITLE }}
+        PLUGIN_MAL_PEOPLE_FAVORITES_HIDE_TITLE: ${{ inputs.PLUGIN_MAL_PEOPLE_FAVORITES_HIDE_TITLE }}
         PLUGIN_LASTFM: ${{ inputs.PLUGIN_LASTFM }}
         PLUGIN_LASTFM_USERNAME: ${{ inputs.PLUGIN_LASTFM_USERNAME }}
-        PLUGIN_LASTFM_STYLE: ${{ inputs.PLUGIN_LASTFM_STYLE }}
         PLUGIN_LASTFM_HIDE_HEADER: ${{ inputs.PLUGIN_LASTFM_HIDE_HEADER }}
         PLUGIN_LASTFM_SECTIONS: ${{ inputs.PLUGIN_LASTFM_SECTIONS }}
         PLUGIN_LASTFM_RECENTTRACKS_MAX: ${{ inputs.PLUGIN_LASTFM_RECENTTRACKS_MAX }}
+        PLUGIN_LASTFM_RECENTTRACKS_TITLE: ${{ inputs.PLUGIN_LASTFM_RECENTTRACKS_TITLE }}
+        PLUGIN_LASTFM_RECENTTRACKS_HIDE_TITLE: ${{ inputs.PLUGIN_LASTFM_RECENTTRACKS_HIDE_TITLE }}
         PLUGIN_LASTFM_TOPARTISTS_MAX: ${{ inputs.PLUGIN_LASTFM_TOPARTISTS_MAX }}
+        PLUGIN_LASTFM_TOPARTISTS_TITLE: ${{ inputs.PLUGIN_LASTFM_TOPARTISTS_TITLE }}
+        PLUGIN_LASTFM_TOPARTISTS_HIDE_TITLE: ${{ inputs.PLUGIN_LASTFM_TOPARTISTS_HIDE_TITLE }}
         PLUGIN_LASTFM_TOPALBUMS_MAX: ${{ inputs.PLUGIN_LASTFM_TOPALBUMS_MAX }}
+        PLUGIN_LASTFM_TOPALBUMS_TITLE: ${{ inputs.PLUGIN_LASTFM_TOPALBUMS_TITLE }}
+        PLUGIN_LASTFM_TOPALBUMS_HIDE_TITLE: ${{ inputs.PLUGIN_LASTFM_TOPALBUMS_HIDE_TITLE }}
         PLUGIN_LASTFM_TOPTRACKS_MAX: ${{ inputs.PLUGIN_LASTFM_TOPTRACKS_MAX }}
+        PLUGIN_LASTFM_TOPTRACKS_TITLE: ${{ inputs.PLUGIN_LASTFM_TOPTRACKS_TITLE }}
+        PLUGIN_LASTFM_TOPTRACKS_HIDE_TITLE: ${{ inputs.PLUGIN_LASTFM_TOPTRACKS_HIDE_TITLE }}
