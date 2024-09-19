@@ -88,7 +88,7 @@ query BaseRepositories {
   const isNodeEnv = isNodeEnvironment();
   // @TODO Fix CORS issue, this is a temporary solution
   let url = "https://api.github.com/graphql";
-  if (isNodeEnv) {
+  if (!isNodeEnv) {
     url = "https://cors-anywhere.herokuapp.com/https://api.github.com/graphql";
   }
 

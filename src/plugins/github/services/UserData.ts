@@ -47,7 +47,7 @@ query BaseUser {
   try {
     const isNodeEnv = isNodeEnvironment();
     let url = "https://api.github.com/graphql";
-    if (isNodeEnv) {
+    if (!isNodeEnv) {
       url = "https://cors-anywhere.herokuapp.com/https://api.github.com/graphql";
     }
 
