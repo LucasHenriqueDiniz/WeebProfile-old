@@ -11,6 +11,7 @@ import { fetchMalData } from "./plugins/mal/services/malApi";
 async function RenderActivePlugins(env: Env): Promise<ReactNode> {
   console.log("RENDER ACTIVE PLUGINS");
   const pluginComponents: { [key: string]: JSX.Element | null } = {};
+  const pluginsOrder = env.pluginsOrder;
 
   if (env.pluginMal) {
     console.log("RENDER MAL");
@@ -31,6 +32,14 @@ async function RenderActivePlugins(env: Env): Promise<ReactNode> {
   }
 
   const activePlugins = Object.values(pluginComponents).filter(Boolean);
+
+  if (pluginsOrder.length > 0) {
+    activePlugins.sort((a, b) => {
+      const aIndex = pluginsOrder.indexOf((a as any).key);
+      const bIndex = pluginsOrder.indexOf((b as any).key);
+      return aIndex - bIndex;
+    });
+  }
 
   return (
     <>

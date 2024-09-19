@@ -20,6 +20,7 @@ export interface Env {
   style: string;
   customCss?: string;
   activePlugins: string[];
+  pluginsOrder: string[];
 
   // Plugins
   pluginMal?: MyAnimeListPlugin;
@@ -47,6 +48,7 @@ function loadEnv(): Env {
   const store_method = (env.STORE_METHOD?.toLowerCase() as string) ?? envDefaults.STORE_METHOD;
   const activePlugins = [] as string[];
   const size = (env.SIZE?.toLowerCase() as string) ?? envDefaults.SIZE;
+  const pluginsOrder = splitString(env.PLUGINS_ORDER ?? envDefaults.PLUGINS_ORDER);
 
   if (store_method !== "gist" && store_method !== "repository") {
     throw new Error("Invalid STORE_METHOD: " + store_method);
@@ -64,6 +66,7 @@ function loadEnv(): Env {
     style: env.STYLE ?? envDefaults.STYLE, // default to "default" | "terminal"
     storeMethod: store_method,
     customCss: env.CUSTOM_CSS,
+    pluginsOrder: pluginsOrder,
   };
 
   function loadPluginMal(): { pluginMal: MyAnimeListPlugin } | null {

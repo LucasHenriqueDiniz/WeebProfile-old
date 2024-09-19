@@ -21,6 +21,10 @@ inputs:
     description: "Style of the svg | default, terminal"
     default: "default"
     required: false
+  PLUGINS_ORDER:
+    description: "Order of the plugins | github, mal, lastfm"
+    default: "github, mal, lastfm"
+    required: false
   # ====================================================================================
   # 🌸 MyAnimeList Plugin
   PLUGIN_MAL:
@@ -262,6 +266,7 @@ runs:
         STORAGE_METHOD: ${{ inputs.STORAGE_METHOD }}
         SIZE: ${{ inputs.SIZE }}
         STYLE: ${{ inputs.STYLE }}
+        PLUGINS_ORDER: ${{ inputs.PLUGINS_ORDER }}
         # ====================================================================================
         PLUGIN_MAL: ${{ inputs.PLUGIN_MAL }}
         PLUGIN_MAL_USERNAME: ${{ inputs.PLUGIN_MAL_USERNAME }}

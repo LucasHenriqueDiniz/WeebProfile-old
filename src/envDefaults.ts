@@ -3,6 +3,7 @@ const envDefaults = {
   FILENAME: "WeebProfile.svg",
   SIZE: "half",
   STYLE: "default",
+  PLUGINS_ORDER: "github, mal, lastfm",
 
   PLUGIN_MAL_SECTIONS: "stats_simple, anime_favorites, last_activity",
   PLUGIN_MAL_LAST_ACTIVITY_MAX: "6",
