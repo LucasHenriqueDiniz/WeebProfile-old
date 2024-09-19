@@ -1,11 +1,14 @@
-import React, { ReactNode } from "react";
-import LastFmApi from "./api/axios/lastFmApi";
+import { ReactNode } from "react";
 import { Env } from "./loadEnv";
-import RenderLastFM from "./plugins/lastfm/lastfm";
-import RenderMyAnimeList from "./plugins/mal/Mal";
-import { fetchMalData } from "./api/axios/malApi";
+import TerminalHeader from "./plugins/!templates/Terminal/Terminal_Header";
+import RenderGithub from "./plugins/github";
+import fetchGithubData from "./plugins/github/services/fetchGithub";
+import RenderLastFM from "./plugins/lastfm";
+import LastFmApi from "./plugins/lastfm/services/lastFmApi";
+import RenderMyAnimeList from "./plugins/mal";
+import { fetchMalData } from "./plugins/mal/services/malApi";
 
-async function RenderActivePlugins(env: Env): Promise<ReactNode[]> {
+async function RenderActivePlugins(env: Env): Promise<ReactNode> {
   console.log("RENDER ACTIVE PLUGINS");
   const pluginComponents: { [key: string]: JSX.Element | null } = {};
 
@@ -18,10 +21,23 @@ async function RenderActivePlugins(env: Env): Promise<ReactNode[]> {
   if (env.pluginLastfm) {
     console.log("RENDER LASTFM");
     const lastfmData = await LastFmApi(env.pluginLastfm);
-    pluginComponents.lastfm = <RenderLastFM lastfmPlugin={env.pluginLastfm} key="lastfm" lastfmData={lastfmData} />;
+    pluginComponents.lastfm = <RenderLastFM lastfmPlugin={env.pluginLastfm} lastfmData={lastfmData} key="lastfm" />;
   }
 
-  return Object.values(pluginComponents);
+  if (env.pluginGithub) {
+    console.log("RENDER GITHUB");
+    const githubData = await fetchGithubData(env.pluginGithub, env.ghToken);
+    pluginComponents.github = <RenderGithub githubPlugin={env.pluginGithub} githubData={githubData} key="github" />;
+  }
+
+  const activePlugins = Object.values(pluginComponents).filter(Boolean);
+
+  return (
+    <>
+      {env.style === "terminal" && activePlugins.length > 0 && <TerminalHeader />}
+      {activePlugins}
+    </>
+  );
 }
 
 export default RenderActivePlugins;

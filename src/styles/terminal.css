@@ -1,4 +1,4 @@
-#svg-main {
+#svg-main.terminal {
   /* //282c34 */
   --terminal-color-bg-surface: #343434;
   --terminal-color-bg: #1c1c1c;
@@ -15,7 +15,7 @@
 }
 
 section {
-  padding: 0px;
+  padding: 0px !important;
 }
 
 .text-error {

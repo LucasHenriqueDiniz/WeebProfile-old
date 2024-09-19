@@ -1,10 +1,11 @@
-import LastFmPlugin from "../types/env/LastFmPluginType";
-import MyAnimeListPlugin from "../types/env/MalPluginType";
+import dotenv from "dotenv";
 import isNodeEnvironment from "../utils/isNodeEnv";
 import splitString from "../utils/splitString";
 import toBoolean from "../utils/toBoolean";
 import envDefaults from "./envDefaults";
-import dotenv from "dotenv";
+import githubPlugin from "./plugins/github/types/envGithub";
+import LastFmPlugin from "./plugins/lastfm/types/envLastFM";
+import MyAnimeListPlugin from "./plugins/mal/types/envMal";
 
 if (isNodeEnvironment()) {
   dotenv.config();
@@ -23,6 +24,7 @@ export interface Env {
   // Plugins
   pluginMal?: MyAnimeListPlugin;
   pluginLastfm?: LastFmPlugin;
+  pluginGithub?: githubPlugin;
 }
 
 function loadEnv(): Env {
@@ -95,7 +97,9 @@ function loadEnv(): Env {
     const plugin_mal_manga_favorites_max = parseInt(process.env.PLUGIN_MAL_MANGA_FAVORITES_MAX ?? envDefaults.PLUGIN_MAL_MANGA_FAVORITES_MAX);
     const plugin_mal_manga_favorites_title = env.PLUGIN_MAL_MANGA_FAVORITES_TITLE ?? envDefaults.PLUGIN_MAL_MANGA_FAVORITES_TITLE;
 
-    const plugin_mal_statistics_title = env.PLUGIN_MAL_STATISTICS_TITLE ?? envDefaults.PLUGIN_MAL_STATISTICS_TITLE;
+    const plugin_mal_statistics_anime_title = env.PLUGIN_MAL_STATISTICS_ANIME_TITLE ?? envDefaults.PLUGIN_MAL_STATISTICS_ANIME_TITLE;
+    const plugin_mal_statistics_manga_title = env.PLUGIN_MAL_STATISTICS_MANGA_TITLE ?? envDefaults.PLUGIN_MAL_STATISTICS_MANGA_TITLE;
+    const plugin_mal_statistics_media = process.env.PLUGIN_MAL_STATISTICS_MEDIA ?? envDefaults.PLUGIN_MAL_STATISTICS_MEDIA;
     const plugin_mal_statistics_hide_title = toBoolean(env.PLUGIN_MAL_STATISTICS_HIDE_TITLE);
 
     const plugin_mal_anime_bar_title = env.PLUGIN_MAL_ANIME_BAR_TITLE ?? envDefaults.PLUGIN_MAL_ANIME_BAR_TITLE;
@@ -137,7 +141,9 @@ function loadEnv(): Env {
         stats_simple_title: plugin_mal_stats_simple_title,
         stats_simple_hide_title: plugin_mal_stats_simple_hide_title,
 
-        statistics_title: plugin_mal_statistics_title,
+        statistics_anime_title: plugin_mal_statistics_anime_title,
+        statistics_manga_title: plugin_mal_statistics_manga_title,
+        statistics_media: splitString(plugin_mal_statistics_media),
         statistics_hide_title: plugin_mal_statistics_hide_title,
 
         anime_bar_title: plugin_mal_anime_bar_title,
@@ -221,11 +227,60 @@ function loadEnv(): Env {
     };
   }
 
+  function loadPluginGithub(): { pluginGithub: githubPlugin } | null {
+    const plugin_github = toBoolean(process.env.PLUGIN_GITHUB as string);
+
+    if (!plugin_github || plugin_github !== true) {
+      return null;
+    }
+
+    const plugin_github_username = process.env.PLUGIN_GITHUB_USERNAME as string;
+
+    if (!plugin_github_username) {
+      throw new Error("Missing PLUGIN_GITHUB_USERNAME");
+    }
+
+    activePlugins.push("github");
+    const plugin_github_sections = process.env.PLUGIN_GITHUB_SECTIONS ?? envDefaults.PLUGIN_GITHUB_SECTIONS;
+    const plugin_github_hide_header = toBoolean(env.PLUGIN_GITHUB_HIDE_HEADER);
+
+    const plugin_github_profile_hide_title = toBoolean(env.PLUGIN_GITHUB_PROFILE_HIDE_TITLE);
+
+    const plugin_github_repositories_title = env.PLUGIN_GITHUB_REPOSITORIES_TITLE ?? envDefaults.PLUGIN_GITHUB_REPOSITORIES_TITLE;
+    const plugin_github_repositories_hide_title = toBoolean(env.PLUGIN_GITHUB_REPOSITORIES_HIDE_TITLE);
+
+    const plugin_github_favorite_languages_title = env.PLUGIN_GITHUB_FAVORITE_LANGUAGES_TITLE ?? envDefaults.PLUGIN_GITHUB_FAVORITE_LANGUAGES_TITLE;
+    const plugin_github_favorite_languages_hide_title = toBoolean(env.PLUGIN_GITHUB_FAVORITE_LANGUAGES_HIDE_TITLE);
+
+    const plugin_github_favorite_liscense_title = env.PLUGIN_GITHUB_FAVORITE_LISCENSE_TITLE ?? envDefaults.PLUGIN_GITHUB_FAVORITE_LISCENSE_TITLE;
+    const plugin_github_favorite_liscense_hide_title = toBoolean(env.PLUGIN_GITHUB_FAVORITE_LISCENSE_HIDE_TITLE);
+
+    return {
+      pluginGithub: {
+        username: plugin_github_username,
+        sections: splitString(plugin_github_sections),
+        hide_header: plugin_github_hide_header,
+
+        profile_hide_title: plugin_github_profile_hide_title,
+
+        repositories_title: plugin_github_repositories_title,
+        repositories_hide_title: plugin_github_repositories_hide_title,
+
+        favorite_languages_title: plugin_github_favorite_languages_title,
+        favorite_languages_hide_title: plugin_github_favorite_languages_hide_title,
+
+        favorite_liscense_title: plugin_github_favorite_liscense_title,
+        favorite_liscense_hide_title: plugin_github_favorite_liscense_hide_title,
+      } as githubPlugin,
+    };
+  }
+
   console.log("LOADED ENV");
   return {
     ...baseEnv,
     ...loadPluginMal(),
     ...loadPluginLastfm(),
+    ...loadPluginGithub(),
     activePlugins: activePlugins,
   };
 }

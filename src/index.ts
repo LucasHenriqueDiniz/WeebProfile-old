@@ -7,7 +7,7 @@ async function main() {
   //load env
   const loadedEnv = loadEnv();
   //destructure env
-  const { gistId, ghToken, filename, storeMethod, pluginMal, pluginLastfm, activePlugins } = loadedEnv;
+  const { gistId, ghToken, filename, storeMethod } = loadedEnv;
   //render body
   const htmlString = await renderBodyString({ env: loadedEnv });
 

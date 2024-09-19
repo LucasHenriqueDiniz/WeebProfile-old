@@ -1,15 +1,14 @@
-import React from "react";
+import { ReactNode } from "react";
 import { renderToString } from "react-dom/server";
-import { LoadCss } from "../src/base/SvgContainer";
+import LoadCss from "../src/loadCss";
 import { Env } from "../src/loadEnv";
 import getSvgWidth from "./getSvgWidth";
 import isNodeEnvironment from "./isNodeEnv";
 
-async function calculateElementHeight(activePlugins: React.ReactNode[], env: Env): Promise<number> {
+async function calculateElementHeight(activePlugins: ReactNode, env: Env): Promise<number> {
   const isNodeEnv = isNodeEnvironment();
   const isHalf = env.size === "half";
-  const customCss = env.customCss;
-  const css = LoadCss(isHalf, customCss);
+  const css = await LoadCss(env);
 
   const htmlstring = () => {
     return renderToString(
@@ -27,9 +26,7 @@ async function calculateElementHeight(activePlugins: React.ReactNode[], env: Env
         </head>
         <body>
           <div id="svg-main" className={`${env.size}`} style={{ width: "100%", maxWidth: getSvgWidth(isHalf), display: "flex", flexDirection: "column" }}>
-            {activePlugins.map((plugin, index) => (
-              <React.Fragment key={index}>{plugin}</React.Fragment>
-            ))}
+            {activePlugins}
           </div>
         </body>
       </html>

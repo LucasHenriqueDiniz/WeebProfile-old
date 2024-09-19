@@ -1,0 +1,17 @@
+- name: 🦀 MyAnimeList 🦀
+  uses: LucasHenriqueDiniz/WeebProfile@main
+  with:
+    FILENAME: MyAnimeList.svg
+    GIST_ID: ${{ secrets.GIST_ID }}
+    GH_TOKEN: ${{ secrets.GH_TOKEN }}
+    STORAGE_METHOD: gist
+    SIZE: half
+
+    PLUGIN_MAL: true
+    PLUGIN_LASTFM_HIDE_HEADER: true
+    PLUGIN_MAL_HIDE_HEADER: true
+    PLUGIN_MAL_USERNAME: Amayacrab
+    PLUGIN_MAL_STYLE: default
+    PLUGIN_MAL_SECTIONS: stats_simple, character_simple_favorites, anime_favorites
+    PLUGIN_MAL_ANIME_FAVORITES_MAX: 3
+    PLUGIN_MAL_CHARACTER_FAVORITES_MAX: 5

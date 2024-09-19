@@ -6,15 +6,14 @@
   "author": "Lucas Henrique Diniz <lucas.diniz.hdo@gmail.com>",
   "license": "Apache 2.0",
   "scripts": {
-    "start": "ts-node src/index.ts",
-    "setup-fonts": "ts-node src/setup/setupFonts.ts",
-    "create-config": "ts-node src/setup/createConfig.ts",
+    "start": "npx tsx src/index.ts",
+    "setup-fonts": "npx tsx src/setup/setupFonts.ts",
+    "create-config": "npx tsx src/setup/createConfig.ts",
     "setup": "npm run setup-fonts",
     "dev": "npm run create-config && vite"
   },
   "keywords": [],
   "dependencies": {
-    "@octokit/core": "^6.1.2",
     "@types/dotenv": "^8.2.0",
     "@vitejs/plugin-react": "^4.3.1",
     "align-text": "^1.0.2",

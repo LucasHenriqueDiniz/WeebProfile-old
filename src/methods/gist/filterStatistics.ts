@@ -1,8 +1,4 @@
-import {
-  MalStatisticsResponse,
-  AnimeStatistics,
-  MangaStatistics,
-} from "../../../types/malStatisticsResponse";
+import { AnimeStatistics, MalStatisticsResponse, MangaStatistics } from "../../plugins/mal/types/malStatisticsResponse";
 
 async function filterStatisticsGist(data: MalStatisticsResponse) {
   const animeData = data.anime as AnimeStatistics;

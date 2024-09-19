@@ -1,11 +1,22 @@
 {
   "compilerOptions": {
-    "jsx": "react",
-    "target": "es2018",
-    "module": "commonjs",
+    // Treat files as modules even if it doesn't use import/export
+    "moduleDetection": "force",
+
+    // Ignore module structure
+    "module": "Preserve",
+
+    // Allow JSON modules to be imported
+    "resolveJsonModule": true,
+
+    // Allow JS files to be imported from TS and vice versa
+    "allowJs": true,
+
+    // Use correct ESM import behavior
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "skipLibCheck": true
+
+    // Disallow features that require cross-file awareness
+    "isolatedModules": true,
+    "jsx": "react-jsx"
   }
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { AiOutlineLoading } from "react-icons/ai";
 import { CiDark, CiLight } from "react-icons/ci";
 import changeTheme from "../utils/changeHtmlTheme";

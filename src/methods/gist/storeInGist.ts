@@ -1,4 +1,4 @@
-import updateGithubGist from "../../api/github/updateGist";
+import updateGithubGist from "../../axios/updateGist";
 
 async function storeInGist(gistId: string, token: string, data: string, filename: string) {
   if (!gistId || !token) {
