@@ -1,16 +1,5 @@
-// statistics
-// anime_bar
-// manga_bar
-// stats_simple
-// anime_simple_favorites
-// manga_simple_favorites
-// people_simple_favorites
-// character_simple_favorites
-// anime_favorites
-// manga_favorites
-// people_favorites
-// character_favorites
-// last_activity
+export const AllMyAnimeListSections =
+  "statistics, anime_bar, manga_bar, stats_simple, anime_simple_favorites, manga_simple_favorites, people_simple_favorites, character_simple_favorites, anime_favorites, manga_favorites, people_favorites, character_favorites, last_activity";
 
 export interface MyAnimeListPlugin {
   username: string;

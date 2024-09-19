@@ -28,6 +28,7 @@ export interface Env {
 }
 
 function loadEnv(): Env {
+  //@TODO find a better way to load env, maybe use a library? still need a way to put in the action.yml
   const env = process.env;
 
   console.log("LOADING ENV");
@@ -85,7 +86,7 @@ function loadEnv(): Env {
     const plugin_mal_anime_favorites_hide_title = toBoolean(env.PLUGIN_MAL_ANIME_FAVORITES_HIDE_TITLE);
     const plugin_mal_anime_favorites_title = env.PLUGIN_MAL_ANIME_FAVORITES_TITLE ?? envDefaults.PLUGIN_MAL_ANIME_FAVORITES_TITLE;
 
-    const plugin_mal_people_favorites_hide_title = toBoolean(env.PLUGIN_MAL_CHARACTERS_FAVORITES_HIDE_TITLE);
+    const plugin_mal_people_favorites_hide_title = toBoolean(env.PLUGIN_MAL_PEOPLE_FAVORITES_HIDE_TITLE);
     const plugin_mal_people_favorites_title = env.PLUGIN_MAL_PEOPLE_FAVORITES_TITLE ?? envDefaults.PLUGIN_MAL_PEOPLE_FAVORITES_TITLE;
     const plugin_mal_people_favorites_max = parseInt(process.env.PLUGIN_MAL_PEOPLE_FAVORITES_MAX ?? envDefaults.PLUGIN_MAL_PEOPLE_FAVORITES_MAX);
 
@@ -252,8 +253,8 @@ function loadEnv(): Env {
     const plugin_github_favorite_languages_title = env.PLUGIN_GITHUB_FAVORITE_LANGUAGES_TITLE ?? envDefaults.PLUGIN_GITHUB_FAVORITE_LANGUAGES_TITLE;
     const plugin_github_favorite_languages_hide_title = toBoolean(env.PLUGIN_GITHUB_FAVORITE_LANGUAGES_HIDE_TITLE);
 
-    const plugin_github_favorite_liscense_title = env.PLUGIN_GITHUB_FAVORITE_LISCENSE_TITLE ?? envDefaults.PLUGIN_GITHUB_FAVORITE_LISCENSE_TITLE;
-    const plugin_github_favorite_liscense_hide_title = toBoolean(env.PLUGIN_GITHUB_FAVORITE_LISCENSE_HIDE_TITLE);
+    const plugin_github_favorite_license_title = env.PLUGIN_GITHUB_FAVORITE_LICENSE_TITLE ?? envDefaults.PLUGIN_GITHUB_FAVORITE_LICENSE_TITLE;
+    const plugin_github_favorite_license_hide_title = toBoolean(env.PLUGIN_GITHUB_FAVORITE_LICENSE_HIDE_TITLE);
 
     return {
       pluginGithub: {
@@ -269,8 +270,8 @@ function loadEnv(): Env {
         favorite_languages_title: plugin_github_favorite_languages_title,
         favorite_languages_hide_title: plugin_github_favorite_languages_hide_title,
 
-        favorite_liscense_title: plugin_github_favorite_liscense_title,
-        favorite_liscense_hide_title: plugin_github_favorite_liscense_hide_title,
+        favorite_license_title: plugin_github_favorite_license_title,
+        favorite_license_hide_title: plugin_github_favorite_license_hide_title,
       } as githubPlugin,
     };
   }

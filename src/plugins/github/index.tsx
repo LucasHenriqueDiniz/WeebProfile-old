@@ -4,11 +4,11 @@ import ErrorMessage from "../!templates/Error_Style";
 import RenderBasedOnStyle from "../!templates/RenderBasedOnStyle";
 import TerminalBody from "../!templates/Terminal/Terminal_Body";
 import FavoriteLanguages from "./components/FavoriteLanguagues";
-import FavoriteLiscense from "./components/FavoriteLiscenses";
+import FavoriteLicense from "./components/FavoriteLicenses";
 import GithubProfile from "./components/Profile";
 import GithubRepositories from "./components/Repositories";
 import { githubResponse } from "./types";
-import githubPlugin from "./types/envGithub";
+import githubPlugin, { allGIThubSections } from "./types/envGithub";
 
 interface Props {
   githubPlugin: githubPlugin;
@@ -32,8 +32,8 @@ export default function RenderGithub({ githubPlugin, githubData }: Props): JSX.E
     favorite_languages: (githubData) => {
       return <FavoriteLanguages repositoriesData={githubData.repositoriesData} />;
     },
-    favorite_liscenses: (githubData) => {
-      return <FavoriteLiscense repositoriesData={githubData.repositoriesData} />;
+    favorite_license: (githubData) => {
+      return <FavoriteLicense repositoriesData={githubData.repositoriesData} />;
     },
   };
 
@@ -41,7 +41,7 @@ export default function RenderGithub({ githubPlugin, githubData }: Props): JSX.E
     if (sectionRenderers[section]) {
       return sectionRenderers[section](githubData);
     }
-    return <ErrorMessage message={`Section ${section} not found`} />;
+    return <ErrorMessage message={`Section "${section}" not found, available sections: \n${allGIThubSections}`} />;
   };
 
   const hideHeader = githubPlugin.hide_header;

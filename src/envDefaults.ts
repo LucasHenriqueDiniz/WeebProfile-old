@@ -10,7 +10,6 @@ const envDefaults = {
   PLUGIN_MAL_CHARACTERS_FAVORITES_MAX: "5",
   PLUGIN_MAL_PEOPLE_FAVORITES_MAX: "5",
   PLUGIN_MAL_MANGA_FAVORITES_MAX: "5",
-
   PLUGIN_MAL_STATISTICS_ANIME_TITLE: "Anime Statistics",
   PLUGIN_MAL_STATISTICS_MANGA_TITLE: "Manga Statistics",
   PLUGIN_MAL_STATISTICS_MEDIA: "anime, manga",
@@ -36,7 +35,7 @@ const envDefaults = {
 
   PLUGIN_GITHUB_REPOSITORIES_TITLE: "<qnt> Repositories",
   PLUGIN_GITHUB_FAVORITE_LANGUAGES_TITLE: "<qnt> Languages",
-  PLUGIN_GITHUB_FAVORITE_LISCENSE_TITLE: "Favorite License",
+  PLUGIN_GITHUB_FAVORITE_LICENSE_TITLE: "Favorite License",
   PLUGIN_GITHUB_SECTIONS: "profile, repositories, favorite_languages, favorite_license",
 };
 

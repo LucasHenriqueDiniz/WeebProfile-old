@@ -16,7 +16,7 @@ import {
   TopTracksGrid,
   TopTracksList,
 } from "./components";
-import LastFmPlugin from "./types/envLastFM";
+import LastFmPlugin, { allLastFmSections } from "./types/envLastFM";
 import { LastFmResponse } from "./types/lastFmTypes";
 
 interface Props {
@@ -52,7 +52,7 @@ export default function renderLastFM({ lastfmPlugin, lastfmData }: Props): JSX.E
     if (sectionRenderers[section]) {
       return sectionRenderers[section](lastfmData);
     }
-    return <ErrorMessage message={`Section ${section} not found`} />;
+    return <ErrorMessage message={`Section "${section}" not found. Available sections: \n${allLastFmSections}`} />;
   };
 
   const hideHeader = lastfmPlugin.hide_header;

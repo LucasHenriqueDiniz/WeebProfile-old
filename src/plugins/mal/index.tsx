@@ -10,7 +10,7 @@ import LastUpdates from "./components/LastUpdates";
 import SimpleFavorites from "./components/SimpleFavorites";
 import SimpleStatistics from "./components/SimpleStatistics";
 import Statistics from "./components/Statistics";
-import MyAnimeListPlugin from "./types/envMal";
+import MyAnimeListPlugin, { AllMyAnimeListSections } from "./types/envMal";
 import { MalData } from "./types/malTypes";
 
 const sectionRenderers: Record<string, (malData: MalData) => JSX.Element> = {
@@ -41,6 +41,7 @@ export default function renderMyAnimeList({ malPlugin, malData }: { malPlugin: M
     if (sectionRenderers[section]) {
       return sectionRenderers[section](malData);
     }
+    console.log(`Section "${section}" not found, available sections: \n${AllMyAnimeListSections}`);
     return <ErrorMessage message={`Section ${section} not found`} />;
   };
 

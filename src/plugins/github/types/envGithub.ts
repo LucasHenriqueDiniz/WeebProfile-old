@@ -1,7 +1,4 @@
-// profile
-// repositories
-// favorite_languages
-// favorite_liscense
+export const allGIThubSections = ["profile", "repositories", "favorite_languages", "favorite_license"];
 
 export interface githubPlugin {
   username: string;
@@ -17,8 +14,8 @@ export interface githubPlugin {
   favorite_languages_title: string;
   favorite_languages_hide_title: boolean;
 
-  favorite_liscense_title: string;
-  favorite_liscense_hide_title: boolean;
+  favorite_license_title: string;
+  favorite_license_hide_title: boolean;
 }
 
 export default githubPlugin;

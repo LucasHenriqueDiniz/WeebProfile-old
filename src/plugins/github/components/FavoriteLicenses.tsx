@@ -10,7 +10,7 @@ import getEnvVariables from "../../../../utils/getEnvVariables";
 import getPseudoCommands from "../../../../utils/getPseudoCommands";
 import { RepositoriesData } from "../types";
 
-const DefaultFavoriteLiscense = ({ repositoriesData }: { repositoriesData: RepositoriesData }) => {
+const DefaultFavoriteLicense = ({ repositoriesData }: { repositoriesData: RepositoriesData }) => {
   const { favoriteLicense, repositories } = repositoriesData;
   const total = repositories.length;
 
@@ -27,7 +27,7 @@ const DefaultFavoriteLiscense = ({ repositoriesData }: { repositoriesData: Repos
   );
 };
 
-const TerminalFavoriteLiscense = ({ repositoriesData }: { repositoriesData: RepositoriesData }) => {
+const TerminalFavoriteLicense = ({ repositoriesData }: { repositoriesData: RepositoriesData }) => {
   const { favoriteLicense } = repositoriesData;
   const total = repositoriesData.repositories.length;
   const porcentage = ((favoriteLicense.count / total) * 100).toFixed(2);
@@ -42,12 +42,12 @@ const TerminalFavoriteLiscense = ({ repositoriesData }: { repositoriesData: Repo
   return <TerminalTree data={TreeItems} title="Favorite License" />;
 };
 
-const FavoriteLiscense = ({ repositoriesData }: { repositoriesData: RepositoriesData }) => {
+const FavoriteLicense = ({ repositoriesData }: { repositoriesData: RepositoriesData }) => {
   const { pluginGithub } = getEnvVariables();
   if (!pluginGithub) throw new Error("GitHub plugin not found");
 
-  const title = pluginGithub.favorite_liscense_title;
-  const hideTitle = pluginGithub.favorite_liscense_hide_title;
+  const title = pluginGithub.favorite_license_title;
+  const hideTitle = pluginGithub.favorite_license_hide_title;
 
   return (
     <section id="github" className="favorite-license">
@@ -55,13 +55,13 @@ const FavoriteLiscense = ({ repositoriesData }: { repositoriesData: Repositories
         defaultComponent={
           <>
             {!hideTitle && <DefaultTitle title={title} icon={<FaCode />} />}
-            <DefaultFavoriteLiscense repositoriesData={repositoriesData} />
+            <DefaultFavoriteLicense repositoriesData={repositoriesData} />
           </>
         }
         terminalComponent={
           <>
-            <TerminalCommand command={getPseudoCommands({ plugin: "github", section: "favorite-liscense" })} />
-            <TerminalFavoriteLiscense repositoriesData={repositoriesData} />
+            <TerminalCommand command={getPseudoCommands({ plugin: "github", section: "favorite-license" })} />
+            <TerminalFavoriteLicense repositoriesData={repositoriesData} />
             <TerminalLineBreak />
           </>
         }
@@ -70,4 +70,4 @@ const FavoriteLiscense = ({ repositoriesData }: { repositoriesData: Repositories
   );
 };
 
-export default FavoriteLiscense;
+export default FavoriteLicense;
