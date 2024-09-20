@@ -1,14 +1,13 @@
-import React from "react";
 import { FaHeart } from "react-icons/fa";
-import { AnyMalFavorite, AnyMalFavoriteUnique } from "../../../../types/malFavoritesResponse";
-import getEnvVariables from "../../../../utils/getEnvVariables";
-import getPseudoCommands from "../../../../utils/getPseudoCommands";
-import treatJanponeseName from "../../../../utils/treatJaponeseName";
-import Img64 from "../../../base/ImageComponent";
 import DefaultTitle from "../../!templates/Default/Default_Title";
 import RenderBasedOnStyle from "../../!templates/RenderBasedOnStyle";
 import TerminalCommand from "../../!templates/Terminal/Terminal_Command";
 import TerminalLineBreak from "../../!templates/Terminal/Terminal_LineBreak";
+import getEnvVariables from "../../../../utils/getEnvVariables";
+import getPseudoCommands from "../../../../utils/getPseudoCommands";
+import treatJanponeseName from "../../../../utils/treatJaponeseName";
+import Img64 from "../../../base/ImageComponent";
+import { AnyMalFavorite, AnyMalFavoriteUnique } from "../types/malFavoritesResponse";
 
 interface DefaultSimpleFavoritesProps {
   favoritesData: AnyMalFavorite;
@@ -20,7 +19,7 @@ function FavoriteImage({ favorite }: { favorite: AnyMalFavoriteUnique }): JSX.El
   const title = "name" in favorite ? treatJanponeseName(favorite.name) : favorite.title;
 
   return (
-    <div className="w100 h100 radius-8 max-h-150 relative overflow-hidden">
+    <div className="full-favorite-image-container">
       <Img64 url64={imageUrl} alt={title} className="fav-image" />
       <div className="fav-overlay">
         <span className="fav-title">{title}</span>

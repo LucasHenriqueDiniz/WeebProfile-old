@@ -16,8 +16,8 @@ export default function SimpleStatistics({ statisticsData }: { statisticsData: M
   const { pluginMal } = getEnvVariables();
   if (!pluginMal) throw new Error("MAL plugin not found in MalStatistics component");
 
-  const title = pluginMal.stats_simple_title;
-  const hideTitle = pluginMal.stats_simple_hide_title;
+  const title = pluginMal.statistics_simple_title;
+  const hideTitle = pluginMal.statistics_simple_hide_title;
 
   const TotalDays = statisticsData.anime.days_watched + statisticsData.manga.days_read;
   const TotalMeanScore =

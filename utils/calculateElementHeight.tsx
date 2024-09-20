@@ -24,7 +24,7 @@ async function calculateElementHeight(activePlugins: ReactNode, env: Env): Promi
           {css}
         </head>
         <body>
-          <div id="svg-main" className={`${env.size}`} style={{ width: "100%", maxWidth: getSvgWidth(isHalf), display: "flex", flexDirection: "column" }}>
+          <div id="svg-main" className={`${env.size} ${env.style}`} style={{ width: "100%", maxWidth: getSvgWidth(isHalf), display: "flex", flexDirection: "column" }}>
             {activePlugins}
           </div>
         </body>
@@ -86,6 +86,9 @@ async function calculateElementHeight(activePlugins: ReactNode, env: Env): Promi
     // body height
     const height = boundingBox?.height ?? 0;
     console.log("MAIN > REAL HEIGHT SERVER", height);
+
+    //wait 30s to tst
+    await new Promise((resolve) => setTimeout(resolve, 60000));
 
     await browser.close();
 
