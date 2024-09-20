@@ -77,7 +77,8 @@ function loadEnv(): Env {
 
     const plugin_mal_username = process.env.PLUGIN_MAL_USERNAME as string;
     if (!plugin_mal_username) {
-      throw new Error("Missing PLUGIN_MAL_USERNAME");
+      console.error("Missing PLUGIN_MAL_USERNAME: ", plugin_mal_username);
+      return null;
     }
 
     activePlugins.push("mal");
@@ -174,7 +175,8 @@ function loadEnv(): Env {
     const plugin_lastfm_username = process.env.PLUGIN_LASTFM_USERNAME as string;
 
     if (!plugin_lastfm_username) {
-      throw new Error("Missing PLUGIN_LASTFM_USERNAME");
+      console.error("Missing PLUGIN_LASTFM_USERNAME: ", plugin_lastfm_username);
+      return null;
     }
 
     const plugin_lastfm_sections = process.env.PLUGIN_LASTFM_SECTIONS ?? envDefaults.PLUGIN_LASTFM_SECTIONS;
@@ -241,7 +243,8 @@ function loadEnv(): Env {
     const plugin_github_username = process.env.PLUGIN_GITHUB_USERNAME as string;
 
     if (!plugin_github_username) {
-      throw new Error("Missing PLUGIN_GITHUB_USERNAME");
+      console.error(`Missing PLUGIN_GITHUB_USERNAME: ${plugin_github_username}`);
+      return null;
     }
 
     activePlugins.push("github");

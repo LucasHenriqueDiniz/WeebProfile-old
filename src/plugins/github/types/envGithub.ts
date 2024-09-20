@@ -1,4 +1,4 @@
-export const allGIThubSections = ["profile", "repositories", "favorite_languages", "favorite_license"];
+export const allGIThubSections = "profile, repositories, favorite_languages, favorite_license";
 
 export interface githubPlugin {
   username: string;

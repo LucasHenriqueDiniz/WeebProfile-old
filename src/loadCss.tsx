@@ -17,6 +17,8 @@ export async function LoadCss(Env: Env) {
     const fontsFile = fs.readFileSync(path.resolve(__dirname, "./styles/fonts.css"), "utf8");
     const halfCssFile = fs.readFileSync(path.resolve(__dirname, "./styles/half.css"), "utf8");
     const halfMimizedCss = halfCssFile.replace(/\s{2,10}/g, " ").replace(/(\r\n|\n|\r)/gm, "");
+    const mainCssFile = fs.readFileSync(path.resolve(__dirname, "./styles/main.css"), "utf8");
+    const mainMimizedCss = mainCssFile.replace(/\s{2,10}/g, " ").replace(/(\r\n|\n|\r)/gm, "");
 
     switch (style) {
       case "terminal":
@@ -34,6 +36,7 @@ export async function LoadCss(Env: Env) {
         <style>{fontsFile}</style>
         <style>{css}</style>
         {customCss && <style>{customCss}</style>}
+        <style>{mainMimizedCss}</style>
       </>
     );
   } else {
