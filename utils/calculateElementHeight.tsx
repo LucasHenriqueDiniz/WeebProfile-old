@@ -37,18 +37,18 @@ async function calculateElementHeight(activePlugins: ReactNode, env: Env): Promi
     const fs = require("fs");
     const path = require("path");
 
-    const fontsFile = fs.readFileSync(path.resolve(__dirname, "../styles/fonts.css"), "utf8");
+    const fontsFile = fs.readFileSync(path.resolve(__dirname, "../src/styles/fonts.css"), "utf8");
 
-    const halfCssFile = fs.readFileSync(path.resolve(__dirname, "../styles/half.css"), "utf8");
+    const halfCssFile = fs.readFileSync(path.resolve(__dirname, "../src/styles/half.css"), "utf8");
     const halfMimizedCss = halfCssFile.replace(/\s{2,10}/g, " ").replace(/(\r\n|\n|\r)/gm, "");
 
-    const mainCssFile = fs.readFileSync(path.resolve(__dirname, "../styles/main.css"), "utf8");
+    const mainCssFile = fs.readFileSync(path.resolve(__dirname, "../src/styles/main.css"), "utf8");
     const mainMimizedCss = mainCssFile.replace(/\s{2,10}/g, " ").replace(/(\r\n|\n|\r)/gm, "");
 
-    const terminalCss = fs.readFileSync(path.resolve(__dirname, "../styles/terminal.css"), "utf8");
+    const terminalCss = fs.readFileSync(path.resolve(__dirname, "../src/styles/terminal.css"), "utf8");
     const terminalMimizedCss = terminalCss.replace(/\s{2,10}/g, " ").replace(/(\r\n|\n|\r)/gm, "");
 
-    const defaultCssFile = fs.readFileSync(path.resolve(__dirname, "../styles/default.css"), "utf8");
+    const defaultCssFile = fs.readFileSync(path.resolve(__dirname, "../src/styles/default.css"), "utf8");
     const defaultMimizedCss = defaultCssFile.replace(/\s{2,10}/g, " ").replace(/(\r\n|\n|\r)/gm, "");
 
     const browser = await puppeteer.launch({
