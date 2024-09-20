@@ -26,8 +26,8 @@ export interface MyAnimeListPlugin {
   anime_favorites_hide_title: boolean;
   anime_favorites_title: string;
 
-  characters_favorites_max: number;
-  characters_favorites_hide_title: boolean;
+  character_favorites_max: number;
+  character_favorites_hide_title: boolean;
   character_favorites_title: string;
 
   people_favorites_max: number;

@@ -94,9 +94,9 @@ function loadEnv(): Env {
     const plugin_mal_people_favorites_title = env.PLUGIN_MAL_PEOPLE_FAVORITES_TITLE ?? envDefaults.PLUGIN_MAL_PEOPLE_FAVORITES_TITLE;
     const plugin_mal_people_favorites_max = parseInt(process.env.PLUGIN_MAL_PEOPLE_FAVORITES_MAX ?? envDefaults.PLUGIN_MAL_PEOPLE_FAVORITES_MAX);
 
-    const plugin_mal_characters_favorites_title = env.PLUGIN_MAL_CHARACTERS_FAVORITES_TITLE ?? envDefaults.PLUGIN_MAL_CHARACTERS_FAVORITES_TITLE;
-    const plugin_mal_characters_favorites_max = parseInt(process.env.PLUGIN_MAL_CHARACTERS_FAVORITES_MAX ?? envDefaults.PLUGIN_MAL_CHARACTERS_FAVORITES_MAX);
-    const plugin_mal_characters_favorites_hide_title = toBoolean(env.PLUGIN_MAL_MANGA_FAVORITES_HIDE_TITLE);
+    const plugin_mal_character_favorites_title = env.PLUGIN_MAL_CHARACTER_FAVORITES_TITLE ?? envDefaults.PLUGIN_MAL_CHARACTER_FAVORITES_TITLE;
+    const plugin_mal_character_favorites_max = parseInt(process.env.PLUGIN_MAL_CHARACTER_FAVORITES_MAX ?? envDefaults.PLUGIN_MAL_CHARACTER_FAVORITES_MAX);
+    const plugin_mal_character_favorites_hide_title = toBoolean(env.PLUGIN_MAL_CHARACTER_FAVORITES_HIDE_TITLE);
 
     const plugin_mal_manga_favorites_hide_title = toBoolean(env.PLUGIN_MAL_PEOPLE_FAVORITES_HIDE_TITLE);
     const plugin_mal_manga_favorites_max = parseInt(process.env.PLUGIN_MAL_MANGA_FAVORITES_MAX ?? envDefaults.PLUGIN_MAL_MANGA_FAVORITES_MAX);
@@ -131,9 +131,9 @@ function loadEnv(): Env {
         anime_favorites_title: plugin_mal_anime_favorites_title,
         anime_favorites_hide_title: plugin_mal_anime_favorites_hide_title,
 
-        characters_favorites_max: plugin_mal_characters_favorites_max,
-        characters_favorites_hide_title: plugin_mal_characters_favorites_hide_title,
-        character_favorites_title: plugin_mal_characters_favorites_title,
+        character_favorites_max: plugin_mal_character_favorites_max,
+        character_favorites_hide_title: plugin_mal_character_favorites_hide_title,
+        character_favorites_title: plugin_mal_character_favorites_title,
 
         people_favorites_max: plugin_mal_people_favorites_max,
         people_favorites_hide_title: plugin_mal_people_favorites_hide_title,

@@ -63,8 +63,8 @@ function SimpleFavorites({ favoritesData, type }: DefaultSimpleFavoritesProps): 
       title = pluginMal.people_favorites_title;
       break;
     default:
-      maxItems = pluginMal.characters_favorites_max;
-      hideTitle = pluginMal.characters_favorites_hide_title;
+      maxItems = pluginMal.character_favorites_max;
+      hideTitle = pluginMal.character_favorites_hide_title;
       title = pluginMal.character_favorites_title;
   }
 
