@@ -1,14 +1,13 @@
-import React from "react";
 import { FaHeart } from "react-icons/fa";
-import { CharacterFavorites } from "../../../../types/malFavoritesResponse";
-import getEnvVariables from "../../../../utils/getEnvVariables";
-import getPseudoCommands from "../../../../utils/getPseudoCommands";
-import treatJanponeseName from "../../../../utils/treatJaponeseName";
-import Img64 from "../../../base/ImageComponent";
 import DefaultTitle from "../../!templates/Default/Default_Title";
 import RenderBasedOnStyle from "../../!templates/RenderBasedOnStyle";
 import TerminalCommand from "../../!templates/Terminal/Terminal_Command";
 import TerminalLineBreak from "../../!templates/Terminal/Terminal_LineBreak";
+import getEnvVariables from "../../../../utils/getEnvVariables";
+import getPseudoCommands from "../../../../utils/getPseudoCommands";
+import treatJanponeseName from "../../../../utils/treatJaponeseName";
+import Img64 from "../../../base/ImageComponent";
+import { CharacterFavorites } from "../types/malFavoritesResponse";
 
 function DefaultCharacterFavorite({ character, index }: { character: CharacterFavorites; index: number }): JSX.Element {
   const imgSrc = character.images.jpg?.base64;

@@ -17,7 +17,7 @@ interface DefaultSimpleFavoritesProps {
 
 function FavoriteImage({ favorite }: { favorite: AnyMalFavoriteUnique }): JSX.Element {
   const imageUrl = favorite.images.jpg?.base64;
-  const title = "name" in favorite ? favorite.name : favorite.title;
+  const title = "name" in favorite ? treatJanponeseName(favorite.name) : favorite.title;
 
   return (
     <div className="w100 h100 radius-8 max-h-150 relative overflow-hidden">

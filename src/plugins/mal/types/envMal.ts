@@ -1,5 +1,5 @@
 export const AllMyAnimeListSections =
-  "statistics, anime_bar, manga_bar, stats_simple, anime_simple_favorites, manga_simple_favorites, people_simple_favorites, character_simple_favorites, anime_favorites, manga_favorites, people_favorites, character_favorites, last_activity";
+  "statistics, anime_bar, manga_bar, statistics_simple, anime_simple_favorites, manga_simple_favorites, people_simple_favorites, character_simple_favorites, anime_favorites, manga_favorites, people_favorites, character_favorites, last_activity";
 
 export interface MyAnimeListPlugin {
   username: string;
@@ -19,8 +19,8 @@ export interface MyAnimeListPlugin {
   manga_bar_title: string;
   manga_bar_hide_title: boolean;
 
-  stats_simple_title: string;
-  stats_simple_hide_title: boolean;
+  statistics_simple_title: string;
+  statistics_simple_hide_title: boolean;
 
   anime_favorites_max: number;
   anime_favorites_hide_title: boolean;

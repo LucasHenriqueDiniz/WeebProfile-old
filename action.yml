@@ -191,10 +191,10 @@ inputs:
   # 💻 Github Plugin
   PLUGIN_GITHUB:
     description: "Enable Github Plugin"
-    default: "true"
+    default: "false"
     required: false
   PLUGIN_GITHUB_USERNAME:
-    description: "Github Username | Required to enable Github Plugin"
+    description: "Github Username | Required to enable Github Plugin!"
     required: false
   PLUGIN_GITHUB_HIDE_HEADER:
     description: "Hide Header with Github logo and Github text"

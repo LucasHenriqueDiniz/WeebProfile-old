@@ -5,7 +5,7 @@ const envDefaults = {
   STYLE: "default",
   PLUGINS_ORDER: "github, mal, lastfm",
 
-  PLUGIN_MAL_SECTIONS: "stats_simple, anime_favorites, last_activity",
+  PLUGIN_MAL_SECTIONS: "statistics_simple, anime_favorites, last_activity",
   PLUGIN_MAL_LAST_ACTIVITY_MAX: "6",
   PLUGIN_MAL_ANIME_FAVORITES_MAX: "5",
   PLUGIN_MAL_CHARACTERS_FAVORITES_MAX: "5",
@@ -16,7 +16,7 @@ const envDefaults = {
   PLUGIN_MAL_STATISTICS_MEDIA: "anime, manga",
   PLUGIN_MAL_ANIME_BAR_TITLE: "Anime Statistics",
   PLUGIN_MAL_MANGA_BAR_TITLE: "Manga Statistics",
-  PLUGIN_MAL_STATS_SIMPLE_TITLE: "Simple Statistics",
+  PLUGIN_MAL_STATISTICS_SIMPLE_TITLE: "Simple Statistics",
   PLUGIN_MAL_ANIME_FAVORITES_TITLE: "Anime Favorites",
   PLUGIN_MAL_MANGA_FAVORITES_TITLE: "Manga Favorites",
   PLUGIN_MAL_PEOPLE_FAVORITES_TITLE: "People Favorites",

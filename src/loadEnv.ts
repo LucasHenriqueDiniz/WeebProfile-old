@@ -113,8 +113,8 @@ function loadEnv(): Env {
     const plugin_mal_manga_bar_title = env.PLUGIN_MAL_MANGA_BAR_TITLE ?? envDefaults.PLUGIN_MAL_MANGA_BAR_TITLE;
     const plugin_mal_manga_bar_hide_title = toBoolean(env.PLUGIN_MAL_MANGA_BAR_HIDE_TITLE);
 
-    const plugin_mal_stats_simple_title = env.PLUGIN_MAL_STATS_SIMPLE_TITLE ?? envDefaults.PLUGIN_MAL_STATS_SIMPLE_TITLE;
-    const plugin_mal_stats_simple_hide_title = toBoolean(env.PLUGIN_MAL_STATS_SIMPLE_HIDE_TITLE);
+    const plugin_mal_statistics_simple_title = env.PLUGIN_MAL_STATISTICS_SIMPLE_TITLE ?? envDefaults.PLUGIN_MAL_STATISTICS_SIMPLE_TITLE;
+    const plugin_mal_statistics_simple_hide_title = toBoolean(env.PLUGIN_MAL_STATISTICS_SIMPLE_HIDE_TITLE);
 
     const plugin_mal_last_activity_title = env.PLUGIN_MAL_LAST_ACTIVITY_TITLE ?? envDefaults.PLUGIN_MAL_LAST_ACTIVITY_TITLE;
     const plugin_mal_last_activity_max = parseInt(process.env.PLUGIN_MAL_LAST_ACTIVITY_MAX ?? envDefaults.PLUGIN_MAL_LAST_ACTIVITY_MAX);
@@ -143,8 +143,8 @@ function loadEnv(): Env {
         manga_favorites_max: plugin_mal_manga_favorites_max,
         manga_favorites_hide_title: plugin_mal_manga_favorites_hide_title,
 
-        stats_simple_title: plugin_mal_stats_simple_title,
-        stats_simple_hide_title: plugin_mal_stats_simple_hide_title,
+        statistics_simple_title: plugin_mal_statistics_simple_title,
+        statistics_simple_hide_title: plugin_mal_statistics_simple_hide_title,
 
         statistics_anime_title: plugin_mal_statistics_anime_title,
         statistics_manga_title: plugin_mal_statistics_manga_title,

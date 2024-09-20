@@ -1,6 +1,5 @@
-import { ReactNode } from "react";
+import { JSXElementConstructor, ReactElement, ReactNode } from "react";
 import { renderToString } from "react-dom/server";
-import LoadCss from "../src/loadCss";
 import { Env } from "../src/loadEnv";
 import getSvgWidth from "./getSvgWidth";
 import isNodeEnvironment from "./isNodeEnv";
@@ -8,9 +7,9 @@ import isNodeEnvironment from "./isNodeEnv";
 async function calculateElementHeight(activePlugins: ReactNode, env: Env): Promise<number> {
   const isNodeEnv = isNodeEnvironment();
   const isHalf = env.size === "half";
-  const css = await LoadCss(env);
+  // const css = await LoadCss(env);
 
-  const htmlstring = () => {
+  const htmlstring = (css: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode>) => {
     return renderToString(
       <html lang="en" data-color-mode="dark" data-light-theme="light" data-dark-theme="dark">
         <head>
@@ -35,6 +34,18 @@ async function calculateElementHeight(activePlugins: ReactNode, env: Env): Promi
 
   if (isNodeEnv) {
     const puppeteer = require("puppeteer");
+    const fs = require("fs");
+    const path = require("path");
+
+    const fontsFile = fs.readFileSync(path.resolve(__dirname, "./styles/fonts.css"), "utf8");
+    const halfCssFile = fs.readFileSync(path.resolve(__dirname, "./styles/half.css"), "utf8");
+    const halfMimizedCss = halfCssFile.replace(/\s{2,10}/g, " ").replace(/(\r\n|\n|\r)/gm, "");
+    const mainCssFile = fs.readFileSync(path.resolve(__dirname, "./styles/main.css"), "utf8");
+    const mainMimizedCss = mainCssFile.replace(/\s{2,10}/g, " ").replace(/(\r\n|\n|\r)/gm, "");
+    const terminalCss = fs.readFileSync(path.resolve(__dirname, "./styles/terminal.css"), "utf8");
+    const terminalMimizedCss = terminalCss.replace(/\s{2,10}/g, " ").replace(/(\r\n|\n|\r)/gm, "");
+    const defaultCssFile = fs.readFileSync(path.resolve(__dirname, "./styles/default.css"), "utf8");
+    const defaultMimizedCss = defaultCssFile.replace(/\s{2,10}/g, " ").replace(/(\r\n|\n|\r)/gm, "");
 
     const browser = await puppeteer.launch({
       headless: false,
@@ -44,7 +55,18 @@ async function calculateElementHeight(activePlugins: ReactNode, env: Env): Promi
     const page = await browser.newPage();
 
     // Renderizar os activePlugins em uma página HTML temporária
-    await page.setContent(htmlstring());
+    await page.setContent(
+      htmlstring(
+        <>
+          <style>{halfMimizedCss}</style>
+          <style>{mainMimizedCss}</style>
+          <style>{terminalMimizedCss}</style>
+          <style>{defaultMimizedCss}</style>
+          <style>{fontsFile}</style>
+          <style>{fontsFile}</style>
+        </>
+      )
+    );
 
     await page.waitForSelector("#svg-main");
 
@@ -67,7 +89,7 @@ async function calculateElementHeight(activePlugins: ReactNode, env: Env): Promi
   } else {
     // Not in Node env so we need to calculate the height in the browser
     const div = document.createElement("div");
-    div.innerHTML = htmlstring();
+    div.innerHTML = htmlstring(<></>);
     document.body.appendChild(div);
 
     const height = div.getBoundingClientRect().height;
