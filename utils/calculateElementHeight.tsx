@@ -87,9 +87,6 @@ async function calculateElementHeight(activePlugins: ReactNode, env: Env): Promi
     const height = boundingBox?.height ?? 0;
     console.log("MAIN > REAL HEIGHT SERVER", height);
 
-    //wait 30s to tst
-    await new Promise((resolve) => setTimeout(resolve, 60000));
-
     await browser.close();
 
     return height;
