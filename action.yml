@@ -122,6 +122,14 @@ inputs:
     description: "Hide Title of the people favorites section"
     default: "false"
     required: false
+  PLUGIN_MAL_STATISTICS_SIMPLE_HIDE_TITLE:
+    description: "Hide Title of the simple statistics section"
+    default: "false"
+    required: false
+  PLUGIN_MAL_STATISTICS_SIMPLE_TITLE:
+    description: "Title of the simple statistics section"
+    default: "Simple Statistics"
+    required: false
   # ====================================================================================
   # 🎵 Last.fm Plugin
   PLUGIN_LASTFM:
@@ -292,6 +300,8 @@ runs:
         PLUGIN_MAL_STATISTICS_MANGA_TITLE: ${{ inputs.PLUGIN_MAL_STATISTICS_MANGA_TITLE }}
         PLUGIN_MAL_STATISTICS_MEDIA: ${{ inputs.PLUGIN_MAL_STATISTICS_MEDIA }}
         PLUGIN_MAL_STATISTICS_HIDE_TITLE: ${{ inputs.PLUGIN_MAL_STATISTICS_HIDE_TITLE }}
+        PLUGIN_MAL_STATISTICS_SIMPLE_HIDE_TITLE: ${{ inputs.PLUGIN_MAL_STATISTICS_SIMPLE_HIDE_TITLE }}
+        PLUGIN_MAL_STATISTICS_SIMPLE_TITLE: ${{ inputs.PLUGIN_MAL_STATISTICS_SIMPLE_TITLE }}
         # ====================================================================================
         PLUGIN_LASTFM: ${{ inputs.PLUGIN_LASTFM }}
         PLUGIN_LASTFM_USERNAME: ${{ inputs.PLUGIN_LASTFM_USERNAME }}
