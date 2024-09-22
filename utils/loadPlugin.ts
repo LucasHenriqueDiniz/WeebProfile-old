@@ -20,7 +20,7 @@ function loadPlugin<T extends Record<string, any>>(
   for (const key in pluginSpecificEnvVariables) {
     const { defaultValue, required, type } = pluginSpecificEnvVariables[key];
     //ignore if === plugin_name
-    const variable = key === firstKey ? key : `PLUGIN_${pluginName.toUpperCase()}_${key.toUpperCase()}`;
+    const variable = key === firstKey ? key.toUpperCase() : `PLUGIN_${pluginName}_${key}`.toUpperCase();
     let value = envVars[variable];
 
     if (required && !value) {
