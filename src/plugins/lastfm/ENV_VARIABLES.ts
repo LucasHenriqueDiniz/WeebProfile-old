@@ -1,5 +1,5 @@
 import ENV_VARIABLES_TYPE from "../../../types/envVariables";
-import LastFmPlugin, { allLastFmSections } from "./types/envLastFM";
+import LastFmPlugin from "./types/envLastFM";
 
 const LASTFM_ENV_VARIABLES: Record<keyof LastFmPlugin, ENV_VARIABLES_TYPE> = {
   plugin_lastfm: { required: true, type: "boolean", description: "Enable LastFM plugin" },

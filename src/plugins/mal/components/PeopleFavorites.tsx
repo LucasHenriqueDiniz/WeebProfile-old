@@ -5,13 +5,13 @@ import TerminalCommand from "../../!templates/Terminal/Terminal_Command";
 import TerminalLineBreak from "../../!templates/Terminal/Terminal_LineBreak";
 import getEnvVariables from "../../../../utils/getEnvVariables";
 import getPseudoCommands from "../../../../utils/getPseudoCommands";
-import treatJanponeseName from "../../../../utils/treatJaponeseName";
+import treatJaponeseName from "../../../../utils/treatJaponeseName";
 import Img64 from "../../../base/ImageComponent";
-import { CharacterFavorites } from "../types/malFavoritesResponse";
+import { PeopleFavorites } from "../types/malFavoritesResponse";
 
-function DefaultCharacterFavorite({ character, index }: { character: CharacterFavorites; index: number }): JSX.Element {
-  const imgSrc = character.images.jpg?.base64;
-  const name = treatJanponeseName(character.name);
+function DefaultPeopleFavorite({ person, index }: { person: PeopleFavorites; index: number }): JSX.Element {
+  const imgSrc = person.images.jpg?.base64;
+  const name = treatJaponeseName(person.name);
 
   return (
     <div className="h-50 flex radius-16 overflow-hidden border-primary-50">
@@ -24,9 +24,9 @@ function DefaultCharacterFavorite({ character, index }: { character: CharacterFa
   );
 }
 
-function TerminalCharacterFavorite({ character, index }: { character: CharacterFavorites; index: number }): JSX.Element {
-  const name = treatJanponeseName(character.name);
-  const url = character.url;
+function TerminalPeopleFavorite({ person, index }: { person: PeopleFavorites; index: number }): JSX.Element {
+  const name = treatJaponeseName(person.name);
+  const url = person.url;
 
   return (
     <div className="flex align-center sm-text gap-4">
@@ -38,33 +38,33 @@ function TerminalCharacterFavorite({ character, index }: { character: CharacterF
   );
 }
 
-function DefaultCharactersFavorites({ favoritesData }: { favoritesData: CharacterFavorites[] }): JSX.Element {
+function MainPeopleFavorites({ favoritesData }: { favoritesData: PeopleFavorites[] }): JSX.Element {
   const { pluginMal } = getEnvVariables();
-  if (!pluginMal) throw new Error("MAL plugin not found in DefaultCharactersFavorites component");
+  if (!pluginMal) throw new Error("MAL plugin not found in DefaultPeopleFavorites component");
 
-  const hideTitle = pluginMal.character_favorites_hide_title;
-  const maxFavorites = pluginMal.character_favorites_max;
-  const title = pluginMal.character_favorites_title;
+  const hideTitle = pluginMal.people_favorites_hide_title;
+  const maxFavorites = pluginMal.people_favorites_max;
+  const title = pluginMal.people_favorites_title;
 
   return (
-    <section id="mal" className="characters-favorites">
+    <section id="mal" className="people-favorites">
       <RenderBasedOnStyle
         defaultComponent={
           <>
             {!hideTitle && <DefaultTitle title={title} icon={<FaHeart />} />}
             <div className="flex-d gap-4">
               {favoritesData.map((data, index) => (
-                <DefaultCharacterFavorite character={data} index={index} key={data.mal_id} />
+                <DefaultPeopleFavorite person={data} index={index} key={data.mal_id} />
               ))}
             </div>
           </>
         }
         terminalComponent={
           <>
-            <TerminalCommand command={getPseudoCommands({ plugin: "mal", section: "characters_favorites", username: pluginMal.username, limit: maxFavorites })} />
+            <TerminalCommand command={getPseudoCommands({ plugin: "mal", section: "people_favorites", username: pluginMal.username, limit: maxFavorites })} />
             <div className="flex-d gap-4">
               {favoritesData.map((data, index) => (
-                <TerminalCharacterFavorite character={data} index={index} key={data.mal_id} />
+                <TerminalPeopleFavorite person={data} index={index} key={data.mal_id} />
               ))}
             </div>
             <TerminalLineBreak />
@@ -75,4 +75,4 @@ function DefaultCharactersFavorites({ favoritesData }: { favoritesData: Characte
   );
 }
 
-export default DefaultCharactersFavorites;
+export default MainPeopleFavorites;

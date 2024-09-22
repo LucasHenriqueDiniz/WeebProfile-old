@@ -13,6 +13,7 @@ import Statistics from "./components/Statistics";
 import MyAnimeListPlugin, { AllMyAnimeListSections } from "./types/envMal";
 import { MalData } from "./types/malTypes";
 import MangaFavorites from "./components/MangaFavorites";
+import PeopleFavorites from "./components/PeopleFavorites";
 
 const sectionRenderers: Record<string, (malData: MalData) => JSX.Element> = {
   statistics: (malData: MalData) => <Statistics statisticsData={malData.statistics} />,
@@ -30,7 +31,7 @@ const sectionRenderers: Record<string, (malData: MalData) => JSX.Element> = {
 
   anime_favorites: (malData: MalData) => <AnimeFavorites favoritesData={malData.favorites_full.anime} />,
   manga_favorites: (malData: MalData) => <MangaFavorites favoritesData={malData.favorites_full.manga} />,
-  // people_favorites: (malData: MalData) => <section>not yet made people_favorites</section>,
+  people_favorites: (malData: MalData) => <PeopleFavorites favoritesData={malData.favorites.people} />,
   character_favorites: (malData: MalData) => <CharactersFavorites favoritesData={malData.favorites.characters} />,
 };
 

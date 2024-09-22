@@ -43,7 +43,7 @@ const TerminalTree = ({ data, title }: { data: GridItemProps[]; title: string })
 
   return (
     <div className="terminal-tree">
-      <div className="text-raw">{title}</div>
+      <div className="text-raw md-text text-bold text-uppercase">{title}</div>
       {data.map((item, index) => renderTreeItem(item, index === data.length - 1))}
     </div>
   );

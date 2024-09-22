@@ -3,6 +3,8 @@ import path from "path";
 import ENV_VARIABLES_TYPE from "../../types/envVariables";
 import STABLE_PLUGINS from "../STABLE_PLUGINS";
 
+// @TODO IMPROVE THIS SHIT
+
 type PluginEnvVariables = Record<string, ENV_VARIABLES_TYPE>;
 
 function generateTitle(main: string, sub?: string) {
@@ -77,20 +79,46 @@ function generateOptionsTable(envVariables: PluginEnvVariables, pluginName: stri
 function generateSectionsTable(sections: string[], pluginName: string) {
   let sectionsTable = "\n<!-- Supported sections -->\n\n";
   sectionsTable += "## 🖼️ Supported sections\n\n";
+  sectionsTable += `<h4>Right ${pluginName} supports ${sections.length} sections with 2 styles each</h4>\n\n`;
+  sectionsTable += "<p>Here are the available sections and their respective images:</p>\n\n";
+  sectionsTable += "# <p><b>Default Style:</b></p>\n\n";
+  sectionsTable += "<sub>This is the default style for all sections. If you want to use a different style, you can specify it in the plugin options.</sub>\n\n";
   sectionsTable += "<table>\n";
   sectionsTable += "  <tr>\n";
   sectionsTable += '    <td align="center" nowrap="nowrap">Section</td>\n';
-  sectionsTable += '    <td align="center" nowrap="nowrap">Image</td>\n';
+  sectionsTable += '    <td align="center" width="600px" nowrap="nowrap">Default Image Showcase</td>\n';
   sectionsTable += "  </tr>\n";
 
   for (const section of sections) {
-    const imagePath = path.join(__dirname, `../plugins/${pluginName}/assets/${section}.svg`);
+    const imagePath = path.join(__dirname, `../plugins/${pluginName}/assets/default/${section}.svg`);
     const imageExists = fs.existsSync(imagePath);
 
     sectionsTable += "  <tr>\n";
     sectionsTable += `    <td align="center" nowrap="nowrap"><code>${section}</code></td>\n`;
     sectionsTable += `    <td align="center" nowrap="nowrap">${
-      imageExists ? `<img src="./src/plugins/${pluginName}/assets/${section.toLocaleLowerCase()}.svg">` : `<span style="color: red;">Image for ${section} not found</span>`
+      imageExists ? `<img src="./src/plugins/${pluginName}/assets/default/${section.toLocaleLowerCase()}.svg">` : `<span style="color: red;">Image for ${section} not found</span>`
+    }</td>\n`;
+    sectionsTable += "  </tr>\n";
+  }
+  sectionsTable += "</table>\n";
+
+  sectionsTable += "# <p><b>Terminal Style:</b></p>\n\n";
+  sectionsTable +=
+    "<sub>This is the terminal style version of the sections. If you want to use this style you can specify it in the plugin options.<code>style: 'terminal'</code></sub>\n\n";
+  sectionsTable += "<table>\n";
+  sectionsTable += "  <tr>\n";
+  sectionsTable += '    <td align="center" nowrap="nowrap">Section</td>\n';
+  sectionsTable += '    <td align="center" width="600px" nowrap="nowrap">Terminal Image Showcase</td>\n';
+  sectionsTable += "  </tr>\n";
+
+  for (const section of sections) {
+    const imagePath = path.join(__dirname, `../plugins/${pluginName}/assets/terminal/${section}.svg`);
+    const imageExists = fs.existsSync(imagePath);
+
+    sectionsTable += "  <tr>\n";
+    sectionsTable += `    <td align="center" nowrap="nowrap"><code>${section}</code></td>\n`;
+    sectionsTable += `    <td align="center" nowrap="nowrap">${
+      imageExists ? `<img src="./src/plugins/${pluginName}/assets/terminal/${section.toLocaleLowerCase()}.svg">` : `<span style="color: red;">Image for ${section} not found</span>`
     }</td>\n`;
     sectionsTable += "  </tr>\n";
   }
@@ -105,29 +133,52 @@ function generateAllSectionsTable() {
   let allSectionsTable = "\n<!-- Supported sections -->\n\n";
   allSectionsTable += "## 🖼️ Supported sections\n\n";
   STABLE_PLUGINS.forEach(({ name, sections }) => {
-    allSectionsTable += `<details open>\n<summary>${name.toUpperCase()}</summary>\n\n`;
+    allSectionsTable += `<details open><b>\n<summary>${name.toUpperCase()}</b></summary>\n\n`;
+    allSectionsTable += `<h4>Right we support ${sections.length} sections with 2 styles each</h4>\n\n`;
+    allSectionsTable += "<p>Here are the available sections and their respective images:</p>\n\n";
+    allSectionsTable += "# <p><b>Default Style:</b></p>\n\n";
+    allSectionsTable += "<sub>This is the default style for all sections. If you want to use a different style, you can specify it in the plugin options.</sub>\n\n";
     allSectionsTable += "<table>\n";
     allSectionsTable += "  <tr>\n";
     allSectionsTable += '    <td align="center" nowrap="nowrap">Section</td>\n';
     allSectionsTable += '    <td align="center" nowrap="nowrap">Image</td>\n';
     allSectionsTable += "  </tr>\n";
     sections.forEach((section) => {
-      const imagePath = path.join(__dirname, `../plugins/${name}/assets/${section}.svg`);
+      const imagePath = path.join(__dirname, `../plugins/${name}/assets/default/${section}.svg`);
       const imageExists = fs.existsSync(imagePath);
 
       allSectionsTable += "  <tr>\n";
       allSectionsTable += `    <td align="center" nowrap="nowrap"><code>${section}</code></td>\n`;
       allSectionsTable += `    <td align="center" nowrap="nowrap">${
-        imageExists
-          ? // ? `![${section}](./src/plugins/${name}/assets/${section.toLocaleLowerCase()}.svg?sanitize=true)`
-            `<img src="./src/plugins/${name}/assets/${section.toLocaleLowerCase()}.svg">`
-          : `<span style="color: red;">Image for ${section} not found</span>`
+        imageExists ? `<img src="./src/plugins/${name}/assets/default/${section.toLocaleLowerCase()}.svg">` : `<span style="color: red;">Image for ${section} not found</span>`
       }</td>\n`;
       allSectionsTable += "  </tr>\n";
     });
     allSectionsTable += "</table>\n";
     allSectionsTable += "</details>\n\n";
+
+    allSectionsTable += "# <p><b>Terminal Style:</b></p>\n\n";
+    allSectionsTable +=
+      "<sub>This is the terminal style version of the sections. If you want to use this style you can specify it in the plugin options.<code>style: 'terminal'</code></sub>\n\n";
+    allSectionsTable += "<table>\n";
+    allSectionsTable += "  <tr>\n";
+    allSectionsTable += '    <td align="center" nowrap="nowrap">Section</td>\n';
+    allSectionsTable += '    <td align="center" nowrap="nowrap">Image</td>\n';
+    allSectionsTable += "  </tr>\n";
+    sections.forEach((section) => {
+      const imagePath = path.join(__dirname, `../plugins/${name}/assets/terminal/${section}.svg`);
+      const imageExists = fs.existsSync(imagePath);
+
+      allSectionsTable += "  <tr>\n";
+      allSectionsTable += `    <td align="center" nowrap="nowrap"><code>${section}</code></td>\n`;
+      allSectionsTable += `    <td align="center" nowrap="nowrap">${
+        imageExists ? `<img src="./src/plugins/${name}/assets/terminal/${section.toLocaleLowerCase()}.svg">` : `<span style="color: red;">Image for ${section} not found</span>`
+      }</td>\n`;
+      allSectionsTable += "  </tr>\n";
+    });
+    allSectionsTable += "</table>\n";
   });
+
   return allSectionsTable;
 }
 

@@ -4,6 +4,14 @@
   padding: 0;
 }
 
+#svg-main {
+  --color-watching: rgba(33, 150, 243, 1);
+  --color-completed: rgba(76, 175, 80, 1);
+  --color-onhold: rgba(255, 193, 7, 1);
+  --color-dropped: rgba(255, 106, 106, 1);
+  --color-plan-to-watch: rgba(128, 128, 128, 1);
+}
+
 section {
   width: 100%;
   padding: 0 8px;
@@ -16,7 +24,7 @@ section {
 }
 
 .w-auto {
-  width: auto;
+  width: auto !important;
 }
 
 .h-auto {
@@ -425,6 +433,9 @@ px-4 {
 .capitalize {
   text-transform: capitalize;
 }
+.text-uppercase {
+  text-transform: uppercase;
+}
 
 .text-nowrap {
   white-space: nowrap;
@@ -492,4 +503,149 @@ px-4 {
   color: #ff5370;
   font-size: 12px;
   font-weight: 600;
+}
+
+.synopsis {
+  font-size: 11px;
+  color: var(--color-text-grey);
+  letter-spacing: -0.01em;
+  line-height: 1.25em;
+  margin-bottom: 4px;
+}
+
+.border-0 {
+  border: 0 !important;
+}
+
+.tags-color-red {
+  color: #f08080;
+  border: 1px solid #f08080;
+}
+.tags-color-brown {
+  color: #deb887;
+  border: 1px solid #deb887;
+}
+.tags-color-blue {
+  color: #add8e6;
+  border: 1px solid #add8e6;
+}
+.tags-color-yellow {
+  color: #fffacd;
+  border: 1px solid #fffacd;
+}
+.tags-color-purple {
+  color: #dda0dd;
+  border: 1px solid #dda0dd;
+}
+.tags-color-dark-red {
+  color: #bc8f8f;
+  border: 1px solid #bc8f8f;
+}
+.tags-color-dark-purple {
+  color: #d8bfd8;
+  border: 1px solid #d8bfd8;
+}
+.tags-color-dark-blue {
+  color: #b0c4de;
+  border: 1px solid #b0c4de;
+}
+.tags-color-pink {
+  color: #ffc0cb;
+  border: 1px solid #ffc0cb;
+}
+.tags-color-light-blue {
+  color: #87ceeb;
+  border: 1px solid #87ceeb;
+}
+.tags-color-green {
+  color: #90ee90;
+  border: 1px solid #90ee90;
+}
+.tags-color-hot-pink {
+  color: #ff69b4;
+  border: 1px solid #ff69b4;
+}
+.tags-color-gold {
+  color: #ffd700;
+  border: 1px solid #ffd700;
+}
+.tags-color-black {
+  color: #000000;
+  border: 1px solid #000000;
+}
+.tags-color-orange {
+  color: #ffa07a;
+  border: 1px solid #ffa07a;
+}
+.tags-color-gray {
+  color: #d3d3d3;
+  border: 1px solid #d3d3d3;
+}
+.tags-color-silver {
+  color: #c0c0c0;
+  border: 1px solid #c0c0c0;
+}
+.tags-color-violet {
+  color: #ee82ee;
+  border: 1px solid #ee82ee;
+}
+.tags-color-light-green {
+  color: #98fb98;
+  border: 1px solid #98fb98;
+}
+.tags-color-dark-gray {
+  color: #a9a9a9;
+  border: 1px solid #a9a9a9;
+}
+.tags-color-white {
+  color: #e0e0e0;
+  border: 1px solid #e0e0e0;
+}
+.tags-color-light-purple {
+  color: #9370db;
+  border: 1px solid #9370db;
+}
+
+.airing,
+.watching {
+  color: var(--color-watching);
+  fill: var(--color-watching);
+}
+.bg-watching {
+  background-color: var(--color-watching);
+}
+
+.finished-airing,
+.finished,
+.completed {
+  color: var(--color-completed);
+  fill: var(--color-completed);
+}
+
+.bg-completed {
+  background-color: var(--color-completed);
+}
+
+.on-hold {
+  color: var(--color-onhold);
+  fill: var(--color-onhold);
+}
+.bg-on-hold {
+  background-color: var(--color-onhold);
+}
+.cancelled,
+.dropped {
+  color: var(--color-dropped);
+  fill: var(--color-dropped);
+}
+.bg-dropped {
+  background-color: var(--color-dropped);
+}
+
+.plan-to-watch {
+  color: var(--color-plan-to-watch);
+  fill: var(--color-plan-to-watch);
+}
+.bg-plan-to-watch {
+  background-color: var(--color-plan-to-watch);
 }

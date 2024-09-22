@@ -1,14 +1,13 @@
-import React from "react";
 import { FaCalendar, FaHashtag, FaHeart, FaStar, FaVideo } from "react-icons/fa";
 import { GoDotFill } from "react-icons/go";
-import getEnvVariables from "../../../../utils/getEnvVariables";
-import getPseudoCommands from "../../../../utils/getPseudoCommands";
-import Img64 from "../../../base/ImageComponent";
 import DefaultTitle from "../../!templates/Default/Default_Title";
-import Tag from "../../!templates/Genre_Tags";
+import { DefaultTag, TerminalTag } from "../../!templates/Genre_Tags";
 import RenderBasedOnStyle from "../../!templates/RenderBasedOnStyle";
 import TerminalCommand from "../../!templates/Terminal/Terminal_Command";
 import TerminalLineBreak from "../../!templates/Terminal/Terminal_LineBreak";
+import getEnvVariables from "../../../../utils/getEnvVariables";
+import getPseudoCommands from "../../../../utils/getPseudoCommands";
+import Img64 from "../../../base/ImageComponent";
 import { FullMalAnimeResponse } from "../types/malFavoritesResponse";
 
 function DefaultFavoriteImage({ favorite, isHalf }: { favorite: FullMalAnimeResponse; isHalf: boolean }): JSX.Element {
@@ -32,7 +31,7 @@ function DefaultFavoriteImage({ favorite, isHalf }: { favorite: FullMalAnimeResp
       </div>
       <div className="w100 flex-d justify-between overflow-hidden">
         <span className="favorite-title">{title}</span>
-        <div className="flex gap-8 items-center">
+        <div className="flex gap-8 items-baseline">
           {mean_score && (
             <span className="color-primary md-text-bold flex items-center gap-2">
               <FaStar className="color-primary" size={14} /> {mean_score}
@@ -57,7 +56,7 @@ function DefaultFavoriteImage({ favorite, isHalf }: { favorite: FullMalAnimeResp
             </span>
           )}
           {status && (
-            <span className={`default-${status.toLowerCase().split(" ").join("-")} md-text-bold flex items-center gap-2 half:hidden`}>
+            <span className={`${status.toLowerCase().split(" ").join("-")} md-text-bold flex items-center gap-2 half:hidden`}>
               <GoDotFill size={14} color="inherit" />
               {status}
             </span>
@@ -65,7 +64,7 @@ function DefaultFavoriteImage({ favorite, isHalf }: { favorite: FullMalAnimeResp
         </div>
         <div className="flex mt-4 gap-4">
           {genres.map((genre) => (
-            <Tag key={genre} text={genre} />
+            <DefaultTag key={genre} text={genre} />
           ))}
         </div>
         <div className="w100 overflow-hidden mt-4">
@@ -88,25 +87,22 @@ function TerminalFavoriteImage({ favorite }: { favorite: FullMalAnimeResponse })
 
   return (
     <div className="sm-text">
-      <div className="text-warning text-overflow text-nowrap">★ {title}</div>
-      <div className="flex gap-2 items-center">
-        {mean_score && <span className="text-bold">⭐ {mean_score}</span>}
-        {popularity && <span className="text-bold"># {popularity}</span>}
-        {num_episodes && <span className="text-bold">🎞️ {num_episodes} eps</span>}
-        {release_year && <span className="text-bold">📅 {release_year}</span>}
-        {status && <span className={`default-${status.toLowerCase().split(" ").join("-")} text-bold`}>● {status}</span>}
+      <div className="text-warning text-overflow text-nowrap">• {title}</div>
+      <div className="flex gap-4 items-baseline">
+        {mean_score && <span className="text-bold">⭐{mean_score}</span>}
+        {popularity && <span className="text-bold">#{popularity}</span>}
+        {num_episodes && <span className="text-bold">🎞️{num_episodes} eps</span>}
+        {release_year && <span className="text-bold">📅{release_year}</span>}
+        {status && <span className={`${status.toLowerCase().split(" ").join("-")} text-bold`}>●{status}</span>}
       </div>
       <div className="flex mt-2 gap-2">
         {genres.map((genre) => (
-          <span key={genre} className="text-info text-xs px-1 border border-info rounded">
-            {genre}
-          </span>
+          <TerminalTag text={genre} />
         ))}
       </div>
       <div className="w100 overflow-hidden mt-2">
         <span className="synopsis line-clamp-2">{synopsis}</span>
       </div>
-      <TerminalLineBreak />
     </div>
   );
 }

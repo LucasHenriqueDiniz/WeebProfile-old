@@ -21,11 +21,7 @@ function FavoriteImage({ favorite, hideOverlay }: { favorite: AnyMalFavoriteUniq
   return (
     <div className="full-favorite-image-container">
       <Img64 url64={imageUrl} alt={title} className="fav-image" />
-      {!hideOverlay && (
-        <div className="fav-overlay">
-          <span className="fav-title">{title}</span>
-        </div>
-      )}
+      {!hideOverlay && <div className="fav-overlay">{title}</div>}
     </div>
   );
 }
