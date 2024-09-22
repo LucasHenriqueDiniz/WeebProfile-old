@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { Env } from "./loadEnv";
+import envType from "../types/envType";
 import TerminalHeader from "./plugins/!templates/Terminal/Terminal_Header";
 import RenderGithub from "./plugins/github";
 import fetchGithubData from "./plugins/github/services/fetchGithub";
@@ -8,11 +8,11 @@ import LastFmApi from "./plugins/lastfm/services/lastFmApi";
 import RenderMyAnimeList from "./plugins/mal";
 import { fetchMalData } from "./plugins/mal/services/malApi";
 
-async function RenderActivePlugins(env: Env): Promise<ReactNode> {
+async function RenderActivePlugins(env: envType): Promise<ReactNode> {
   console.log("RENDER ACTIVE PLUGINS");
   const pluginComponents: { [key: string]: JSX.Element | null } = {};
   const pluginsOrder = env.pluginsOrder;
-
+  console.log("env", env);
   if (env.pluginMal) {
     console.log("RENDER MAL");
     const malData = await fetchMalData(env.pluginMal, env.pluginMal.username);

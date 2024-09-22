@@ -84,3 +84,14 @@
 #svg-main.half .half\:w100 {
   width: 100%;
 }
+#svg-main.half .half\:gap-2 {
+  gap: 2px;
+}
+
+#svg-main.half .half\:min-w-full {
+  min-width: 100%;
+}
+
+#svg-main.half .half\:min-h-full {
+  min-height: 100%;
+}

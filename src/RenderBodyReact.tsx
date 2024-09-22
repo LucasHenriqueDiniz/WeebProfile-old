@@ -1,15 +1,15 @@
 import calculateElementHeight from "../utils/calculateElementHeight";
 import ForeignObject from "./base/ForeignObject";
 import SvgContainer from "./base/SvgContainer";
-import { Env } from "./loadEnv";
 import RenderActivePlugins from "./RenderActivePlugins";
 import "./styles/default.css";
 import "./styles/terminal.css";
 import "./styles/fonts.css";
 import "./styles/half.css";
 import "./styles/main.css";
+import envType from "../types/envType";
 
-async function RenderBody({ env }: { env: Env }): Promise<JSX.Element> {
+async function RenderBody({ env }: { env: envType }): Promise<JSX.Element> {
   console.log("MAIN > RENDER BODY REACT");
   const activePlugins = await RenderActivePlugins(env);
   const svgHeight = await calculateElementHeight(activePlugins, env);

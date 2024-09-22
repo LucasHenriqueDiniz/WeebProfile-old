@@ -10,7 +10,8 @@
     "setup-fonts": "npx tsx src/setup/setupFonts.ts",
     "create-config": "npx tsx src/setup/createConfig.ts",
     "setup": "npm run setup-fonts",
-    "dev": "npm run create-config && vite"
+    "dev": "npm run create-config && vite",
+    "generate-readme": "npx tsx src/readme/generateReadme.ts"
   },
   "keywords": [],
   "dependencies": {

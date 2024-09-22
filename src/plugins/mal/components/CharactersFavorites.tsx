@@ -29,10 +29,10 @@ function TerminalCharacterFavorite({ character, index }: { character: CharacterF
   const url = character.url;
 
   return (
-    <div className="flex align-center sm-text">
-      <span className="text-raw">{index + 1}</span>
+    <div className="flex align-center sm-text gap-4">
+      <span className="text-raw">[{index + 1}]</span>
       <a href={url ?? "#"} target="_blank" rel="noreferrer" className="text-warning md-2-text text-bold">
-        {name}
+        - {name}
       </a>
     </div>
   );
@@ -42,8 +42,8 @@ function DefaultCharactersFavorites({ favoritesData }: { favoritesData: Characte
   const { pluginMal } = getEnvVariables();
   if (!pluginMal) throw new Error("MAL plugin not found in DefaultCharactersFavorites component");
 
-  const hideTitle = pluginMal.characters_favorites_hide_title;
-  const maxFavorites = pluginMal.characters_favorites_max;
+  const hideTitle = pluginMal.character_favorites_hide_title;
+  const maxFavorites = pluginMal.character_favorites_max;
   const title = pluginMal.character_favorites_title;
 
   return (

@@ -1,7 +1,7 @@
+import envType from "../types/envType";
 import isNodeEnvironment from "../utils/isNodeEnv";
-import { Env } from "./loadEnv";
 
-export async function LoadCss(Env: Env) {
+export async function LoadCss(Env: envType) {
   const isHalf = Env.size === "half";
   const customCss = Env.customCss;
   const style = Env.style;

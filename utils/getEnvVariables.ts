@@ -1,12 +1,19 @@
-import loadEnv, { Env } from "../src/loadEnv";
-import isNodeEnvironment from "./isNodeEnv";
 import config from "../src/config";
+import loadEnv from "../src/loadEnv";
+import envType from "../types/envType";
+import isNodeEnvironment from "./isNodeEnv";
 
-function getEnvVariables(): Env {
+let cachedEnv: envType | null = null;
+
+function getEnvVariables(): envType {
   const isNodeEnv = isNodeEnvironment();
 
   if (isNodeEnv) {
-    return loadEnv();
+    // return loadEnv();
+    if (!cachedEnv) {
+      cachedEnv = loadEnv();
+    }
+    return cachedEnv;
   } else {
     return config;
   }
