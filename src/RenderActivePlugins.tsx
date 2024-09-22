@@ -12,7 +12,7 @@ async function RenderActivePlugins(env: envType): Promise<ReactNode> {
   console.log("RENDER ACTIVE PLUGINS");
   const pluginComponents: { [key: string]: JSX.Element | null } = {};
   const pluginsOrder = env.pluginsOrder;
-  console.log("env", env);
+
   if (env.pluginMal) {
     console.log("RENDER MAL");
     const malData = await fetchMalData(env.pluginMal, env.pluginMal.username);
