@@ -214,10 +214,10 @@ GITHUB_FAVORITE_LICENSE_HIDE_TITLE=true
   </tr>
   <tr>
     <td nowrap="nowrap"><code>favorite_languages</code></td>
-    <td nowrap="nowrap"><img src="../../assets/github/favorite_languages.svg?sanitize=true" alt="favorite_languages visualization" width="300"></td>
+    <td nowrap="nowrap">![favorite_languages](./src/plugins/github/assets/favorite_languages.svg?sanitize=true)</td>
   </tr>
   <tr>
     <td nowrap="nowrap"><code>favorite_license</code></td>
-    <td nowrap="nowrap"><img src="../../assets/github/favorite_license.svg?sanitize=true" alt="favorite_license visualization" width="300"></td>
+    <td nowrap="nowrap">![favorite_license](./src/plugins/github/assets/favorite_license.svg?sanitize=true)</td>
   </tr>
 </table>

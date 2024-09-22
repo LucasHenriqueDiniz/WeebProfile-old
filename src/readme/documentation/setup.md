@@ -123,10 +123,15 @@ jobs:
 ![MyAnimeList](https://gist.githubusercontent.com/username/gist_id/raw/MyAnimeList.svg)
 ```
 
+> 💡 Don't forget to replace `username` and `gist_id` with your GitHub username and Gist ID
+> 💡 If you used other filename in the action replace in the link ex: LastFM.svg or MyAnimeList.svg
+
 - Replace `username` and `gist_id` with your GitHub username and Gist ID
 - Save the changes
 
 ### 7. Done!
 
 > 💡 Now in your profile, you should see the SVGs like this
-> ![Profile example](/src/readme/imgs/profile_example.png)
+
+Example:
+![Profile example](/src/readme/imgs/profile_example.png)

@@ -20,15 +20,15 @@ A simple and customizable way to display code, anime, and music stats on your Gi
 
 ## 📦 Available plugins
 
-- [MAL](./plugins/mal/README.md)
-- [LASTFM](./plugins/lastfm/README.md)
-- [GITHUB](./plugins/github/README.md)
+- [MAL](.src/plugins/mal/README.md)
+- [LASTFM](.src/plugins/lastfm/README.md)
+- [GITHUB](.src/plugins/github/README.md)
 
 <!-- Supported sections -->
 
 ### 🖼️ Supported sections
 
-<details>
+<details open>
 <summary>MAL</summary>
 
 <table>
@@ -38,43 +38,43 @@ A simple and customizable way to display code, anime, and music stats on your Gi
   </tr>
   <tr>
     <td nowrap="nowrap"><code>statistics</code></td>
-    <td nowrap="nowrap"><img src="../../assets/mal/statistics.svg?sanitize=true" alt="statistics visualization" width="300"></td>
+    <td nowrap="nowrap">![statistics](./src/plugins/mal/assets/statistics.svg?sanitize=true)</td>
   </tr>
   <tr>
     <td nowrap="nowrap"><code>anime_bar</code></td>
-    <td nowrap="nowrap"><img src="../../assets/mal/anime_bar.svg?sanitize=true" alt="anime_bar visualization" width="300"></td>
+    <td nowrap="nowrap">![anime_bar](./src/plugins/mal/assets/anime_bar.svg?sanitize=true)</td>
   </tr>
   <tr>
     <td nowrap="nowrap"><code>manga_bar</code></td>
-    <td nowrap="nowrap"><img src="../../assets/mal/manga_bar.svg?sanitize=true" alt="manga_bar visualization" width="300"></td>
+    <td nowrap="nowrap">![manga_bar](./src/plugins/mal/assets/manga_bar.svg?sanitize=true)</td>
   </tr>
   <tr>
     <td nowrap="nowrap"><code>statistics_simple</code></td>
-    <td nowrap="nowrap"><img src="../../assets/mal/statistics_simple.svg?sanitize=true" alt="statistics_simple visualization" width="300"></td>
+    <td nowrap="nowrap">![statistics_simple](./src/plugins/mal/assets/statistics_simple.svg?sanitize=true)</td>
   </tr>
   <tr>
     <td nowrap="nowrap"><code>anime_simple_favorites</code></td>
-    <td nowrap="nowrap"><img src="../../assets/mal/anime_simple_favorites.svg?sanitize=true" alt="anime_simple_favorites visualization" width="300"></td>
+    <td nowrap="nowrap">![anime_simple_favorites](./src/plugins/mal/assets/anime_simple_favorites.svg?sanitize=true)</td>
   </tr>
   <tr>
     <td nowrap="nowrap"><code>manga_simple_favorites</code></td>
-    <td nowrap="nowrap"><img src="../../assets/mal/manga_simple_favorites.svg?sanitize=true" alt="manga_simple_favorites visualization" width="300"></td>
+    <td nowrap="nowrap">![manga_simple_favorites](./src/plugins/mal/assets/manga_simple_favorites.svg?sanitize=true)</td>
   </tr>
   <tr>
     <td nowrap="nowrap"><code>people_simple_favorites</code></td>
-    <td nowrap="nowrap"><img src="../../assets/mal/people_simple_favorites.svg?sanitize=true" alt="people_simple_favorites visualization" width="300"></td>
+    <td nowrap="nowrap">![people_simple_favorites](./src/plugins/mal/assets/people_simple_favorites.svg?sanitize=true)</td>
   </tr>
   <tr>
     <td nowrap="nowrap"><code>character_simple_favorites</code></td>
-    <td nowrap="nowrap"><img src="../../assets/mal/character_simple_favorites.svg?sanitize=true" alt="character_simple_favorites visualization" width="300"></td>
+    <td nowrap="nowrap">![character_simple_favorites](./src/plugins/mal/assets/character_simple_favorites.svg?sanitize=true)</td>
   </tr>
   <tr>
     <td nowrap="nowrap"><code>anime_favorites</code></td>
-    <td nowrap="nowrap"><img src="../../assets/mal/anime_favorites.svg?sanitize=true" alt="anime_favorites visualization" width="300"></td>
+    <td nowrap="nowrap">![anime_favorites](./src/plugins/mal/assets/anime_favorites.svg?sanitize=true)</td>
   </tr>
   <tr>
     <td nowrap="nowrap"><code>manga_favorites</code></td>
-    <td nowrap="nowrap"><img src="../../assets/mal/manga_favorites.svg?sanitize=true" alt="manga_favorites visualization" width="300"></td>
+    <td nowrap="nowrap">![manga_favorites](./src/plugins/mal/assets/manga_favorites.svg?sanitize=true)</td>
   </tr>
   <tr>
     <td nowrap="nowrap"><code>people_favorites</code></td>
@@ -82,16 +82,16 @@ A simple and customizable way to display code, anime, and music stats on your Gi
   </tr>
   <tr>
     <td nowrap="nowrap"><code>character_favorites</code></td>
-    <td nowrap="nowrap"><img src="../../assets/mal/character_favorites.svg?sanitize=true" alt="character_favorites visualization" width="300"></td>
+    <td nowrap="nowrap">![character_favorites](./src/plugins/mal/assets/character_favorites.svg?sanitize=true)</td>
   </tr>
   <tr>
     <td nowrap="nowrap"><code>last_activity</code></td>
-    <td nowrap="nowrap"><img src="../../assets/mal/last_activity.svg?sanitize=true" alt="last_activity visualization" width="300"></td>
+    <td nowrap="nowrap">![last_activity](./src/plugins/mal/assets/last_activity.svg?sanitize=true)</td>
   </tr>
 </table>
 </details>
 
-<details>
+<details open>
 <summary>LASTFM</summary>
 
 <table>
@@ -101,52 +101,52 @@ A simple and customizable way to display code, anime, and music stats on your Gi
   </tr>
   <tr>
     <td nowrap="nowrap"><code>recent_tracks</code></td>
-    <td nowrap="nowrap"><img src="../../assets/lastfm/recent_tracks.svg?sanitize=true" alt="recent_tracks visualization" width="300"></td>
+    <td nowrap="nowrap">![recent_tracks](./src/plugins/lastfm/assets/recent_tracks.svg?sanitize=true)</td>
   </tr>
   <tr>
     <td nowrap="nowrap"><code>statistics</code></td>
-    <td nowrap="nowrap"><img src="../../assets/lastfm/statistics.svg?sanitize=true" alt="statistics visualization" width="300"></td>
+    <td nowrap="nowrap">![statistics](./src/plugins/lastfm/assets/statistics.svg?sanitize=true)</td>
   </tr>
   <tr>
     <td nowrap="nowrap"><code>top_artists_grid</code></td>
-    <td nowrap="nowrap"><img src="../../assets/lastfm/top_artists_grid.svg?sanitize=true" alt="top_artists_grid visualization" width="300"></td>
+    <td nowrap="nowrap">![top_artists_grid](./src/plugins/lastfm/assets/top_artists_grid.svg?sanitize=true)</td>
   </tr>
   <tr>
     <td nowrap="nowrap"><code>top_artists_list</code></td>
-    <td nowrap="nowrap"><img src="../../assets/lastfm/top_artists_list.svg?sanitize=true" alt="top_artists_list visualization" width="300"></td>
+    <td nowrap="nowrap">![top_artists_list](./src/plugins/lastfm/assets/top_artists_list.svg?sanitize=true)</td>
   </tr>
   <tr>
     <td nowrap="nowrap"><code>top_artists_default</code></td>
-    <td nowrap="nowrap"><img src="../../assets/lastfm/top_artists_default.svg?sanitize=true" alt="top_artists_default visualization" width="300"></td>
+    <td nowrap="nowrap">![top_artists_default](./src/plugins/lastfm/assets/top_artists_default.svg?sanitize=true)</td>
   </tr>
   <tr>
     <td nowrap="nowrap"><code>top_albums_list</code></td>
-    <td nowrap="nowrap"><img src="../../assets/lastfm/top_albums_list.svg?sanitize=true" alt="top_albums_list visualization" width="300"></td>
+    <td nowrap="nowrap">![top_albums_list](./src/plugins/lastfm/assets/top_albums_list.svg?sanitize=true)</td>
   </tr>
   <tr>
     <td nowrap="nowrap"><code>top_albums_grid</code></td>
-    <td nowrap="nowrap"><img src="../../assets/lastfm/top_albums_grid.svg?sanitize=true" alt="top_albums_grid visualization" width="300"></td>
+    <td nowrap="nowrap">![top_albums_grid](./src/plugins/lastfm/assets/top_albums_grid.svg?sanitize=true)</td>
   </tr>
   <tr>
     <td nowrap="nowrap"><code>top_albums_default</code></td>
-    <td nowrap="nowrap"><img src="../../assets/lastfm/top_albums_default.svg?sanitize=true" alt="top_albums_default visualization" width="300"></td>
+    <td nowrap="nowrap">![top_albums_default](./src/plugins/lastfm/assets/top_albums_default.svg?sanitize=true)</td>
   </tr>
   <tr>
     <td nowrap="nowrap"><code>top_tracks_list</code></td>
-    <td nowrap="nowrap"><img src="../../assets/lastfm/top_tracks_list.svg?sanitize=true" alt="top_tracks_list visualization" width="300"></td>
+    <td nowrap="nowrap">![top_tracks_list](./src/plugins/lastfm/assets/top_tracks_list.svg?sanitize=true)</td>
   </tr>
   <tr>
     <td nowrap="nowrap"><code>top_tracks_grid</code></td>
-    <td nowrap="nowrap"><img src="../../assets/lastfm/top_tracks_grid.svg?sanitize=true" alt="top_tracks_grid visualization" width="300"></td>
+    <td nowrap="nowrap">![top_tracks_grid](./src/plugins/lastfm/assets/top_tracks_grid.svg?sanitize=true)</td>
   </tr>
   <tr>
     <td nowrap="nowrap"><code>top_tracks_default</code></td>
-    <td nowrap="nowrap"><img src="../../assets/lastfm/top_tracks_default.svg?sanitize=true" alt="top_tracks_default visualization" width="300"></td>
+    <td nowrap="nowrap">![top_tracks_default](./src/plugins/lastfm/assets/top_tracks_default.svg?sanitize=true)</td>
   </tr>
 </table>
 </details>
 
-<details>
+<details open>
 <summary>GITHUB</summary>
 
 <table>
@@ -164,11 +164,11 @@ A simple and customizable way to display code, anime, and music stats on your Gi
   </tr>
   <tr>
     <td nowrap="nowrap"><code>favorite_languages</code></td>
-    <td nowrap="nowrap"><img src="../../assets/github/favorite_languages.svg?sanitize=true" alt="favorite_languages visualization" width="300"></td>
+    <td nowrap="nowrap">![favorite_languages](./src/plugins/github/assets/favorite_languages.svg?sanitize=true)</td>
   </tr>
   <tr>
     <td nowrap="nowrap"><code>favorite_license</code></td>
-    <td nowrap="nowrap"><img src="../../assets/github/favorite_license.svg?sanitize=true" alt="favorite_license visualization" width="300"></td>
+    <td nowrap="nowrap">![favorite_license](./src/plugins/github/assets/favorite_license.svg?sanitize=true)</td>
   </tr>
 </table>
 </details>
@@ -298,13 +298,18 @@ jobs:
 ![MyAnimeList](https://gist.githubusercontent.com/username/gist_id/raw/MyAnimeList.svg)
 ```
 
+> 💡 Don't forget to replace `username` and `gist_id` with your GitHub username and Gist ID
+> 💡 If you used other filename in the action replace in the link ex: LastFM.svg or MyAnimeList.svg
+
 - Replace `username` and `gist_id` with your GitHub username and Gist ID
 - Save the changes
 
 ### 7. Done!
 
 > 💡 Now in your profile, you should see the SVGs like this
-> ![Profile example](/src/readme/imgs/profile_example.png)
+
+Example:
+![Profile example](/src/readme/imgs/profile_example.png)
 ## 🤝 Contributing
 
 If you are interested in contributing, the following resources may interest you:

@@ -91,7 +91,7 @@ function generateSectionsTable(sections: string[], pluginName: string) {
     sectionsTable += `    <td nowrap="nowrap"><code>${section}</code></td>\n`;
     sectionsTable += `    <td nowrap="nowrap">${
       imageExists
-        ? `<img src="../../assets/${pluginName}/${section}.svg?sanitize=true" alt="${section} visualization" width="300">`
+        ? `![${section}](./src/plugins/${pluginName}/assets/${section.toLocaleLowerCase()}.svg?sanitize=true)`
         : `<span style="color: red;">Image for ${section} not found</span>`
     }</td>\n`;
     sectionsTable += "  </tr>\n";
@@ -107,7 +107,7 @@ function generateAllSectionsTable() {
   let allSectionsTable = "\n<!-- Supported sections -->\n\n";
   allSectionsTable += "### 🖼️ Supported sections\n\n";
   STABLE_PLUGINS.forEach(({ name, sections }) => {
-    allSectionsTable += `<details>\n<summary>${name.toUpperCase()}</summary>\n\n`;
+    allSectionsTable += `<details open>\n<summary>${name.toUpperCase()}</summary>\n\n`;
     allSectionsTable += "<table>\n";
     allSectionsTable += "  <tr>\n";
     allSectionsTable += '    <td align="center" nowrap="nowrap">Section</td>\n';
@@ -121,7 +121,7 @@ function generateAllSectionsTable() {
       allSectionsTable += `    <td nowrap="nowrap"><code>${section}</code></td>\n`;
       allSectionsTable += `    <td nowrap="nowrap">${
         imageExists
-          ? `<img src="../../assets/${name}/${section}.svg?sanitize=true" alt="${section} visualization" width="300">`
+          ? `![${section}](./src/plugins/${name}/assets/${section.toLocaleLowerCase()}.svg?sanitize=true)`
           : `<span style="color: red;">Image for ${section} not found</span>`
       }</td>\n`;
       allSectionsTable += "  </tr>\n";
@@ -177,7 +177,7 @@ function generateMainReadme() {
 
   mainReadme += "\n\n## 📦 Available plugins\n\n";
   STABLE_PLUGINS.forEach(({ name }) => {
-    mainReadme += `- [${name.toUpperCase()}](./plugins/${name}/README.md)\n`;
+    mainReadme += `- [${name.toUpperCase()}](.src/plugins/${name}/README.md)\n`;
   });
 
   mainReadme += generateAllSectionsTable();

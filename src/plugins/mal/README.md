@@ -472,43 +472,43 @@ MAL_FAVORITES_HIDE_OVERLAY=true
   </tr>
   <tr>
     <td nowrap="nowrap"><code>statistics</code></td>
-    <td nowrap="nowrap"><img src="../../assets/mal/statistics.svg?sanitize=true" alt="statistics visualization" width="300"></td>
+    <td nowrap="nowrap">![statistics](./src/plugins/mal/assets/statistics.svg?sanitize=true)</td>
   </tr>
   <tr>
     <td nowrap="nowrap"><code>anime_bar</code></td>
-    <td nowrap="nowrap"><img src="../../assets/mal/anime_bar.svg?sanitize=true" alt="anime_bar visualization" width="300"></td>
+    <td nowrap="nowrap">![anime_bar](./src/plugins/mal/assets/anime_bar.svg?sanitize=true)</td>
   </tr>
   <tr>
     <td nowrap="nowrap"><code>manga_bar</code></td>
-    <td nowrap="nowrap"><img src="../../assets/mal/manga_bar.svg?sanitize=true" alt="manga_bar visualization" width="300"></td>
+    <td nowrap="nowrap">![manga_bar](./src/plugins/mal/assets/manga_bar.svg?sanitize=true)</td>
   </tr>
   <tr>
     <td nowrap="nowrap"><code>statistics_simple</code></td>
-    <td nowrap="nowrap"><img src="../../assets/mal/statistics_simple.svg?sanitize=true" alt="statistics_simple visualization" width="300"></td>
+    <td nowrap="nowrap">![statistics_simple](./src/plugins/mal/assets/statistics_simple.svg?sanitize=true)</td>
   </tr>
   <tr>
     <td nowrap="nowrap"><code>anime_simple_favorites</code></td>
-    <td nowrap="nowrap"><img src="../../assets/mal/anime_simple_favorites.svg?sanitize=true" alt="anime_simple_favorites visualization" width="300"></td>
+    <td nowrap="nowrap">![anime_simple_favorites](./src/plugins/mal/assets/anime_simple_favorites.svg?sanitize=true)</td>
   </tr>
   <tr>
     <td nowrap="nowrap"><code>manga_simple_favorites</code></td>
-    <td nowrap="nowrap"><img src="../../assets/mal/manga_simple_favorites.svg?sanitize=true" alt="manga_simple_favorites visualization" width="300"></td>
+    <td nowrap="nowrap">![manga_simple_favorites](./src/plugins/mal/assets/manga_simple_favorites.svg?sanitize=true)</td>
   </tr>
   <tr>
     <td nowrap="nowrap"><code>people_simple_favorites</code></td>
-    <td nowrap="nowrap"><img src="../../assets/mal/people_simple_favorites.svg?sanitize=true" alt="people_simple_favorites visualization" width="300"></td>
+    <td nowrap="nowrap">![people_simple_favorites](./src/plugins/mal/assets/people_simple_favorites.svg?sanitize=true)</td>
   </tr>
   <tr>
     <td nowrap="nowrap"><code>character_simple_favorites</code></td>
-    <td nowrap="nowrap"><img src="../../assets/mal/character_simple_favorites.svg?sanitize=true" alt="character_simple_favorites visualization" width="300"></td>
+    <td nowrap="nowrap">![character_simple_favorites](./src/plugins/mal/assets/character_simple_favorites.svg?sanitize=true)</td>
   </tr>
   <tr>
     <td nowrap="nowrap"><code>anime_favorites</code></td>
-    <td nowrap="nowrap"><img src="../../assets/mal/anime_favorites.svg?sanitize=true" alt="anime_favorites visualization" width="300"></td>
+    <td nowrap="nowrap">![anime_favorites](./src/plugins/mal/assets/anime_favorites.svg?sanitize=true)</td>
   </tr>
   <tr>
     <td nowrap="nowrap"><code>manga_favorites</code></td>
-    <td nowrap="nowrap"><img src="../../assets/mal/manga_favorites.svg?sanitize=true" alt="manga_favorites visualization" width="300"></td>
+    <td nowrap="nowrap">![manga_favorites](./src/plugins/mal/assets/manga_favorites.svg?sanitize=true)</td>
   </tr>
   <tr>
     <td nowrap="nowrap"><code>people_favorites</code></td>
@@ -516,10 +516,10 @@ MAL_FAVORITES_HIDE_OVERLAY=true
   </tr>
   <tr>
     <td nowrap="nowrap"><code>character_favorites</code></td>
-    <td nowrap="nowrap"><img src="../../assets/mal/character_favorites.svg?sanitize=true" alt="character_favorites visualization" width="300"></td>
+    <td nowrap="nowrap">![character_favorites](./src/plugins/mal/assets/character_favorites.svg?sanitize=true)</td>
   </tr>
   <tr>
     <td nowrap="nowrap"><code>last_activity</code></td>
-    <td nowrap="nowrap"><img src="../../assets/mal/last_activity.svg?sanitize=true" alt="last_activity visualization" width="300"></td>
+    <td nowrap="nowrap">![last_activity](./src/plugins/mal/assets/last_activity.svg?sanitize=true)</td>
   </tr>
 </table>
