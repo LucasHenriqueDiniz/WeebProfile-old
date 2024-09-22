@@ -47,7 +47,7 @@ function generateOptionsTable(envVariables: PluginEnvVariables, pluginName: stri
       ${splitSections.map((section) => `<code>${section}</code>`).join(", ")}\n`)
       : "";
     optionsTable += "      <p><b>Example:</b></p>\n";
-    optionsTable += "      <code>\n";
+    optionsTable += "      <code>";
     optionsTable += `${(() => {
       switch (type) {
         case "stringArray":
@@ -59,15 +59,15 @@ function generateOptionsTable(envVariables: PluginEnvVariables, pluginName: stri
         default:
           return `${variableName.toLocaleUpperCase()}="${defaultValue || "value"}"`;
       }
-    })()}\n`;
-    optionsTable += "      </code>\n";
+    })()}`;
+    optionsTable += "</code>\n";
     optionsTable += "    </td>\n";
     optionsTable += "  </tr>\n";
     optionsTable += "  <tr>\n";
     optionsTable += `    <td nowrap="nowrap">\n`;
-    optionsTable += `      <b>type:</b> <code>${type}</code><br>`;
-    defaultValue ? (optionsTable += `      <br><b>default:</b> ${defaultValue}`) : "";
-    required ? (optionsTable += `      <br><b>required:</b> <span style="color: red;">true</span>`) : "";
+    optionsTable += `<b>type:</b> <code>${type}</code>\n`;
+    defaultValue ? (optionsTable += `\n<b>default:</b> ${defaultValue}`) : "";
+    required ? (optionsTable += `\n<b>required:</b> <span style="color: red;">true</span>`) : "";
     optionsTable += "    </td>\n";
     optionsTable += "  </tr>\n";
   }
@@ -76,7 +76,7 @@ function generateOptionsTable(envVariables: PluginEnvVariables, pluginName: stri
   return optionsTable;
 }
 
-function generateSectionsTable(sections: string[], pluginName: string) {
+function generatePluginSectionsTable(sections: string[], pluginName: string) {
   let sectionsTable = "\n<!-- Supported sections -->\n\n";
   sectionsTable += "## 🖼️ Supported sections\n\n";
   sectionsTable += `<h4>Right ${pluginName} supports ${sections.length} sections with 2 styles each</h4>\n\n`;
@@ -96,7 +96,7 @@ function generateSectionsTable(sections: string[], pluginName: string) {
     sectionsTable += "  <tr>\n";
     sectionsTable += `    <td align="center" nowrap="nowrap"><code>${section}</code></td>\n`;
     sectionsTable += `    <td align="center" nowrap="nowrap">${
-      imageExists ? `<img src="./src/plugins/${pluginName}/assets/default/${section.toLocaleLowerCase()}.svg">` : `<span style="color: red;">Image for ${section} not found</span>`
+      imageExists ? `<img src="./assets/default/${section.toLocaleLowerCase()}.svg">` : `<span style="color: red;">Image for ${section} not found</span>`
     }</td>\n`;
     sectionsTable += "  </tr>\n";
   }
@@ -118,7 +118,7 @@ function generateSectionsTable(sections: string[], pluginName: string) {
     sectionsTable += "  <tr>\n";
     sectionsTable += `    <td align="center" nowrap="nowrap"><code>${section}</code></td>\n`;
     sectionsTable += `    <td align="center" nowrap="nowrap">${
-      imageExists ? `<img src="./src/plugins/${pluginName}/assets/terminal/${section.toLocaleLowerCase()}.svg">` : `<span style="color: red;">Image for ${section} not found</span>`
+      imageExists ? `<img src="./assets/terminal/${section.toLocaleLowerCase()}.svg">` : `<span style="color: red;">Image for ${section} not found</span>`
     }</td>\n`;
     sectionsTable += "  </tr>\n";
   }
@@ -150,7 +150,7 @@ function generateAllSectionsTable() {
       allSectionsTable += "  <tr>\n";
       allSectionsTable += `    <td align="center" nowrap="nowrap"><code>${section}</code></td>\n`;
       allSectionsTable += `    <td align="center" nowrap="nowrap">${
-        imageExists ? `<img src="./src/plugins/${name}/assets/default/${section.toLocaleLowerCase()}.svg">` : `<span style="color: red;">Image for ${section} not found</span>`
+        imageExists ? `<img src="../plugins/${name}/assets/default/${section.toLocaleLowerCase()}.svg">` : `<span style="color: red;">Image for ${section} not found</span>`
       }</td>\n`;
       allSectionsTable += "  </tr>\n";
     });
@@ -172,7 +172,7 @@ function generateAllSectionsTable() {
       allSectionsTable += "  <tr>\n";
       allSectionsTable += `    <td align="center" nowrap="nowrap"><code>${section}</code></td>\n`;
       allSectionsTable += `    <td align="center" nowrap="nowrap">${
-        imageExists ? `<img src="./src/plugins/${name}/assets/terminal/${section.toLocaleLowerCase()}.svg">` : `<span style="color: red;">Image for ${section} not found</span>`
+        imageExists ? `<img src="../plugins/${name}/assets/terminal/${section.toLocaleLowerCase()}.svg">` : `<span style="color: red;">Image for ${section} not found</span>`
       }</td>\n`;
       allSectionsTable += "  </tr>\n";
     });
@@ -187,7 +187,7 @@ function generateReadmeSection(pluginName: string, envVariables: PluginEnvVariab
   let readmeContent = generateTitle(`${pluginName.toUpperCase()} Plugin`);
   readmeContent += generateSummary(["Available options", "Supported sections"]);
   readmeContent += generateOptionsTable(envVariables, pluginName, allSections);
-  readmeContent += generateSectionsTable(allSections, pluginName);
+  readmeContent += generatePluginSectionsTable(allSections, pluginName);
 
   return readmeContent;
 }

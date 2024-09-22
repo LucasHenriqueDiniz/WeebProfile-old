@@ -28,28 +28,28 @@
       <code>PLUGIN_GITHUB <span style='color: red;'>*</span>    <td rowspan="2">
       <p>Enable GitHub plugin</p>
       <p><b>Example:</b></p>
-      <code>
-PLUGIN_GITHUB=true
-      </code>
+      <code>PLUGIN_GITHUB=true</code>
     </td>
   </tr>
   <tr>
     <td nowrap="nowrap">
-      <b>type:</b> <code>boolean</code><br>      <br><b>required:</b> <span style="color: red;">true</span>    </td>
+<b>type:</b> <code>boolean</code>
+
+<b>required:</b> <span style="color: red;">true</span>    </td>
   </tr>
   <tr>
     <td nowrap='nowrap'>
       <code>GITHUB_USERNAME <span style='color: red;'>*</span>    <td rowspan="2">
       <p>GitHub username</p>
       <p><b>Example:</b></p>
-      <code>
-GITHUB_USERNAME="value"
-      </code>
+      <code>GITHUB_USERNAME="value"</code>
     </td>
   </tr>
   <tr>
     <td nowrap="nowrap">
-      <b>type:</b> <code>string</code><br>      <br><b>required:</b> <span style="color: red;">true</span>    </td>
+<b>type:</b> <code>string</code>
+
+<b>required:</b> <span style="color: red;">true</span>    </td>
   </tr>
   <tr>
     <td nowrap='nowrap'>
@@ -58,140 +58,135 @@ GITHUB_USERNAME="value"
       <b>Available sections:</b>
       <code>profile</code>, <code>repositories</code>, <code>favorite_languages</code>, <code>favorite_license</code>
       <p><b>Example:</b></p>
-      <code>
-GITHUB_SECTIONS="top_tracks"
-      </code>
+      <code>GITHUB_SECTIONS="top_tracks"</code>
     </td>
   </tr>
   <tr>
     <td nowrap="nowrap">
-      <b>type:</b> <code>stringArray</code><br>      <br><b>default:</b> top_tracks    </td>
+<b>type:</b> <code>stringArray</code>
+
+<b>default:</b> top_tracks    </td>
   </tr>
   <tr>
     <td nowrap='nowrap'>
       <code>GITHUB_HIDE_HEADER    <td rowspan="2">
       <p>Hide the header of the profile</p>
       <p><b>Example:</b></p>
-      <code>
-GITHUB_HIDE_HEADER=true
-      </code>
+      <code>GITHUB_HIDE_HEADER=true</code>
     </td>
   </tr>
   <tr>
     <td nowrap="nowrap">
-      <b>type:</b> <code>boolean</code><br>    </td>
+<b>type:</b> <code>boolean</code>
+    </td>
   </tr>
   <tr>
     <td nowrap='nowrap'>
       <code>GITHUB_TITLE    <td rowspan="2">
       <p>Title of the profile</p>
       <p><b>Example:</b></p>
-      <code>
-GITHUB_TITLE="GitHub"
-      </code>
+      <code>GITHUB_TITLE="GitHub"</code>
     </td>
   </tr>
   <tr>
     <td nowrap="nowrap">
-      <b>type:</b> <code>string</code><br>      <br><b>default:</b> GitHub    </td>
+<b>type:</b> <code>string</code>
+
+<b>default:</b> GitHub    </td>
   </tr>
   <tr>
     <td nowrap='nowrap'>
       <code>GITHUB_PROFILE_HIDE_TITLE    <td rowspan="2">
       <p>Hide the title of the profile section</p>
       <p><b>Example:</b></p>
-      <code>
-GITHUB_PROFILE_HIDE_TITLE=true
-      </code>
+      <code>GITHUB_PROFILE_HIDE_TITLE=true</code>
     </td>
   </tr>
   <tr>
     <td nowrap="nowrap">
-      <b>type:</b> <code>boolean</code><br>    </td>
+<b>type:</b> <code>boolean</code>
+    </td>
   </tr>
   <tr>
     <td nowrap='nowrap'>
       <code>GITHUB_REPOSITORIES_TITLE    <td rowspan="2">
       <p>Title of the repositories section</p>
       <p><b>Example:</b></p>
-      <code>
-GITHUB_REPOSITORIES_TITLE="<qnt> Repositories"
-      </code>
+      <code>GITHUB_REPOSITORIES_TITLE="<qnt> Repositories"</code>
     </td>
   </tr>
   <tr>
     <td nowrap="nowrap">
-      <b>type:</b> <code>string</code><br>      <br><b>default:</b> <qnt> Repositories    </td>
+<b>type:</b> <code>string</code>
+
+<b>default:</b> <qnt> Repositories    </td>
   </tr>
   <tr>
     <td nowrap='nowrap'>
       <code>GITHUB_REPOSITORIES_HIDE_TITLE    <td rowspan="2">
       <p>Hide the title of the repositories section</p>
       <p><b>Example:</b></p>
-      <code>
-GITHUB_REPOSITORIES_HIDE_TITLE=true
-      </code>
+      <code>GITHUB_REPOSITORIES_HIDE_TITLE=true</code>
     </td>
   </tr>
   <tr>
     <td nowrap="nowrap">
-      <b>type:</b> <code>boolean</code><br>    </td>
+<b>type:</b> <code>boolean</code>
+    </td>
   </tr>
   <tr>
     <td nowrap='nowrap'>
       <code>GITHUB_FAVORITE_LANGUAGES_TITLE    <td rowspan="2">
       <p>Title of the favorite languages section</p>
       <p><b>Example:</b></p>
-      <code>
-GITHUB_FAVORITE_LANGUAGES_TITLE="<qnt> Languages"
-      </code>
+      <code>GITHUB_FAVORITE_LANGUAGES_TITLE="<qnt> Languages"</code>
     </td>
   </tr>
   <tr>
     <td nowrap="nowrap">
-      <b>type:</b> <code>string</code><br>      <br><b>default:</b> <qnt> Languages    </td>
+<b>type:</b> <code>string</code>
+
+<b>default:</b> <qnt> Languages    </td>
   </tr>
   <tr>
     <td nowrap='nowrap'>
       <code>GITHUB_FAVORITE_LANGUAGES_HIDE_TITLE    <td rowspan="2">
       <p>Hide the title of the favorite languages section</p>
       <p><b>Example:</b></p>
-      <code>
-GITHUB_FAVORITE_LANGUAGES_HIDE_TITLE=true
-      </code>
+      <code>GITHUB_FAVORITE_LANGUAGES_HIDE_TITLE=true</code>
     </td>
   </tr>
   <tr>
     <td nowrap="nowrap">
-      <b>type:</b> <code>boolean</code><br>    </td>
+<b>type:</b> <code>boolean</code>
+    </td>
   </tr>
   <tr>
     <td nowrap='nowrap'>
       <code>GITHUB_FAVORITE_LICENSE_TITLE    <td rowspan="2">
       <p>Title of the favorite license section</p>
       <p><b>Example:</b></p>
-      <code>
-GITHUB_FAVORITE_LICENSE_TITLE="Favorite License"
-      </code>
+      <code>GITHUB_FAVORITE_LICENSE_TITLE="Favorite License"</code>
     </td>
   </tr>
   <tr>
     <td nowrap="nowrap">
-      <b>type:</b> <code>string</code><br>      <br><b>default:</b> Favorite License    </td>
+<b>type:</b> <code>string</code>
+
+<b>default:</b> Favorite License    </td>
   </tr>
   <tr>
     <td nowrap='nowrap'>
       <code>GITHUB_FAVORITE_LICENSE_HIDE_TITLE    <td rowspan="2">
       <p>Hide the title of the favorite license section</p>
       <p><b>Example:</b></p>
-      <code>
-GITHUB_FAVORITE_LICENSE_HIDE_TITLE=true
-      </code>
+      <code>GITHUB_FAVORITE_LICENSE_HIDE_TITLE=true</code>
     </td>
   </tr>
   <tr>
     <td nowrap="nowrap">
-      <b>type:</b> <code>boolean</code><br>    </td>
+<b>type:</b> <code>boolean</code>
+    </td>
   </tr>
 </table>
 
@@ -199,10 +194,18 @@ GITHUB_FAVORITE_LICENSE_HIDE_TITLE=true
 
 ## 🖼️ Supported sections
 
+<h4>Right github supports 4 sections with 2 styles each</h4>
+
+<p>Here are the available sections and their respective images:</p>
+
+# <p><b>Default Style:</b></p>
+
+<sub>This is the default style for all sections. If you want to use a different style, you can specify it in the plugin options.</sub>
+
 <table>
   <tr>
     <td align="center" nowrap="nowrap">Section</td>
-    <td align="center" nowrap="nowrap">Image</td>
+    <td align="center" width="600px" nowrap="nowrap">Default Image Showcase</td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>profile</code></td>
@@ -214,10 +217,36 @@ GITHUB_FAVORITE_LICENSE_HIDE_TITLE=true
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>favorite_languages</code></td>
-    <td align="center" nowrap="nowrap"><img src="./src/plugins/github/assets/favorite_languages.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./assets/default/favorite_languages.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>favorite_license</code></td>
-    <td align="center" nowrap="nowrap"><img src="./src/plugins/github/assets/favorite_license.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./assets/default/favorite_license.svg"></td>
+  </tr>
+</table>
+# <p><b>Terminal Style:</b></p>
+
+<sub>This is the terminal style version of the sections. If you want to use this style you can specify it in the plugin options.<code>style: 'terminal'</code></sub>
+
+<table>
+  <tr>
+    <td align="center" nowrap="nowrap">Section</td>
+    <td align="center" width="600px" nowrap="nowrap">Terminal Image Showcase</td>
+  </tr>
+  <tr>
+    <td align="center" nowrap="nowrap"><code>profile</code></td>
+    <td align="center" nowrap="nowrap"><span style="color: red;">Image for profile not found</span></td>
+  </tr>
+  <tr>
+    <td align="center" nowrap="nowrap"><code>repositories</code></td>
+    <td align="center" nowrap="nowrap"><span style="color: red;">Image for repositories not found</span></td>
+  </tr>
+  <tr>
+    <td align="center" nowrap="nowrap"><code>favorite_languages</code></td>
+    <td align="center" nowrap="nowrap"><img src="./assets/terminal/favorite_languages.svg"></td>
+  </tr>
+  <tr>
+    <td align="center" nowrap="nowrap"><code>favorite_license</code></td>
+    <td align="center" nowrap="nowrap"><img src="./assets/terminal/favorite_license.svg"></td>
   </tr>
 </table>
