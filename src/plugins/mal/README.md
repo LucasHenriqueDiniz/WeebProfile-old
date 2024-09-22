@@ -453,7 +453,7 @@
 
 ## 🖼️ Supported sections
 
-<h4>Right mal supports 13 sections with 2 styles each</h4>
+<h4><b>MAL</b> has 13 sections with 2 styles each.</h4>
 
 <p>Here are the available sections and their respective images:</p>
 
@@ -519,6 +519,7 @@
     <td align="center" nowrap="nowrap"><img src="./assets/default/last_activity.svg"></td>
   </tr>
 </table>
+
 # <p><b>Terminal Style:</b></p>
 
 <sub>This is the terminal style version of the sections. If you want to use this style you can specify it in the plugin options.<code>style: 'terminal'</code></sub>

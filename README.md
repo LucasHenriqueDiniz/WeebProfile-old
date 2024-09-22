@@ -20,20 +20,20 @@ A simple and customizable way to display code, anime, and music stats on your Gi
 
 ## 📦 Available plugins
 
-- [MAL](.src/plugins/mal/README.md)
-- [LASTFM](.src/plugins/lastfm/README.md)
-- [GITHUB](.src/plugins/github/README.md)
+- [MAL](./src/plugins/mal/README.md)
+- [LASTFM](./src/plugins/lastfm/README.md)
+- [GITHUB](./src/plugins/github/README.md)
 
 <!-- Supported sections -->
 
 ## 🖼️ Supported sections
 
-<details open><b>
-<summary>MAL</b></summary>
-
-<h4>Right we support 13 sections with 2 styles each</h4>
+<h4>Right now we support 28 sections with 2 styles each</h4>
 
 <p>Here are the available sections and their respective images:</p>
+
+<details open><b>
+<summary>MAL</b></summary>
 
 # <p><b>Default Style:</b></p>
 
@@ -42,62 +42,63 @@ A simple and customizable way to display code, anime, and music stats on your Gi
 <table>
   <tr>
     <td align="center" nowrap="nowrap">Section</td>
-    <td align="center" nowrap="nowrap">Image</td>
+    <td align="center" align="center" width="600px" nowrap="nowrap">Default Image Showcase</td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>statistics</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/mal/assets/default/statistics.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/mal/assets/default/statistics.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>anime_bar</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/mal/assets/default/anime_bar.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/mal/assets/default/anime_bar.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>manga_bar</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/mal/assets/default/manga_bar.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/mal/assets/default/manga_bar.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>statistics_simple</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/mal/assets/default/statistics_simple.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/mal/assets/default/statistics_simple.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>anime_simple_favorites</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/mal/assets/default/anime_simple_favorites.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/mal/assets/default/anime_simple_favorites.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>manga_simple_favorites</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/mal/assets/default/manga_simple_favorites.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/mal/assets/default/manga_simple_favorites.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>people_simple_favorites</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/mal/assets/default/people_simple_favorites.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/mal/assets/default/people_simple_favorites.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>character_simple_favorites</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/mal/assets/default/character_simple_favorites.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/mal/assets/default/character_simple_favorites.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>anime_favorites</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/mal/assets/default/anime_favorites.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/mal/assets/default/anime_favorites.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>manga_favorites</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/mal/assets/default/manga_favorites.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/mal/assets/default/manga_favorites.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>people_favorites</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/mal/assets/default/people_favorites.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/mal/assets/default/people_favorites.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>character_favorites</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/mal/assets/default/character_favorites.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/mal/assets/default/character_favorites.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>last_activity</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/mal/assets/default/last_activity.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/mal/assets/default/last_activity.svg"></td>
   </tr>
 </table>
 </details>
+
 
 # <p><b>Terminal Style:</b></p>
 
@@ -106,11 +107,11 @@ A simple and customizable way to display code, anime, and music stats on your Gi
 <table>
   <tr>
     <td align="center" nowrap="nowrap">Section</td>
-    <td align="center" nowrap="nowrap">Image</td>
+    <td align="center" nowrap="nowrap" align="center" width="600px">Terminal Image Showcase</td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>statistics</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/mal/assets/terminal/statistics.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/mal/assets/terminal/statistics.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>anime_bar</code></td>
@@ -122,52 +123,48 @@ A simple and customizable way to display code, anime, and music stats on your Gi
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>statistics_simple</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/mal/assets/terminal/statistics_simple.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/mal/assets/terminal/statistics_simple.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>anime_simple_favorites</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/mal/assets/terminal/anime_simple_favorites.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/mal/assets/terminal/anime_simple_favorites.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>manga_simple_favorites</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/mal/assets/terminal/manga_simple_favorites.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/mal/assets/terminal/manga_simple_favorites.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>people_simple_favorites</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/mal/assets/terminal/people_simple_favorites.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/mal/assets/terminal/people_simple_favorites.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>character_simple_favorites</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/mal/assets/terminal/character_simple_favorites.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/mal/assets/terminal/character_simple_favorites.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>anime_favorites</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/mal/assets/terminal/anime_favorites.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/mal/assets/terminal/anime_favorites.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>manga_favorites</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/mal/assets/terminal/manga_favorites.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/mal/assets/terminal/manga_favorites.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>people_favorites</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/mal/assets/terminal/people_favorites.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/mal/assets/terminal/people_favorites.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>character_favorites</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/mal/assets/terminal/character_favorites.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/mal/assets/terminal/character_favorites.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>last_activity</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/mal/assets/terminal/last_activity.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/mal/assets/terminal/last_activity.svg"></td>
   </tr>
 </table>
 <details open><b>
 <summary>LASTFM</b></summary>
 
-<h4>Right we support 11 sections with 2 styles each</h4>
-
-<p>Here are the available sections and their respective images:</p>
-
 # <p><b>Default Style:</b></p>
 
 <sub>This is the default style for all sections. If you want to use a different style, you can specify it in the plugin options.</sub>
@@ -175,54 +172,55 @@ A simple and customizable way to display code, anime, and music stats on your Gi
 <table>
   <tr>
     <td align="center" nowrap="nowrap">Section</td>
-    <td align="center" nowrap="nowrap">Image</td>
+    <td align="center" align="center" width="600px" nowrap="nowrap">Default Image Showcase</td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>recent_tracks</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/lastfm/assets/default/recent_tracks.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/default/recent_tracks.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>statistics</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/lastfm/assets/default/statistics.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/default/statistics.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>top_artists_grid</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/lastfm/assets/default/top_artists_grid.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/default/top_artists_grid.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>top_artists_list</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/lastfm/assets/default/top_artists_list.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/default/top_artists_list.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>top_artists_default</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/lastfm/assets/default/top_artists_default.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/default/top_artists_default.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>top_albums_list</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/lastfm/assets/default/top_albums_list.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/default/top_albums_list.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>top_albums_grid</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/lastfm/assets/default/top_albums_grid.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/default/top_albums_grid.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>top_albums_default</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/lastfm/assets/default/top_albums_default.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/default/top_albums_default.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>top_tracks_list</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/lastfm/assets/default/top_tracks_list.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/default/top_tracks_list.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>top_tracks_grid</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/lastfm/assets/default/top_tracks_grid.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/default/top_tracks_grid.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>top_tracks_default</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/lastfm/assets/default/top_tracks_default.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/default/top_tracks_default.svg"></td>
   </tr>
 </table>
 </details>
+
 
 # <p><b>Terminal Style:</b></p>
 
@@ -231,60 +229,56 @@ A simple and customizable way to display code, anime, and music stats on your Gi
 <table>
   <tr>
     <td align="center" nowrap="nowrap">Section</td>
-    <td align="center" nowrap="nowrap">Image</td>
+    <td align="center" nowrap="nowrap" align="center" width="600px">Terminal Image Showcase</td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>recent_tracks</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/lastfm/assets/terminal/recent_tracks.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/terminal/recent_tracks.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>statistics</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/lastfm/assets/terminal/statistics.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/terminal/statistics.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>top_artists_grid</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/lastfm/assets/terminal/top_artists_grid.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/terminal/top_artists_grid.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>top_artists_list</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/lastfm/assets/terminal/top_artists_list.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/terminal/top_artists_list.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>top_artists_default</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/lastfm/assets/terminal/top_artists_default.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/terminal/top_artists_default.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>top_albums_list</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/lastfm/assets/terminal/top_albums_list.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/terminal/top_albums_list.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>top_albums_grid</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/lastfm/assets/terminal/top_albums_grid.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/terminal/top_albums_grid.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>top_albums_default</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/lastfm/assets/terminal/top_albums_default.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/terminal/top_albums_default.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>top_tracks_list</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/lastfm/assets/terminal/top_tracks_list.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/terminal/top_tracks_list.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>top_tracks_grid</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/lastfm/assets/terminal/top_tracks_grid.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/terminal/top_tracks_grid.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>top_tracks_default</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/lastfm/assets/terminal/top_tracks_default.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/terminal/top_tracks_default.svg"></td>
   </tr>
 </table>
 <details open><b>
 <summary>GITHUB</b></summary>
 
-<h4>Right we support 4 sections with 2 styles each</h4>
-
-<p>Here are the available sections and their respective images:</p>
-
 # <p><b>Default Style:</b></p>
 
 <sub>This is the default style for all sections. If you want to use a different style, you can specify it in the plugin options.</sub>
@@ -292,7 +286,7 @@ A simple and customizable way to display code, anime, and music stats on your Gi
 <table>
   <tr>
     <td align="center" nowrap="nowrap">Section</td>
-    <td align="center" nowrap="nowrap">Image</td>
+    <td align="center" align="center" width="600px" nowrap="nowrap">Default Image Showcase</td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>profile</code></td>
@@ -304,14 +298,15 @@ A simple and customizable way to display code, anime, and music stats on your Gi
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>favorite_languages</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/github/assets/default/favorite_languages.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/github/assets/default/favorite_languages.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>favorite_license</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/github/assets/default/favorite_license.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/github/assets/default/favorite_license.svg"></td>
   </tr>
 </table>
 </details>
+
 
 # <p><b>Terminal Style:</b></p>
 
@@ -320,7 +315,7 @@ A simple and customizable way to display code, anime, and music stats on your Gi
 <table>
   <tr>
     <td align="center" nowrap="nowrap">Section</td>
-    <td align="center" nowrap="nowrap">Image</td>
+    <td align="center" nowrap="nowrap" align="center" width="600px">Terminal Image Showcase</td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>profile</code></td>
@@ -332,11 +327,11 @@ A simple and customizable way to display code, anime, and music stats on your Gi
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>favorite_languages</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/github/assets/terminal/favorite_languages.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/github/assets/terminal/favorite_languages.svg"></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>favorite_license</code></td>
-    <td align="center" nowrap="nowrap"><img src="../plugins/github/assets/terminal/favorite_license.svg"></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/github/assets/terminal/favorite_license.svg"></td>
   </tr>
 </table>
 <!-- SETUP:ACTION -->

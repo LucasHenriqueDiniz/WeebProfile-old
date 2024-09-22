@@ -290,7 +290,7 @@
 
 ## 🖼️ Supported sections
 
-<h4>Right lastfm supports 11 sections with 2 styles each</h4>
+<h4><b>LASTFM</b> has 11 sections with 2 styles each.</h4>
 
 <p>Here are the available sections and their respective images:</p>
 
@@ -348,6 +348,7 @@
     <td align="center" nowrap="nowrap"><img src="./assets/default/top_tracks_default.svg"></td>
   </tr>
 </table>
+
 # <p><b>Terminal Style:</b></p>
 
 <sub>This is the terminal style version of the sections. If you want to use this style you can specify it in the plugin options.<code>style: 'terminal'</code></sub>
