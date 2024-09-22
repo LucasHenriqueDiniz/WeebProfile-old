@@ -124,6 +124,7 @@ jobs:
 ```
 
 > 💡 Don't forget to replace `username` and `gist_id` with your GitHub username and Gist ID
+
 > 💡 If you used other filename in the action replace in the link ex: LastFM.svg or MyAnimeList.svg
 
 - Replace `username` and `gist_id` with your GitHub username and Gist ID
@@ -135,3 +136,73 @@ jobs:
 
 Example:
 ![Profile example](/src/readme/imgs/profile_example.png)
+
+<!-- CONFIGS -->
+
+## 🛠️ Configuration
+
+The `weeb_profile.yml` file is where you can configure the plugins and the SVGs that will be generated.
+Each plugin has its own configuration, and you can enable or disable them by setting the `PLUGIN_NAME` to `true` or `false`.
+You can see the available configurations for each plugin in the [Available plugins](#-available-plugins) section.
+
+### 🌐 Global configurations
+
+<table>
+  <tr>
+    <th>Key</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>FILENAME</td>
+    <td>MyProfile.svg</td>
+    <td>The name of the SVG file that will be generated</td>
+  </tr>
+  <tr>
+    <td>GIST_ID</td>
+    <td>''</td>
+    <td>The Gist ID where the SVG will be saved</td>
+  </tr>
+  <tr>
+    <td>GH_TOKEN</td>
+    <td>''</td>
+    <td>The GitHub Token used to save the SVG</td>
+  </tr>
+  <tr>
+    <td>SIZE</td>
+    <td>half</td>
+    <td>The size of the SVG (half or full)</td>
+  </tr>
+  <tr>
+    <td>STYLE</td>
+    <td>default</td>
+    <td>The style of the SVG (default or terminal)</td>
+  </tr>
+  <tr>
+    <td>STORAGE_METHOD</td>
+    <td>gist</td>
+    <td>The storage method of the SVG (gist, local or repository)</td>
+  </tr>
+  <tr>
+    <td>CUSTOM_CSS</td>
+    <td>''</td>
+    <td>The custom CSS that will be applied to the SVG</td>
+  </tr>
+  <tr>
+    <td>PLUGINS_ORDER</td>
+    <td>'github, lastfm, mal'</td>
+    <td>The order of the plugins that will be generated</td>
+  </tr>
+  <tr>
+    <td>CUSTOM_PATH</td>
+    <td>''</td>
+    <td>The custom path where the SVG will be saved when using local storage</td>
+  </tr>
+  <tr>
+    <td>hide_terminal_emojis</td>
+    <td>false</td>
+    <td>Hide emojis in the terminal style</td>
+  </tr>
+</table>
+
+> 💡 Every section will always have <code>hide_title</code> or <code>title</code> options, where you can respectively hide the title or use a custom title

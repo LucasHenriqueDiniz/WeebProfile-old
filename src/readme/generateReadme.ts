@@ -224,7 +224,7 @@ function generateContributing() {
 
 function generateMainReadme() {
   console.log("Generating main README");
-  let mainReadme = generateTitle("🗻 WeebProfile", "A simple and customizable way to display code, anime, and music stats on your GitHub profile README.");
+  let mainReadme = generateTitle("🗻 WeebProfile 🦀", "A simple and customizable way to display code, anime, and music stats on your GitHub profile README.");
   mainReadme += generateSummary(["Available plugins", "Supported sections", "Setup", "Contributing", "License"]);
 
   mainReadme += "\n\n## 📦 Available plugins\n\n";
