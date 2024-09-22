@@ -97,8 +97,6 @@ A simple and customizable way to display code, anime, and music stats on your Gi
     <td align="center" nowrap="nowrap"><img src="./src/plugins/mal/assets/default/last_activity.svg"></td>
   </tr>
 </table>
-</details>
-
 
 # <p><b>Terminal Style:</b></p>
 
@@ -162,6 +160,8 @@ A simple and customizable way to display code, anime, and music stats on your Gi
     <td align="center" nowrap="nowrap"><img src="./src/plugins/mal/assets/terminal/last_activity.svg"></td>
   </tr>
 </table>
+</details>
+
 <details open><b>
 <summary>LASTFM</b></summary>
 
@@ -219,8 +219,6 @@ A simple and customizable way to display code, anime, and music stats on your Gi
     <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/default/top_tracks_default.svg"></td>
   </tr>
 </table>
-</details>
-
 
 # <p><b>Terminal Style:</b></p>
 
@@ -276,6 +274,8 @@ A simple and customizable way to display code, anime, and music stats on your Gi
     <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/terminal/top_tracks_default.svg"></td>
   </tr>
 </table>
+</details>
+
 <details open><b>
 <summary>GITHUB</b></summary>
 
@@ -305,8 +305,6 @@ A simple and customizable way to display code, anime, and music stats on your Gi
     <td align="center" nowrap="nowrap"><img src="./src/plugins/github/assets/default/favorite_license.svg"></td>
   </tr>
 </table>
-</details>
-
 
 # <p><b>Terminal Style:</b></p>
 
@@ -334,6 +332,8 @@ A simple and customizable way to display code, anime, and music stats on your Gi
     <td align="center" nowrap="nowrap"><img src="./src/plugins/github/assets/terminal/favorite_license.svg"></td>
   </tr>
 </table>
+</details>
+
 <!-- SETUP:ACTION -->
 
 ## ⚙️ Getting Started

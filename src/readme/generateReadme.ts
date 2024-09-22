@@ -102,7 +102,6 @@ function generatePluginSectionsTable(sections: string[], pluginName: string) {
     sectionsTable += "  </tr>\n";
   }
   sectionsTable += "</table>\n";
-
   sectionsTable += "\n# <p><b>Terminal Style:</b></p>\n\n";
   sectionsTable +=
     "<sub>This is the terminal style version of the sections. If you want to use this style you can specify it in the plugin options.<code>style: 'terminal'</code></sub>\n\n";
@@ -158,8 +157,6 @@ function generateAllSectionsTable() {
       allSectionsTable += "  </tr>\n";
     });
     allSectionsTable += "</table>\n";
-    allSectionsTable += "</details>\n\n";
-
     allSectionsTable += "\n# <p><b>Terminal Style:</b></p>\n\n";
     allSectionsTable +=
       "<sub>This is the terminal style version of the sections. If you want to use this style you can specify it in the plugin options.<code>style: 'terminal'</code></sub>\n\n";
@@ -181,6 +178,7 @@ function generateAllSectionsTable() {
       allSectionsTable += "  </tr>\n";
     });
     allSectionsTable += "</table>\n";
+    allSectionsTable += "</details>\n\n";
   });
 
   return allSectionsTable;
