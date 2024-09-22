@@ -4,7 +4,7 @@ import LastFmPlugin from "./types/envLastFM";
 const LASTFM_ENV_VARIABLES: Record<keyof LastFmPlugin, ENV_VARIABLES_TYPE> = {
   plugin_lastfm: { required: true, type: "boolean", description: "Enable LastFM plugin" },
   username: { required: true, type: "string", description: "LastFM username" },
-  sections: { type: "stringArray", defaultValue: "top_tracks", description: `Sections to display in the profile` },
+  sections: { type: "stringArray", defaultValue: "top_tracks, recent_tracks", description: `Sections to display in the profile` },
   hide_header: { type: "boolean", description: "Hide the header of the profile" },
   hide_intervals: { type: "boolean", description: "Hide the intervals of the profile" },
   recent_tracks_hide_title: { type: "boolean", description: "Hide the title of the recent tracks section" },

@@ -48,7 +48,8 @@ function loadPlugin<T extends Record<string, any>>(
   }
 
   activePlugins.push(pluginName);
-
+  console.log("LOADED PLUGIN", pluginName);
+  console.log(pluginConfig);
   return pluginConfig as T;
 }
 
