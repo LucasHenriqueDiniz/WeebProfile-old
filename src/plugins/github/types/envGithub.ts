@@ -1,6 +1,7 @@
 export const allGIThubSections = "profile, repositories, favorite_languages, favorite_license";
 
-export interface githubPlugin {
+export interface GithubPlugin {
+  plugin_github: boolean;
   username: string;
   sections: string[];
   hide_header: boolean;
@@ -18,4 +19,4 @@ export interface githubPlugin {
   favorite_license_hide_title: boolean;
 }
 
-export default githubPlugin;
+export default GithubPlugin;

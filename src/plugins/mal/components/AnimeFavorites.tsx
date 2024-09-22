@@ -11,7 +11,7 @@ import TerminalCommand from "../../!templates/Terminal/Terminal_Command";
 import TerminalLineBreak from "../../!templates/Terminal/Terminal_LineBreak";
 import { FullMalAnimeResponse } from "../types/malFavoritesResponse";
 
-function DefaultFavoriteImage({ favorite }: { favorite: FullMalAnimeResponse }): JSX.Element {
+function DefaultFavoriteImage({ favorite, isHalf }: { favorite: FullMalAnimeResponse; isHalf: boolean }): JSX.Element {
   const imageUrl = favorite.images.jpg?.base64;
   const title = favorite.title;
   const mean_score = favorite.score;
@@ -21,13 +21,16 @@ function DefaultFavoriteImage({ favorite }: { favorite: FullMalAnimeResponse }):
   const genres = favorite.genres.map((genre) => genre.name);
   const status = favorite.status;
   const popularity = favorite.popularity;
+  if (isHalf) {
+    genres.splice(4);
+  }
 
   return (
     <div className="flex h-120 overflow-hidden gap-8">
       <div className="full-favorite-image-container">
         <Img64 url64={imageUrl} alt={title} className="fav-image" />
       </div>
-      <div className="w100 flex-d justify-between">
+      <div className="w100 flex-d justify-between overflow-hidden">
         <span className="favorite-title">{title}</span>
         <div className="flex gap-8 items-center">
           {mean_score && (
@@ -108,12 +111,13 @@ function TerminalFavoriteImage({ favorite }: { favorite: FullMalAnimeResponse })
   );
 }
 function AnimeFavorites({ favoritesData }: { favoritesData: FullMalAnimeResponse[] }): JSX.Element {
-  const { pluginMal } = getEnvVariables();
+  const { pluginMal, size } = getEnvVariables();
   if (!pluginMal) throw new Error("pluginMal not found in env variables");
 
   const title = pluginMal.anime_favorites_title;
   const maxItems = pluginMal.anime_favorites_max;
   const hideTitle = pluginMal.anime_favorites_hide_title;
+  const isHalf = size === "half";
 
   return (
     <section className="default-favorites">
@@ -123,7 +127,7 @@ function AnimeFavorites({ favoritesData }: { favoritesData: FullMalAnimeResponse
             {!hideTitle && <DefaultTitle title={title} icon={<FaHeart />} />}
             <div className="flex-d gap-4">
               {favoritesData.map((data) => (
-                <DefaultFavoriteImage favorite={data} key={data.mal_id} />
+                <DefaultFavoriteImage favorite={data} key={data.mal_id} isHalf={isHalf} />
               ))}
             </div>
           </>

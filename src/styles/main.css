@@ -14,6 +14,15 @@ section {
 .h-50 {
   height: 50px;
 }
+
+.w-auto {
+  width: auto;
+}
+
+.h-auto {
+  height: auto;
+}
+
 .max-h-150 {
   max-height: 150px;
 }
@@ -226,9 +235,11 @@ section {
   /* dont know why i did w100 instead of w-full :( */
   height: 100%;
 }
-.h-50 {
+
+.h-half {
   height: 50%;
 }
+
 .p-4 {
   padding: 4px;
 }

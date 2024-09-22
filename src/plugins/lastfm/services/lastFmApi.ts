@@ -220,16 +220,20 @@ async function LastFmApi(lastFmPlugin: LastFmPlugin): Promise<LastFmResponse> {
 
   // get image 64 | TODO: refactor to use Promise.all
   for (const track of recentTracksArray) {
-    track.image = (await getImage64(track.image)) || "";
+    const img = track.image.replace("64s", "300s") || "";
+    track.image = await getImage64(track.image);
   }
   for (const artist of topArtistsArray) {
-    artist.image = (await getImage64(artist.image)) || "";
+    const img = artist.image.replace("64s", "300s") || "";
+    artist.image = await getImage64(img);
   }
   for (const album of topAlbumsArray) {
-    album.image = (await getImage64(album.image)) || "";
+    const img = album.image.replace("64s", "300s") || "";
+    album.image = await getImage64(img);
   }
   for (const track of topTracksArray) {
-    track.image = (await getImage64(track.image)) || "";
+    const img = track.image.replace("64s", "300s") || "";
+    track.image = await getImage64(img);
   }
   if (treatedFeaturedTrack) {
     treatedFeaturedTrack.image = (await getImage64(treatedFeaturedTrack.image)) || "";

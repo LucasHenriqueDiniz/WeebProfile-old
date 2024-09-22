@@ -42,8 +42,8 @@ function DefaultCharactersFavorites({ favoritesData }: { favoritesData: Characte
   const { pluginMal } = getEnvVariables();
   if (!pluginMal) throw new Error("MAL plugin not found in DefaultCharactersFavorites component");
 
-  const hideTitle = pluginMal.characters_favorites_hide_title;
-  const maxFavorites = pluginMal.characters_favorites_max;
+  const hideTitle = pluginMal.character_favorites_hide_title;
+  const maxFavorites = pluginMal.character_favorites_max;
   const title = pluginMal.character_favorites_title;
 
   return (

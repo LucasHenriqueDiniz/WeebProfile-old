@@ -10,7 +10,7 @@ function ListItem({ right, center, left, image }: ListItemProps): JSX.Element {
         <Img64 url64={image} alt={right} defaultType="lastfm" className="music-image" />
       </div>
       <div className="flex-d w100 h100 justify-evenly overflow-hidden">
-        <p className="md-text-bold text-ellipsis text-nowrap">{right}</p>
+        <p className="md-text-bold text-overflow text-nowrap">{right}</p>
         <div className="flex justify-between items-baseline">
           {center && <p className="md-2-text text-gray line-100 text-nowrap text-overflow">{center}</p>}
           <p className="sm-text text-gray line-100 text-nowrap w-fit">{left}</p>

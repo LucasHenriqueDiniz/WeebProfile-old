@@ -2,6 +2,7 @@ export const allLastFmSections =
   "recent_tracks, statistics, top_artists_grid, top_artists_list, top_artists_default, top_albums_list, top_albums_grid, top_albums_default, top_tracks_list, top_tracks_grid, top_tracks_default";
 
 export interface LastFmPlugin {
+  plugin_lastfm: boolean;
   username: string;
   sections: string[];
   hide_intervals: boolean;

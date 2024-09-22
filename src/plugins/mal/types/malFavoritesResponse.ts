@@ -34,6 +34,35 @@ interface MalFavoritesResponse {
   people: PeopleFavorites[];
 }
 
+interface TitlesEntity {
+  type: string;
+  title: string;
+}
+
+interface FromOrTo {
+  day: number;
+  month: number;
+  year: number;
+}
+
+interface BasicMalEntity {
+  mal_id: number;
+  type: string;
+  name: string;
+  url: string;
+}
+
+interface ExternalEntity {
+  mal_id: number;
+  type: string;
+  name: string;
+  url: string;
+}
+
+interface RelationsEntity {
+  relation: string;
+  entry: BasicMalEntity[];
+}
 interface FullMalAnimeResponse {
   mal_id: number;
   url: string;
@@ -51,10 +80,7 @@ interface FullMalAnimeResponse {
     };
   };
   approved: boolean;
-  titles: {
-    type: string;
-    title: string;
-  }[];
+  titles?: TitlesEntity[] | null;
   title: string;
   title_english?: string;
   title_japanese?: string;
@@ -68,18 +94,10 @@ interface FullMalAnimeResponse {
     from: string;
     to: string;
     prop: {
-      from: {
-        day: number;
-        month: number;
-        year: number;
-      };
-      to: {
-        day: number;
-        month: number;
-        year: number;
-      };
+      from: FromOrTo;
+      to: FromOrTo;
     };
-    string: string;
+    string?: string;
   };
   duration: string;
   rating: string;
@@ -99,47 +117,14 @@ interface FullMalAnimeResponse {
     timezone: string;
     string: string;
   };
-  producers: {
-    mal_id: number;
-    type: string;
-    name: string;
-    url: string;
-  }[];
-  licensors: {
-    mal_id: number;
-    type: string;
-    name: string;
-    url: string;
-  }[];
-  studios: {
-    mal_id: number;
-    type: string;
-    name: string;
-    url: string;
-  }[];
-  genres: {
-    mal_id: number;
-    type: string;
-    name: string;
-    url: string;
-  }[];
+  producers: BasicMalEntity[] | null;
+  licensors: BasicMalEntity[] | null;
+  studios: BasicMalEntity[] | null;
+  genres: BasicMalEntity[] | null;
   explicit_genres: any[];
-  themes: {
-    mal_id: number;
-    type: string;
-    name: string;
-    url: string;
-  }[];
+  themes: BasicMalEntity[] | null;
   demographics: any[];
-  relations: {
-    relation: string;
-    entry: {
-      mal_id: number;
-      type: string;
-      name: string;
-      url: string;
-    }[];
-  }[];
+  relations: RelationsEntity[];
   theme: {
     openings: string[];
     endings: string[];
@@ -154,10 +139,53 @@ interface FullMalAnimeResponse {
   }[];
 }
 
+export interface MalFullMangaResponse {
+  mal_id: number;
+  url: string;
+  images: MalImage;
+  approved: boolean;
+  titles?: TitlesEntity[] | null;
+  title: string;
+  title_english?: string;
+  title_japanese?: string;
+  title_synonyms?: null[] | null;
+  type: string;
+  chapters: number;
+  volumes: number;
+  status: string;
+  publishing: boolean;
+  published: {
+    from: string;
+    to: string;
+    prop: {
+      from: FromOrTo;
+      to: FromOrTo;
+    };
+    string?: string;
+  };
+  score: number;
+  scored: number;
+  scored_by: number;
+  rank: number;
+  popularity: number;
+  members: number;
+  favorites: number;
+  synopsis: string;
+  background: string;
+  authors?: BasicMalEntity[] | null;
+  serializations?: BasicMalEntity[] | null;
+  genres?: BasicMalEntity[] | null;
+  explicit_genres?: null[] | null;
+  themes?: BasicMalEntity[] | null;
+  demographics?: BasicMalEntity[] | null;
+  relations?: RelationsEntity[] | null;
+  external?: ExternalEntity[] | null;
+}
+
 interface MalFullFavoritesResponse {
   [key: string]: any;
   anime: FullMalAnimeResponse[];
-  manga: { images: MalImage }[];
+  manga: MalFullMangaResponse[];
   characters: { images: MalImage }[];
   people: { images: MalImage }[];
 }

@@ -1,7 +1,7 @@
 import Axios from "axios";
 import { CacheOptions, setupCache } from "axios-cache-interceptor";
 import Bottleneck from "bottleneck";
-import { FullMalAnimeResponse, MalFavoritesResponse, MalFullFavoritesResponse } from "../types/malFavoritesResponse";
+import { FullMalAnimeResponse, MalFavoritesResponse, MalFullFavoritesResponse, MalFullMangaResponse } from "../types/malFavoritesResponse";
 import { MalLastUpdatesResponse } from "../types/malLastUpdatesResponse";
 import MyAnimeListPlugin from "../types/envMal";
 import { MalProfileResponse } from "../types/malProfileResponse";
@@ -235,7 +235,7 @@ export async function myAnimeListFullRequest(username: string): Promise<MalProfi
   return data;
 }
 
-async function FullMalMediaRequest(media: string, malId: number): Promise<FullMalAnimeResponse> {
+async function FullMalMediaRequest(media: string, malId: number): Promise<FullMalAnimeResponse | MalFullMangaResponse> {
   console.log("Fetching Full MAL data for", media, malId);
   // https://api.jikan.moe/v4/{media}/{MalId}/full
 
@@ -272,7 +272,7 @@ export async function fetchMalData(malPlugin: MyAnimeListPlugin, username: strin
   const mangaFavoritesMax = malPlugin.manga_favorites_max;
   const mangaFavorites = fullRequest.data.favorites.manga.slice(0, mangaFavoritesMax);
 
-  const characterFavoritesMax = malPlugin.characters_favorites_max;
+  const characterFavoritesMax = malPlugin.character_favorites_max;
   const characterFavorites = fullRequest.data.favorites.characters.slice(0, characterFavoritesMax);
 
   const peopleFavoritesMax = malPlugin.people_favorites_max;
@@ -298,7 +298,16 @@ export async function fetchMalData(malPlugin: MyAnimeListPlugin, username: strin
     for (const anime of animeFavorites) {
       await limiter.schedule(async () => {
         const fullAnime = await FullMalMediaRequest("anime", anime.mal_id);
-        favorites_full_data.anime.push(fullAnime);
+        favorites_full_data.anime.push(fullAnime as FullMalAnimeResponse);
+      });
+    }
+  }
+
+  if (sections.includes("manga_favorites")) {
+    for (const manga of mangaFavorites) {
+      await limiter.schedule(async () => {
+        const fullManga = await FullMalMediaRequest("manga", manga.mal_id);
+        favorites_full_data.manga.push(fullManga as MalFullMangaResponse);
       });
     }
   }

@@ -79,9 +79,11 @@ export function getTagIcon(genre: string): { icon: JSX.Element; colorClass: stri
 }
 const Tag = ({ text }: { text: string }) => {
   const { icon, colorClass } = getTagIcon(text);
-
+  if (text === "Award Winning") {
+    text = "Awarded";
+  }
   return (
-    <span className={`default-tag flex item-center gap-2 ${colorClass}`}>
+    <span className={`default-tag flex item-center gap-2 ${colorClass} text-overflow text-nowrap w-auto`}>
       {icon}
       {text}
     </span>

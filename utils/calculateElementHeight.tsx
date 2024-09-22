@@ -1,10 +1,10 @@
 import { JSXElementConstructor, ReactElement, ReactNode } from "react";
 import { renderToString } from "react-dom/server";
-import { Env } from "../src/loadEnv";
 import getSvgWidth from "./getSvgWidth";
 import isNodeEnvironment from "./isNodeEnv";
+import envType from "../types/envType";
 
-async function calculateElementHeight(activePlugins: ReactNode, env: Env): Promise<number> {
+async function calculateElementHeight(activePlugins: ReactNode, env: envType): Promise<number> {
   const isNodeEnv = isNodeEnvironment();
   const isHalf = env.size === "half";
   // const css = await LoadCss(env);

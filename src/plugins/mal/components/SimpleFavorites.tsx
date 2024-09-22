@@ -14,25 +14,27 @@ interface DefaultSimpleFavoritesProps {
   type: string;
 }
 
-function FavoriteImage({ favorite }: { favorite: AnyMalFavoriteUnique }): JSX.Element {
+function FavoriteImage({ favorite, hideOverlay }: { favorite: AnyMalFavoriteUnique; hideOverlay: boolean }): JSX.Element {
   const imageUrl = favorite.images.jpg?.base64;
   const title = "name" in favorite ? treatJanponeseName(favorite.name) : favorite.title;
 
   return (
     <div className="full-favorite-image-container">
       <Img64 url64={imageUrl} alt={title} className="fav-image" />
-      <div className="fav-overlay">
-        <span className="fav-title">{title}</span>
-      </div>
+      {!hideOverlay && (
+        <div className="fav-overlay">
+          <span className="fav-title">{title}</span>
+        </div>
+      )}
     </div>
   );
 }
 
-function RenderFavorites({ favoritesData }: { favoritesData: AnyMalFavorite }) {
+function RenderFavorites({ favoritesData, hideOverlay }: { favoritesData: AnyMalFavorite; hideOverlay: boolean }): JSX.Element {
   return (
-    <div className="grid-col-10 half:grid-col-5 gap-4">
+    <div className="gap-4 grid-col-10 half:grid-col-5 half:gap-2 half:min-w-full half:min-h-full">
       {favoritesData.map((data) => (
-        <FavoriteImage favorite={data} key={data.mal_id} />
+        <FavoriteImage favorite={data} key={data.mal_id} hideOverlay={hideOverlay} />
       ))}
     </div>
   );
@@ -42,9 +44,10 @@ function SimpleFavorites({ favoritesData, type }: DefaultSimpleFavoritesProps): 
   const { pluginMal } = getEnvVariables();
   if (!pluginMal) throw new Error("MAL plugin not found in DefaultSimpleFavorites component");
 
-  let maxItems;
-  let hideTitle;
-  let title;
+  let maxItems: number;
+  let hideTitle: boolean;
+  let title: string;
+  const hideOverlay = pluginMal.favorites_hide_overlay;
 
   switch (type) {
     case "anime":
@@ -74,7 +77,7 @@ function SimpleFavorites({ favoritesData, type }: DefaultSimpleFavoritesProps): 
         defaultComponent={
           <>
             {!hideTitle && <DefaultTitle title={title} icon={<FaHeart />} />}
-            <RenderFavorites favoritesData={favoritesData} />
+            <RenderFavorites favoritesData={favoritesData} hideOverlay={hideOverlay} />
           </>
         }
         terminalComponent={

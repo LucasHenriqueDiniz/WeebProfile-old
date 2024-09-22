@@ -1,12 +1,12 @@
 import { renderToString } from "react-dom/server";
+import envType from "../types/envType";
 import calculateElementHeight from "../utils/calculateElementHeight";
 import ForeignObject from "./base/ForeignObject";
 import SvgContainer from "./base/SvgContainer";
 import LoadCss from "./loadCss";
-import { Env } from "./loadEnv";
 import RenderActivePlugins from "./RenderActivePlugins";
 
-async function RenderBody({ env }: { env: Env }): Promise<string> {
+async function RenderBody({ env }: { env: envType }): Promise<string> {
   console.log("MAIN > RENDER BODY STRING");
   const activePlugins = await RenderActivePlugins(env);
 
