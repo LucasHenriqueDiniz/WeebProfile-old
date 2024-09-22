@@ -9,10 +9,10 @@
 
 <!-- Summary -->
 
-### 📝 Contents
+## 📝 Contents
 
-- [Available options](#available-options)
-- [Supported sections](#supported-sections)
+- [Available options](#-available-options)
+- [Supported sections](#-supported-sections)
 
 <!-- Plugin options -->
 
@@ -197,7 +197,7 @@ GITHUB_FAVORITE_LICENSE_HIDE_TITLE=true
 
 <!-- Supported sections -->
 
-### 🖼️ Supported sections
+## 🖼️ Supported sections
 
 <table>
   <tr>
@@ -205,19 +205,19 @@ GITHUB_FAVORITE_LICENSE_HIDE_TITLE=true
     <td align="center" nowrap="nowrap">Image</td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>profile</code></td>
-    <td nowrap="nowrap"><span style="color: red;">Image for profile not found</span></td>
+    <td align="center" nowrap="nowrap"><code>profile</code></td>
+    <td align="center" nowrap="nowrap"><span style="color: red;">Image for profile not found</span></td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>repositories</code></td>
-    <td nowrap="nowrap"><span style="color: red;">Image for repositories not found</span></td>
+    <td align="center" nowrap="nowrap"><code>repositories</code></td>
+    <td align="center" nowrap="nowrap"><span style="color: red;">Image for repositories not found</span></td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>favorite_languages</code></td>
-    <td nowrap="nowrap">![favorite_languages](./src/plugins/github/assets/favorite_languages.svg?sanitize=true)</td>
+    <td align="center" nowrap="nowrap"><code>favorite_languages</code></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/github/assets/favorite_languages.svg"></td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>favorite_license</code></td>
-    <td nowrap="nowrap">![favorite_license](./src/plugins/github/assets/favorite_license.svg?sanitize=true)</td>
+    <td align="center" nowrap="nowrap"><code>favorite_license</code></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/github/assets/favorite_license.svg"></td>
   </tr>
 </table>

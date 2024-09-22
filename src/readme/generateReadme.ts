@@ -15,8 +15,8 @@ function generateTitle(main: string, sub?: string) {
 
 function generateSummary(summaryOptions: string[]) {
   let summary = "\n<!-- Summary -->\n\n";
-  summary += "### 📝 Contents\n\n";
-  summary += summaryOptions.map((option) => `- [${option}](#${option.toLowerCase().replace(/ /g, "-")})\n`).join("");
+  summary += "## 📝 Contents\n\n";
+  summary += summaryOptions.map((option) => `- [${option}](#-${option.toLowerCase().replace(/ /g, "-")})\n`).join("");
   return summary;
 }
 
@@ -76,7 +76,7 @@ function generateOptionsTable(envVariables: PluginEnvVariables, pluginName: stri
 
 function generateSectionsTable(sections: string[], pluginName: string) {
   let sectionsTable = "\n<!-- Supported sections -->\n\n";
-  sectionsTable += "### 🖼️ Supported sections\n\n";
+  sectionsTable += "## 🖼️ Supported sections\n\n";
   sectionsTable += "<table>\n";
   sectionsTable += "  <tr>\n";
   sectionsTable += '    <td align="center" nowrap="nowrap">Section</td>\n';
@@ -88,11 +88,9 @@ function generateSectionsTable(sections: string[], pluginName: string) {
     const imageExists = fs.existsSync(imagePath);
 
     sectionsTable += "  <tr>\n";
-    sectionsTable += `    <td nowrap="nowrap"><code>${section}</code></td>\n`;
-    sectionsTable += `    <td nowrap="nowrap">${
-      imageExists
-        ? `![${section}](./src/plugins/${pluginName}/assets/${section.toLocaleLowerCase()}.svg?sanitize=true)`
-        : `<span style="color: red;">Image for ${section} not found</span>`
+    sectionsTable += `    <td align="center" nowrap="nowrap"><code>${section}</code></td>\n`;
+    sectionsTable += `    <td align="center" nowrap="nowrap">${
+      imageExists ? `<img src="./src/plugins/${pluginName}/assets/${section.toLocaleLowerCase()}.svg">` : `<span style="color: red;">Image for ${section} not found</span>`
     }</td>\n`;
     sectionsTable += "  </tr>\n";
   }
@@ -105,7 +103,7 @@ function generateAllSectionsTable() {
   //separete by plugin and then by section, use details tag
 
   let allSectionsTable = "\n<!-- Supported sections -->\n\n";
-  allSectionsTable += "### 🖼️ Supported sections\n\n";
+  allSectionsTable += "## 🖼️ Supported sections\n\n";
   STABLE_PLUGINS.forEach(({ name, sections }) => {
     allSectionsTable += `<details open>\n<summary>${name.toUpperCase()}</summary>\n\n`;
     allSectionsTable += "<table>\n";
@@ -118,10 +116,11 @@ function generateAllSectionsTable() {
       const imageExists = fs.existsSync(imagePath);
 
       allSectionsTable += "  <tr>\n";
-      allSectionsTable += `    <td nowrap="nowrap"><code>${section}</code></td>\n`;
-      allSectionsTable += `    <td nowrap="nowrap">${
+      allSectionsTable += `    <td align="center" nowrap="nowrap"><code>${section}</code></td>\n`;
+      allSectionsTable += `    <td align="center" nowrap="nowrap">${
         imageExists
-          ? `![${section}](./src/plugins/${name}/assets/${section.toLocaleLowerCase()}.svg?sanitize=true)`
+          ? // ? `![${section}](./src/plugins/${name}/assets/${section.toLocaleLowerCase()}.svg?sanitize=true)`
+            `<img src="./src/plugins/${name}/assets/${section.toLocaleLowerCase()}.svg">`
           : `<span style="color: red;">Image for ${section} not found</span>`
       }</td>\n`;
       allSectionsTable += "  </tr>\n";

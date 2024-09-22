@@ -9,13 +9,13 @@ A simple and customizable way to display code, anime, and music stats on your Gi
 
 <!-- Summary -->
 
-### 📝 Contents
+## 📝 Contents
 
-- [Available plugins](#available-plugins)
-- [Supported sections](#supported-sections)
-- [Setup](#setup)
-- [Contributing](#contributing)
-- [License](#license)
+- [Available plugins](#-available-plugins)
+- [Supported sections](#-supported-sections)
+- [Setup](#-setup)
+- [Contributing](#-contributing)
+- [License](#-license)
 
 
 ## 📦 Available plugins
@@ -26,7 +26,7 @@ A simple and customizable way to display code, anime, and music stats on your Gi
 
 <!-- Supported sections -->
 
-### 🖼️ Supported sections
+## 🖼️ Supported sections
 
 <details open>
 <summary>MAL</summary>
@@ -37,56 +37,56 @@ A simple and customizable way to display code, anime, and music stats on your Gi
     <td align="center" nowrap="nowrap">Image</td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>statistics</code></td>
-    <td nowrap="nowrap">![statistics](./src/plugins/mal/assets/statistics.svg?sanitize=true)</td>
+    <td align="center" nowrap="nowrap"><code>statistics</code></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/mal/assets/statistics.svg"></td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>anime_bar</code></td>
-    <td nowrap="nowrap">![anime_bar](./src/plugins/mal/assets/anime_bar.svg?sanitize=true)</td>
+    <td align="center" nowrap="nowrap"><code>anime_bar</code></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/mal/assets/anime_bar.svg"></td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>manga_bar</code></td>
-    <td nowrap="nowrap">![manga_bar](./src/plugins/mal/assets/manga_bar.svg?sanitize=true)</td>
+    <td align="center" nowrap="nowrap"><code>manga_bar</code></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/mal/assets/manga_bar.svg"></td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>statistics_simple</code></td>
-    <td nowrap="nowrap">![statistics_simple](./src/plugins/mal/assets/statistics_simple.svg?sanitize=true)</td>
+    <td align="center" nowrap="nowrap"><code>statistics_simple</code></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/mal/assets/statistics_simple.svg"></td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>anime_simple_favorites</code></td>
-    <td nowrap="nowrap">![anime_simple_favorites](./src/plugins/mal/assets/anime_simple_favorites.svg?sanitize=true)</td>
+    <td align="center" nowrap="nowrap"><code>anime_simple_favorites</code></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/mal/assets/anime_simple_favorites.svg"></td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>manga_simple_favorites</code></td>
-    <td nowrap="nowrap">![manga_simple_favorites](./src/plugins/mal/assets/manga_simple_favorites.svg?sanitize=true)</td>
+    <td align="center" nowrap="nowrap"><code>manga_simple_favorites</code></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/mal/assets/manga_simple_favorites.svg"></td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>people_simple_favorites</code></td>
-    <td nowrap="nowrap">![people_simple_favorites](./src/plugins/mal/assets/people_simple_favorites.svg?sanitize=true)</td>
+    <td align="center" nowrap="nowrap"><code>people_simple_favorites</code></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/mal/assets/people_simple_favorites.svg"></td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>character_simple_favorites</code></td>
-    <td nowrap="nowrap">![character_simple_favorites](./src/plugins/mal/assets/character_simple_favorites.svg?sanitize=true)</td>
+    <td align="center" nowrap="nowrap"><code>character_simple_favorites</code></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/mal/assets/character_simple_favorites.svg"></td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>anime_favorites</code></td>
-    <td nowrap="nowrap">![anime_favorites](./src/plugins/mal/assets/anime_favorites.svg?sanitize=true)</td>
+    <td align="center" nowrap="nowrap"><code>anime_favorites</code></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/mal/assets/anime_favorites.svg"></td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>manga_favorites</code></td>
-    <td nowrap="nowrap">![manga_favorites](./src/plugins/mal/assets/manga_favorites.svg?sanitize=true)</td>
+    <td align="center" nowrap="nowrap"><code>manga_favorites</code></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/mal/assets/manga_favorites.svg"></td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>people_favorites</code></td>
-    <td nowrap="nowrap"><span style="color: red;">Image for people_favorites not found</span></td>
+    <td align="center" nowrap="nowrap"><code>people_favorites</code></td>
+    <td align="center" nowrap="nowrap"><span style="color: red;">Image for people_favorites not found</span></td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>character_favorites</code></td>
-    <td nowrap="nowrap">![character_favorites](./src/plugins/mal/assets/character_favorites.svg?sanitize=true)</td>
+    <td align="center" nowrap="nowrap"><code>character_favorites</code></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/mal/assets/character_favorites.svg"></td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>last_activity</code></td>
-    <td nowrap="nowrap">![last_activity](./src/plugins/mal/assets/last_activity.svg?sanitize=true)</td>
+    <td align="center" nowrap="nowrap"><code>last_activity</code></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/mal/assets/last_activity.svg"></td>
   </tr>
 </table>
 </details>
@@ -100,48 +100,48 @@ A simple and customizable way to display code, anime, and music stats on your Gi
     <td align="center" nowrap="nowrap">Image</td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>recent_tracks</code></td>
-    <td nowrap="nowrap">![recent_tracks](./src/plugins/lastfm/assets/recent_tracks.svg?sanitize=true)</td>
+    <td align="center" nowrap="nowrap"><code>recent_tracks</code></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/recent_tracks.svg"></td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>statistics</code></td>
-    <td nowrap="nowrap">![statistics](./src/plugins/lastfm/assets/statistics.svg?sanitize=true)</td>
+    <td align="center" nowrap="nowrap"><code>statistics</code></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/statistics.svg"></td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>top_artists_grid</code></td>
-    <td nowrap="nowrap">![top_artists_grid](./src/plugins/lastfm/assets/top_artists_grid.svg?sanitize=true)</td>
+    <td align="center" nowrap="nowrap"><code>top_artists_grid</code></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/top_artists_grid.svg"></td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>top_artists_list</code></td>
-    <td nowrap="nowrap">![top_artists_list](./src/plugins/lastfm/assets/top_artists_list.svg?sanitize=true)</td>
+    <td align="center" nowrap="nowrap"><code>top_artists_list</code></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/top_artists_list.svg"></td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>top_artists_default</code></td>
-    <td nowrap="nowrap">![top_artists_default](./src/plugins/lastfm/assets/top_artists_default.svg?sanitize=true)</td>
+    <td align="center" nowrap="nowrap"><code>top_artists_default</code></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/top_artists_default.svg"></td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>top_albums_list</code></td>
-    <td nowrap="nowrap">![top_albums_list](./src/plugins/lastfm/assets/top_albums_list.svg?sanitize=true)</td>
+    <td align="center" nowrap="nowrap"><code>top_albums_list</code></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/top_albums_list.svg"></td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>top_albums_grid</code></td>
-    <td nowrap="nowrap">![top_albums_grid](./src/plugins/lastfm/assets/top_albums_grid.svg?sanitize=true)</td>
+    <td align="center" nowrap="nowrap"><code>top_albums_grid</code></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/top_albums_grid.svg"></td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>top_albums_default</code></td>
-    <td nowrap="nowrap">![top_albums_default](./src/plugins/lastfm/assets/top_albums_default.svg?sanitize=true)</td>
+    <td align="center" nowrap="nowrap"><code>top_albums_default</code></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/top_albums_default.svg"></td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>top_tracks_list</code></td>
-    <td nowrap="nowrap">![top_tracks_list](./src/plugins/lastfm/assets/top_tracks_list.svg?sanitize=true)</td>
+    <td align="center" nowrap="nowrap"><code>top_tracks_list</code></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/top_tracks_list.svg"></td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>top_tracks_grid</code></td>
-    <td nowrap="nowrap">![top_tracks_grid](./src/plugins/lastfm/assets/top_tracks_grid.svg?sanitize=true)</td>
+    <td align="center" nowrap="nowrap"><code>top_tracks_grid</code></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/top_tracks_grid.svg"></td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>top_tracks_default</code></td>
-    <td nowrap="nowrap">![top_tracks_default](./src/plugins/lastfm/assets/top_tracks_default.svg?sanitize=true)</td>
+    <td align="center" nowrap="nowrap"><code>top_tracks_default</code></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/top_tracks_default.svg"></td>
   </tr>
 </table>
 </details>
@@ -155,20 +155,20 @@ A simple and customizable way to display code, anime, and music stats on your Gi
     <td align="center" nowrap="nowrap">Image</td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>profile</code></td>
-    <td nowrap="nowrap"><span style="color: red;">Image for profile not found</span></td>
+    <td align="center" nowrap="nowrap"><code>profile</code></td>
+    <td align="center" nowrap="nowrap"><span style="color: red;">Image for profile not found</span></td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>repositories</code></td>
-    <td nowrap="nowrap"><span style="color: red;">Image for repositories not found</span></td>
+    <td align="center" nowrap="nowrap"><code>repositories</code></td>
+    <td align="center" nowrap="nowrap"><span style="color: red;">Image for repositories not found</span></td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>favorite_languages</code></td>
-    <td nowrap="nowrap">![favorite_languages](./src/plugins/github/assets/favorite_languages.svg?sanitize=true)</td>
+    <td align="center" nowrap="nowrap"><code>favorite_languages</code></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/github/assets/favorite_languages.svg"></td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>favorite_license</code></td>
-    <td nowrap="nowrap">![favorite_license](./src/plugins/github/assets/favorite_license.svg?sanitize=true)</td>
+    <td align="center" nowrap="nowrap"><code>favorite_license</code></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/github/assets/favorite_license.svg"></td>
   </tr>
 </table>
 </details>

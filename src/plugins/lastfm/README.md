@@ -9,10 +9,10 @@
 
 <!-- Summary -->
 
-### 📝 Contents
+## 📝 Contents
 
-- [Available options](#available-options)
-- [Supported sections](#supported-sections)
+- [Available options](#-available-options)
+- [Supported sections](#-supported-sections)
 
 <!-- Plugin options -->
 
@@ -295,7 +295,7 @@ LASTFM_STATISTICS_TITLE="Statistics"
 
 <!-- Supported sections -->
 
-### 🖼️ Supported sections
+## 🖼️ Supported sections
 
 <table>
   <tr>
@@ -303,47 +303,47 @@ LASTFM_STATISTICS_TITLE="Statistics"
     <td align="center" nowrap="nowrap">Image</td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>recent_tracks</code></td>
-    <td nowrap="nowrap">![recent_tracks](./src/plugins/lastfm/assets/recent_tracks.svg?sanitize=true)</td>
+    <td align="center" nowrap="nowrap"><code>recent_tracks</code></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/recent_tracks.svg"></td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>statistics</code></td>
-    <td nowrap="nowrap">![statistics](./src/plugins/lastfm/assets/statistics.svg?sanitize=true)</td>
+    <td align="center" nowrap="nowrap"><code>statistics</code></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/statistics.svg"></td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>top_artists_grid</code></td>
-    <td nowrap="nowrap">![top_artists_grid](./src/plugins/lastfm/assets/top_artists_grid.svg?sanitize=true)</td>
+    <td align="center" nowrap="nowrap"><code>top_artists_grid</code></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/top_artists_grid.svg"></td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>top_artists_list</code></td>
-    <td nowrap="nowrap">![top_artists_list](./src/plugins/lastfm/assets/top_artists_list.svg?sanitize=true)</td>
+    <td align="center" nowrap="nowrap"><code>top_artists_list</code></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/top_artists_list.svg"></td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>top_artists_default</code></td>
-    <td nowrap="nowrap">![top_artists_default](./src/plugins/lastfm/assets/top_artists_default.svg?sanitize=true)</td>
+    <td align="center" nowrap="nowrap"><code>top_artists_default</code></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/top_artists_default.svg"></td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>top_albums_list</code></td>
-    <td nowrap="nowrap">![top_albums_list](./src/plugins/lastfm/assets/top_albums_list.svg?sanitize=true)</td>
+    <td align="center" nowrap="nowrap"><code>top_albums_list</code></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/top_albums_list.svg"></td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>top_albums_grid</code></td>
-    <td nowrap="nowrap">![top_albums_grid](./src/plugins/lastfm/assets/top_albums_grid.svg?sanitize=true)</td>
+    <td align="center" nowrap="nowrap"><code>top_albums_grid</code></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/top_albums_grid.svg"></td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>top_albums_default</code></td>
-    <td nowrap="nowrap">![top_albums_default](./src/plugins/lastfm/assets/top_albums_default.svg?sanitize=true)</td>
+    <td align="center" nowrap="nowrap"><code>top_albums_default</code></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/top_albums_default.svg"></td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>top_tracks_list</code></td>
-    <td nowrap="nowrap">![top_tracks_list](./src/plugins/lastfm/assets/top_tracks_list.svg?sanitize=true)</td>
+    <td align="center" nowrap="nowrap"><code>top_tracks_list</code></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/top_tracks_list.svg"></td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>top_tracks_grid</code></td>
-    <td nowrap="nowrap">![top_tracks_grid](./src/plugins/lastfm/assets/top_tracks_grid.svg?sanitize=true)</td>
+    <td align="center" nowrap="nowrap"><code>top_tracks_grid</code></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/top_tracks_grid.svg"></td>
   </tr>
   <tr>
-    <td nowrap="nowrap"><code>top_tracks_default</code></td>
-    <td nowrap="nowrap">![top_tracks_default](./src/plugins/lastfm/assets/top_tracks_default.svg?sanitize=true)</td>
+    <td align="center" nowrap="nowrap"><code>top_tracks_default</code></td>
+    <td align="center" nowrap="nowrap"><img src="./src/plugins/lastfm/assets/top_tracks_default.svg"></td>
   </tr>
 </table>
