@@ -6,6 +6,9 @@
 
 <sub>This README is auto-generated and will be updated with the latest plugin options and supported sections.</sub>
 
+
+<!-- Summary -->
+
 ### 📝 Contents
 
 - [Available options](#available-options)

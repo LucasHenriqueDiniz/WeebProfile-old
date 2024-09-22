@@ -1,13 +1,7 @@
 import fs from "fs";
 import path from "path";
-import GITHUB_ENV_VARIABLES from "../plugins/github/ENV_VARIABLES";
-import LASTFM_ENV_VARIABLES from "../plugins/lastfm/ENV_VARIABLES";
-import MAL_ENV_VARIABLES from "../plugins/mal/ENV_VARIABLES";
 import ENV_VARIABLES_TYPE from "../../types/envVariables";
-import { AllMyAnimeListSections } from "../plugins/mal/types/envMal";
-import { allLastFmSections } from "../plugins/lastfm/types/envLastFM";
-import { allGIThubSections } from "../plugins/github/types/envGithub";
-import splitString from "../../utils/splitString";
+import STABLE_PLUGINS from "../STABLE_PLUGINS";
 
 type PluginEnvVariables = Record<string, ENV_VARIABLES_TYPE>;
 
@@ -107,50 +101,101 @@ function generateSectionsTable(sections: string[], pluginName: string) {
   return sectionsTable;
 }
 
-function generateReadmeSection(pluginName: string, envVariables: PluginEnvVariables, allSections: string) {
+function generateAllSectionsTable() {
+  //separete by plugin and then by section, use details tag
+
+  let allSectionsTable = "\n<!-- Supported sections -->\n\n";
+  allSectionsTable += "### 🖼️ Supported sections\n\n";
+  STABLE_PLUGINS.forEach(({ name, sections }) => {
+    allSectionsTable += `<details>\n<summary>${name.toUpperCase()}</summary>\n\n`;
+    allSectionsTable += "<table>\n";
+    allSectionsTable += "  <tr>\n";
+    allSectionsTable += '    <td align="center" nowrap="nowrap">Section</td>\n';
+    allSectionsTable += '    <td align="center" nowrap="nowrap">Image</td>\n';
+    allSectionsTable += "  </tr>\n";
+    sections.forEach((section) => {
+      const imagePath = path.join(__dirname, `../plugins/${name}/assets/${section}.svg`);
+      const imageExists = fs.existsSync(imagePath);
+
+      allSectionsTable += "  <tr>\n";
+      allSectionsTable += `    <td nowrap="nowrap"><code>${section}</code></td>\n`;
+      allSectionsTable += `    <td nowrap="nowrap">${
+        imageExists
+          ? `<img src="../../assets/${name}/${section}.svg?sanitize=true" alt="${section} visualization" width="300">`
+          : `<span style="color: red;">Image for ${section} not found</span>`
+      }</td>\n`;
+      allSectionsTable += "  </tr>\n";
+    });
+    allSectionsTable += "</table>\n";
+    allSectionsTable += "</details>\n\n";
+  });
+  return allSectionsTable;
+}
+
+function generateReadmeSection(pluginName: string, envVariables: PluginEnvVariables, allSections: string[]) {
   console.log("Generating README for", pluginName);
-  const splitSections = splitString(allSections);
   let readmeContent = generateTitle(`${pluginName.toUpperCase()} Plugin`);
   readmeContent += generateSummary(["Available options", "Supported sections"]);
-  readmeContent += generateOptionsTable(envVariables, pluginName, splitSections);
-  readmeContent += generateSectionsTable(splitSections, pluginName);
+  readmeContent += generateOptionsTable(envVariables, pluginName, allSections);
+  readmeContent += generateSectionsTable(allSections, pluginName);
 
   return readmeContent;
+}
+
+function generateLiscense() {
+  //get the license.md file and return it
+  const file = fs.readFileSync(path.join(__dirname, "./documentation/license.md"));
+
+  //replace @{currentYear} with the current year
+  const currentYear = new Date().getFullYear();
+  return file.toString().replace(/@{currentYear}/g, currentYear.toString());
+}
+
+function generateSetup() {
+  //@TODO make like metrics and add the documentation for the configuration types when is available
+  // 🤖 GitHub Action on a profile repository
+  // 👍 All features
+  // 👍 High availability (no downtimes)
+  // 👎 Configuration can be a bit time-consuming
+  // 📤 Shared instance (NOT AVAIBLE YET)
+  // 👍 Easily configurable and previewable
+  // 👎 Limited features (compute-intensive features are disabled)
+
+  const config = fs.readFileSync(path.join(__dirname, "./documentation/setup.md"));
+  return config.toString();
+}
+
+function generateContributing() {
+  const contributing = fs.readFileSync(path.join(__dirname, "./documentation/contributing.md"));
+  return contributing.toString();
 }
 
 function generateMainReadme() {
   console.log("Generating main README");
   let mainReadme = generateTitle("🗻 WeebProfile", "A simple and customizable way to display code, anime, and music stats on your GitHub profile README.");
-  mainReadme += generateSummary(["Available plugins", "Getting started", "Documentation", "Contributing", "License"]);
-  mainReadme += "\n\n### 📦 Available plugins\n\n";
-  mainReadme += "- [MAL](./mal/README.md)\n";
-  mainReadme += "- [Last.fm](./lastfm/README.md)\n";
-  mainReadme += "- [GitHub](./github/README.md)\n";
+  mainReadme += generateSummary(["Available plugins", "Supported sections", "Setup", "Contributing", "License"]);
+
+  mainReadme += "\n\n## 📦 Available plugins\n\n";
+  STABLE_PLUGINS.forEach(({ name }) => {
+    mainReadme += `- [${name.toUpperCase()}](./plugins/${name}/README.md)\n`;
+  });
+
+  mainReadme += generateAllSectionsTable();
+
+  mainReadme += generateSetup();
+  mainReadme += generateContributing();
+  mainReadme += generateLiscense();
 
   return mainReadme;
 }
 
-// @TODO create a constant with all plugins and iterate over them
-// @TODO make the main readme function
-// - docmentation - how to use the plugin
-// - contributing - example of adding a new plugin
-// - license - Apache 2.0
-
-// Example usage
 const outputDir = path.join(__dirname, "../plugins");
 
-// Generate README for MAL plugin
-const malReadme = generateReadmeSection("mal", MAL_ENV_VARIABLES, AllMyAnimeListSections);
-fs.writeFileSync(path.join(outputDir, "mal/README.md"), malReadme);
-
-// Generate README for Last.fm plugin
-const lastfmReadme = generateReadmeSection("lastfm", LASTFM_ENV_VARIABLES, allLastFmSections);
-fs.writeFileSync(path.join(outputDir, "lastfm/README.md"), lastfmReadme);
-
-// Generate README for GitHub plugin
-const githubReadme = generateReadmeSection("github", GITHUB_ENV_VARIABLES, allGIThubSections);
-fs.writeFileSync(path.join(outputDir, "github/README.md"), githubReadme);
+STABLE_PLUGINS.forEach(({ name, envVariables, sections }) => {
+  const readme = generateReadmeSection(name, envVariables, sections);
+  fs.writeFileSync(path.join(outputDir, `${name}/README.md`), readme);
+});
 
 // Generate main README
 const mainReadme = generateMainReadme();
-fs.writeFileSync(path.join(__dirname, "../README.md"), mainReadme);
+fs.writeFileSync(path.join(__dirname, "../../README.md"), mainReadme);
