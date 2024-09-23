@@ -26,7 +26,7 @@ function DefaultFavoriteImage({ favorite, isHalf }: { favorite: MalFullMangaResp
 
   return (
     <div className="flex h-120 overflow-hidden gap-8">
-      <div className="full-favorite-image-container">
+      <div className="full-favorite-image-container min-w-80 min-h-120">
         <Img64 url64={imageUrl} alt={title} className="fav-image" />
       </div>
       <div className="w100 flex-d justify-between overflow-hidden">

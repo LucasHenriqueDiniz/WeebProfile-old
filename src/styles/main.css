@@ -649,3 +649,11 @@ px-4 {
 .bg-plan-to-watch {
   background-color: var(--color-plan-to-watch);
 }
+
+.min-w-80 {
+  min-width: 80px;
+}
+
+.min-h-120 {
+  min-height: 120px;
+}
