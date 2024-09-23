@@ -21,7 +21,7 @@ async function main() {
       await storeLocally(htmlString, filename);
       break;
     case "repository":
-      console.log("Repository storage method not implemented yet");
+      console.error("Repository storage method not implemented yet");
       break;
     default:
       throw new Error("Invalid STORE_METHOD");

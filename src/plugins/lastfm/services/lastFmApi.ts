@@ -2,10 +2,10 @@ import Axios from "axios";
 import { CacheOptions, setupCache } from "axios-cache-interceptor";
 import Bottleneck from "bottleneck";
 import * as cheerio from "cheerio";
-import { LastFmAlbum, LastFmArtist, LastFmData, LastFmFeaturedTrack, LastFmResponse, LastFmTrack, TopTrack } from "../types/lastFmTypes";
-import LastFmPlugin from "../types/envLastFM";
-import isNodeEnvironment from "../../../../utils/isNodeEnv";
 import getImage64 from "../../../../utils/imageToBase64";
+import isNodeEnvironment from "../../../../utils/isNodeEnv";
+import LastFmPlugin from "../types/envLastFM";
+import { LastFmAlbum, LastFmArtist, LastFmData, LastFmFeaturedTrack, LastFmResponse, LastFmTrack, TopTrack } from "../types/lastFmTypes";
 
 const limiter = new Bottleneck({
   maxConcurrent: 1,
@@ -18,9 +18,6 @@ const limiter = new Bottleneck({
 const axiosInstance = Axios.create();
 const OPTIONS = {
   maxAge: 1 * 60 * 60 * 1000, // 1
-  debug(msg) {
-    console.log(msg);
-  },
   //dont cache != 200 responses
   shouldCacheResponse: (response: { status: number }) => response.status === 200,
   clearOnStale: true,
@@ -41,7 +38,6 @@ async function LastFmApi(lastFmPlugin: LastFmPlugin): Promise<LastFmResponse> {
 
   console.log("Data fetched");
   const $ = cheerio.load(reponse.data);
-  console.log("Parsing data");
 
   let recentTracksArray: LastFmTrack[] = [];
   let topArtistsArray: LastFmArtist[] = [];

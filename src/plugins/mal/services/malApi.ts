@@ -19,9 +19,6 @@ const limiter = new Bottleneck({
 const axiosInstance = Axios.create();
 const OPTIONS = {
   maxAge: 1 * 60 * 60 * 1000, // 1
-  debug(msg) {
-    console.log(msg);
-  },
   //dont cache != 200 responses
   shouldCacheResponse: (response: { status: number }) => response.status === 200,
   clearOnStale: true,

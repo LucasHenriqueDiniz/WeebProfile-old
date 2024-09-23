@@ -3,12 +3,12 @@ import envType from "../types/envType";
 import isNodeEnvironment from "../utils/isNodeEnv";
 import loadPlugin from "../utils/loadPlugin";
 import splitString from "../utils/splitString";
+import GITHUB_ENV_VARIABLES from "./plugins/github/ENV_VARIABLES";
 import GithubPlugin from "./plugins/github/types/envGithub";
+import LASTFM_ENV_VARIABLES from "./plugins/lastfm/ENV_VARIABLES";
 import LastFmPlugin from "./plugins/lastfm/types/envLastFM";
 import MAL_ENV_VARIABLES from "./plugins/mal/ENV_VARIABLES";
 import MyAnimeListPlugin from "./plugins/mal/types/envMal";
-import LASTFM_ENV_VARIABLES from "./plugins/lastfm/ENV_VARIABLES";
-import GITHUB_ENV_VARIABLES from "./plugins/github/ENV_VARIABLES";
 
 if (isNodeEnvironment()) {
   dotenv.config();

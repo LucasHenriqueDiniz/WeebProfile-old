@@ -7,7 +7,7 @@ function GridItem({ image, title, value, subtitle, index }: GridItemProps & { in
   return (
     <div className={`relative overflow-hidden radius-8 ${index === 0 ? "default-grid-main" : ""}`}>
       <Img64 url64={image} alt={title} defaultType="lastfm" className="image-center-full" />
-      <div className="overlay">
+      <div className="fav-overlay">
         <div className="flex-d">
           <p className="md-text-bold text-nowrap text-overflow half:sm-text">{title}</p>
           <p className="sm-text text-gray line-100">

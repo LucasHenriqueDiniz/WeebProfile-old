@@ -1,13 +1,12 @@
-import React from "react";
 import randomString from "../../../../utils/randomString";
 import Img64 from "../../../base/ImageComponent";
 import { GridItemProps } from "../types";
 
 function GridItem({ title, image, value }: GridItemProps): JSX.Element {
   return (
-    <div className="relative overflow-hidden radius-8 min-w-200 min-h-200 half:min-w-100 half:min-h-100">
+    <div className="relative overflow-hidden radius-8 min-w-200 min-h-200 half:min-w-0 half:w-auto half:min-h-100">
       <Img64 url64={image} alt={title} defaultType="lastfm" className="image-center-full" />
-      <div className="overlay">
+      <div className="fav-overlay">
         <div className="flex-d">
           <p className="md-text-bold text-nowrap text-overflow half:sm-text">{title}</p>
           <p className="sm-text text-gray line-100 half:xs-text">{value}</p>

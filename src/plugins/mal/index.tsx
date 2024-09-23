@@ -7,13 +7,13 @@ import AnimeFavorites from "./components/AnimeFavorites";
 import CharactersFavorites from "./components/CharactersFavorites";
 import StatisticsHorizontalBar from "./components/HorizontalBar";
 import LastUpdates from "./components/LastUpdates";
+import MangaFavorites from "./components/MangaFavorites";
+import PeopleFavorites from "./components/PeopleFavorites";
 import SimpleFavorites from "./components/SimpleFavorites";
 import SimpleStatistics from "./components/SimpleStatistics";
 import Statistics from "./components/Statistics";
 import MyAnimeListPlugin, { AllMyAnimeListSections } from "./types/envMal";
 import { MalData } from "./types/malTypes";
-import MangaFavorites from "./components/MangaFavorites";
-import PeopleFavorites from "./components/PeopleFavorites";
 
 const sectionRenderers: Record<string, (malData: MalData) => JSX.Element> = {
   statistics: (malData: MalData) => <Statistics statisticsData={malData.statistics} />,
@@ -43,7 +43,7 @@ export default function renderMyAnimeList({ malPlugin, malData }: { malPlugin: M
     if (sectionRenderers[section]) {
       return sectionRenderers[section](malData);
     }
-    console.log(`Section "${section}" not found, available sections: \n${AllMyAnimeListSections}`);
+    console.error(`Section "${section}" not found, available sections: \n${AllMyAnimeListSections}`);
     return <ErrorMessage message={`Section ${section} not found`} />;
   };
 

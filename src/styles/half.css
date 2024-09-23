@@ -67,16 +67,23 @@
   font-size: 10px !important;
 }
 
+#svg-main.half .half\:min-w-0 {
+  width: 0 !important;
+}
+#svg-main.half .half\:w-auto {
+  width: auto !important;
+}
+
 #svg-main.half .half\:flex-d {
   display: flex;
   flex-direction: column;
 }
 #svg-main.half .half\:min-w-100 {
-  width: 100%;
+  width: 100px;
 }
 
 #svg-main.half .half\:min-h-100 {
-  height: 100%;
+  height: 100px;
 }
 #svg-main.half .half\:grid-col-5 {
   grid-template-columns: repeat(5, 1fr);
