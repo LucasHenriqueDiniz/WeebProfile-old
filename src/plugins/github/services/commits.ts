@@ -81,14 +81,6 @@ async function fetchRepositoryCommitCount(owner: string, repo: string, token: st
   }
 }
 
-const user = "LucasHenriqueDiniz";
-
-const token = "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";
-
-fetchRepositoryCommitCount(user, "WeebProfile", token).then((count) => {
-  console.log("Repository commit count:", count);
-});
-
 interface CommitData {
   oid: string;
   abbreviatedOid: string;
