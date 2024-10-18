@@ -227,7 +227,7 @@ function generateMainReadme() {
 
   let mainReadme = "<!-- This file is auto-generated, don't update it manually -->";
   mainReadme += "\n\n<div align='center'>\n";
-  mainReadme += "<img src='./imgs/banner.png' height='400' justify='center' />\n";
+  mainReadme += "<img src='./src/readme/imgs/banner.png' height='400' justify='center' />\n";
   mainReadme += "</div>\n\n";
 
   mainReadme += generateTitle("WeebProfile 🦀", "A simple and customizable way to display code, anime, and music stats on your GitHub profile README.");

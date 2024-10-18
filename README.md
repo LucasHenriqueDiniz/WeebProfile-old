@@ -1,7 +1,7 @@
 <!-- This file is auto-generated, don't update it manually -->
 
 <div align='center'>
-<img src='./imgs/banner.png' height='400' justify='center' />
+<img src='./src/readme/imgs/banner.png' height='400' justify='center' />
 </div>
 
 <!-- This file is auto-generated, don't update it manually -->
