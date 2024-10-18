@@ -129,7 +129,7 @@ function generatePluginSectionsTable(sections: string[], pluginName: string) {
 }
 
 function generateAllSectionsTable() {
-  //separete by plugin and then by section, use details tag
+  //separate by plugin and then by section, use details tag
   const totalSections = STABLE_PLUGINS.reduce((acc, { sections }) => acc + sections.length, 0);
   let allSectionsTable = "\n<!-- Supported sections -->\n\n";
   allSectionsTable += "## 🖼️ Supported sections\n\n";
@@ -194,7 +194,7 @@ function generateReadmeSection(pluginName: string, envVariables: PluginEnvVariab
   return readmeContent;
 }
 
-function generateLiscense() {
+function generateLicense() {
   //get the license.md file and return it
   const file = fs.readFileSync(path.join(__dirname, "./documentation/license.md"));
 
@@ -209,8 +209,8 @@ function generateSetup() {
   // 👍 All features
   // 👍 High availability (no downtimes)
   // 👎 Configuration can be a bit time-consuming
-  // 📤 Shared instance (NOT AVAIBLE YET)
-  // 👍 Easily configurable and previewable
+  // 📤 Shared instance (NOT IMPLEMENTED YET)
+  // 👍 Easily configurable and preview
   // 👎 Limited features (compute-intensive features are disabled)
 
   const config = fs.readFileSync(path.join(__dirname, "./documentation/setup.md"));
@@ -224,7 +224,13 @@ function generateContributing() {
 
 function generateMainReadme() {
   console.log("Generating main README");
-  let mainReadme = generateTitle("🗻 WeebProfile 🦀", "A simple and customizable way to display code, anime, and music stats on your GitHub profile README.");
+
+  let mainReadme = "<!-- This file is auto-generated, don't update it manually -->";
+  mainReadme += "\n\n<div align='center'>\n";
+  mainReadme += "<img src='./imgs/banner.png' height='400' justify='center' />\n";
+  mainReadme += "</div>\n\n";
+
+  mainReadme += generateTitle("WeebProfile 🦀", "A simple and customizable way to display code, anime, and music stats on your GitHub profile README.");
   mainReadme += generateSummary(["Available plugins", "Supported sections", "Setup", "Contributing", "License"]);
 
   mainReadme += "\n\n## 📦 Available plugins\n\n";
@@ -236,7 +242,7 @@ function generateMainReadme() {
 
   mainReadme += generateSetup();
   mainReadme += generateContributing();
-  mainReadme += generateLiscense();
+  mainReadme += generateLicense();
 
   return mainReadme;
 }

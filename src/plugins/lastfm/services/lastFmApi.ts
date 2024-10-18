@@ -5,7 +5,7 @@ import * as cheerio from "cheerio";
 import getImage64 from "../../../../utils/imageToBase64";
 import isNodeEnvironment from "../../../../utils/isNodeEnv";
 import LastFmPlugin from "../types/envLastFM";
-import { LastFmAlbum, LastFmArtist, LastFmData, LastFmFeaturedTrack, LastFmResponse, LastFmTrack, TopTrack } from "../types/lastFmTypes";
+import { LastFmData, LastFmTrack, LastFmArtist, LastFmAlbum, TopTrack, LastFmFeaturedTrack, LastFmResponse } from "../types/lastFmTypes";
 
 const limiter = new Bottleneck({
   maxConcurrent: 1,
@@ -18,15 +18,15 @@ const limiter = new Bottleneck({
 const axiosInstance = Axios.create();
 const OPTIONS = {
   maxAge: 1 * 60 * 60 * 1000, // 1
-  //dont cache != 200 responses
+  //don't cache != 200 responses
   shouldCacheResponse: (response: { status: number }) => response.status === 200,
   clearOnStale: true,
   cacheTakeover: false,
 } as CacheOptions;
 const axios = setupCache(axiosInstance, OPTIONS);
 
-// webscrap https://www.last.fm/user/Amayacrab using cheerio
-async function LastFmApi(lastFmPlugin: LastFmPlugin): Promise<LastFmResponse> {
+// web scrap https://www.last.fm/user/Amayacrab using cheerio
+async function LastFmApi(lastFmPlugin: LastFmPlugin): Promise<LastFmData> {
   const isNodeEnv = isNodeEnvironment();
   let url = `https://www.last.fm/user/${lastFmPlugin.username}`;
   if (!isNodeEnv) {
@@ -34,10 +34,10 @@ async function LastFmApi(lastFmPlugin: LastFmPlugin): Promise<LastFmResponse> {
   }
 
   console.log("Fetching LastFM data");
-  const reponse = await limiter.schedule(() => axios.get(url));
+  const response = await limiter.schedule(() => axios.get(url));
 
   console.log("Data fetched");
-  const $ = cheerio.load(reponse.data);
+  const $ = cheerio.load(response.data);
 
   let recentTracksArray: LastFmTrack[] = [];
   let topArtistsArray: LastFmArtist[] = [];
@@ -45,9 +45,9 @@ async function LastFmApi(lastFmPlugin: LastFmPlugin): Promise<LastFmResponse> {
   let topTracksArray: TopTrack[] = [];
   let treatedFeaturedTrack: LastFmFeaturedTrack | null = null;
 
-  let topArtistsInterval;
-  let topAlbumsInterval;
-  let topTracksInterval;
+  let topArtistsInterval: string;
+  let topAlbumsInterval: string;
+  let topTracksInterval: string;
 
   let totalScrobbles = "0";
   let totalArtists = "0";
@@ -235,7 +235,7 @@ async function LastFmApi(lastFmPlugin: LastFmPlugin): Promise<LastFmResponse> {
     treatedFeaturedTrack.image = (await getImage64(treatedFeaturedTrack.image)) || "";
   }
   console.log("LastFM data parsed");
-  const lastFmData: LastFmData = {
+  const LastFmResponse: LastFmResponse = {
     totalScrobbles,
     totalArtists,
     lovedTracks,
@@ -246,7 +246,7 @@ async function LastFmApi(lastFmPlugin: LastFmPlugin): Promise<LastFmResponse> {
     featuredTrack: treatedFeaturedTrack,
   };
 
-  return { data: lastFmData, topArtistsInterval, topAlbumsInterval, topTracksInterval } as LastFmResponse;
+  return { data: LastFmResponse, topArtistsInterval, topAlbumsInterval, topTracksInterval } as LastFmData;
 }
 
 export default LastFmApi;

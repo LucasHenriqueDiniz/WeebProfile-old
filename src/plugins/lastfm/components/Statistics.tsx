@@ -1,15 +1,14 @@
-import React from "react";
 import { IoStatsChartOutline } from "react-icons/io5";
-import { LastFmData, LastFmFeaturedTrack } from "../types/lastFmTypes";
-import getEnvVariables from "../../../../utils/getEnvVariables";
-import getPseudoCommands from "../../../../utils/getPseudoCommands";
-import Img64 from "../../../base/ImageComponent";
 import DefaultTitle from "../../!templates/Default/Default_Title";
 import RenderBasedOnStyle from "../../!templates/RenderBasedOnStyle";
 import TerminalCommand from "../../!templates/Terminal/Terminal_Command";
 import TerminalDots from "../../!templates/Terminal/Terminal_Dots";
 import TerminalLineBreak from "../../!templates/Terminal/Terminal_LineBreak";
 import TerminalLineWithDots from "../../!templates/Terminal/Terminal_LineWithDots";
+import getEnvVariables from "../../../../utils/getEnvVariables";
+import getPseudoCommands from "../../../../utils/getPseudoCommands";
+import Img64 from "../../../base/ImageComponent";
+import { LastFmFeaturedTrack, LastFmResponse } from "../types/lastFmTypes";
 
 const statisticsList = [
   { title: "Scrobbles", key: "totalScrobbles" },
@@ -51,7 +50,7 @@ const TerminalFeaturedTrack = ({ track }: { track: LastFmFeaturedTrack }): JSX.E
   );
 };
 
-function LastFMStatistics({ statsData }: { statsData: LastFmData }): JSX.Element {
+function LastFMStatistics({ statsData }: { statsData: LastFmResponse }): JSX.Element {
   const { pluginLastfm } = getEnvVariables();
   if (!pluginLastfm) throw new Error("LastFM plugin not found in LastFMStatistics component");
 

@@ -17,15 +17,15 @@ import {
   TopTracksList,
 } from "./components";
 import LastFmPlugin, { allLastFmSections } from "./types/envLastFM";
-import { LastFmResponse } from "./types/lastFmTypes";
+import { LastFmData } from "./types/lastFmTypes";
 
 interface Props {
   lastfmPlugin: LastFmPlugin;
-  lastfmData: LastFmResponse;
+  lastfmData: LastFmData;
 }
 
 interface SectionRenderers {
-  [key: string]: (lastFmData: LastFmResponse) => JSX.Element;
+  [key: string]: (lastFmData: LastFmData) => JSX.Element;
 }
 
 const sectionRenderers: SectionRenderers = {

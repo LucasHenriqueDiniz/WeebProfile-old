@@ -1,8 +1,14 @@
 <!-- This file is auto-generated, don't update it manually -->
 
+<div align='center'>
+<img src='./imgs/banner.png' height='400' justify='center' />
+</div>
+
+<!-- This file is auto-generated, don't update it manually -->
+
 <!-- Title -->
 
-# 🗻 WeebProfile 🦀
+# WeebProfile 🦀
 
 A simple and customizable way to display code, anime, and music stats on your GitHub profile README.
 
@@ -28,7 +34,7 @@ A simple and customizable way to display code, anime, and music stats on your Gi
 
 ## 🖼️ Supported sections
 
-<h4>Right now we support 28 sections with 2 styles each</h4>
+<h4>Right now we support 29 sections with 2 styles each</h4>
 
 <p>Here are the available sections and their respective images:</p>
 
@@ -293,8 +299,8 @@ A simple and customizable way to display code, anime, and music stats on your Gi
     <td align="center" nowrap="nowrap"><span style="color: red;">Image for profile not found</span></td>
   </tr>
   <tr>
-    <td align="center" nowrap="nowrap"><code>repositories</code></td>
-    <td align="center" nowrap="nowrap"><span style="color: red;">Image for repositories not found</span></td>
+    <td align="center" nowrap="nowrap"><code>repositories_data</code></td>
+    <td align="center" nowrap="nowrap"><span style="color: red;">Image for repositories_data not found</span></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>favorite_languages</code></td>
@@ -303,6 +309,10 @@ A simple and customizable way to display code, anime, and music stats on your Gi
   <tr>
     <td align="center" nowrap="nowrap"><code>favorite_license</code></td>
     <td align="center" nowrap="nowrap"><img src="./src/plugins/github/assets/default/favorite_license.svg"></td>
+  </tr>
+  <tr>
+    <td align="center" nowrap="nowrap"><code>repository</code></td>
+    <td align="center" nowrap="nowrap"><span style="color: red;">Image for repository not found</span></td>
   </tr>
 </table>
 
@@ -320,8 +330,8 @@ A simple and customizable way to display code, anime, and music stats on your Gi
     <td align="center" nowrap="nowrap"><span style="color: red;">Image for profile not found</span></td>
   </tr>
   <tr>
-    <td align="center" nowrap="nowrap"><code>repositories</code></td>
-    <td align="center" nowrap="nowrap"><span style="color: red;">Image for repositories not found</span></td>
+    <td align="center" nowrap="nowrap"><code>repositories_data</code></td>
+    <td align="center" nowrap="nowrap"><span style="color: red;">Image for repositories_data not found</span></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>favorite_languages</code></td>
@@ -330,6 +340,10 @@ A simple and customizable way to display code, anime, and music stats on your Gi
   <tr>
     <td align="center" nowrap="nowrap"><code>favorite_license</code></td>
     <td align="center" nowrap="nowrap"><img src="./src/plugins/github/assets/terminal/favorite_license.svg"></td>
+  </tr>
+  <tr>
+    <td align="center" nowrap="nowrap"><code>repository</code></td>
+    <td align="center" nowrap="nowrap"><span style="color: red;">Image for repository not found</span></td>
   </tr>
 </table>
 </details>

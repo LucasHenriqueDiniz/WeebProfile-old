@@ -1,18 +1,9 @@
 import { githubResponse } from "../types";
 import githubPlugin from "../types/envGithub";
 import fetchUserData from "./UserData";
-import fecthAllRepositoriesData from "./RepositoriesData";
-
-async function fetchRateLimit(token: string) {
-  const url = "https://api.github.com/rate_limit";
-  const response = await fetch(url, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
-  const data = await response.json();
-  return data;
-}
+import fetchAllRepositoriesData from "./RepositoriesData";
+import axios from "axios";
+import fetchRateLimit from "./rateLimit";
 
 async function fetchGithubData(plugin: githubPlugin, token: string): Promise<githubResponse> {
   const sections = plugin.sections;
@@ -25,7 +16,7 @@ async function fetchGithubData(plugin: githubPlugin, token: string): Promise<git
     userData = await fetchUserData(login, token);
   }
 
-  repositoriesData = await fecthAllRepositoriesData(login, token);
+  repositoriesData = await fetchAllRepositoriesData(login, token);
 
   const rateLimit = await fetchRateLimit(token);
 

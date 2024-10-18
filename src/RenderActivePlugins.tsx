@@ -1,34 +1,29 @@
 import { ReactNode } from "react";
 import envType from "../types/envType";
+import { pluginsData } from "./fetchPluginData";
 import TerminalHeader from "./plugins/!templates/Terminal/Terminal_Header";
 import RenderGithub from "./plugins/github";
-import fetchGithubData from "./plugins/github/services/fetchGithub";
 import RenderLastFM from "./plugins/lastfm";
-import LastFmApi from "./plugins/lastfm/services/lastFmApi";
 import RenderMyAnimeList from "./plugins/mal";
-import { fetchMalData } from "./plugins/mal/services/malApi";
 
-async function RenderActivePlugins(env: envType): Promise<ReactNode> {
+async function RenderActivePlugins(env: envType, pluginData: pluginsData): Promise<ReactNode> {
   console.log("RENDER ACTIVE PLUGINS");
   const pluginComponents: { [key: string]: JSX.Element | null } = {};
   const pluginsOrder = env.pluginsOrder;
 
   if (env.pluginMal) {
     console.log("RENDER MAL");
-    const malData = await fetchMalData(env.pluginMal, env.pluginMal.username);
-    pluginComponents.mal = <RenderMyAnimeList malPlugin={env.pluginMal} malData={malData} key="mal" />;
+    pluginComponents.mal = <RenderMyAnimeList malPlugin={env.pluginMal} malData={pluginData.mal} key="mal" />;
   }
 
   if (env.pluginLastfm) {
     console.log("RENDER LASTFM");
-    const lastfmData = await LastFmApi(env.pluginLastfm);
-    pluginComponents.lastfm = <RenderLastFM lastfmPlugin={env.pluginLastfm} lastfmData={lastfmData} key="lastfm" />;
+    pluginComponents.lastfm = <RenderLastFM lastfmPlugin={env.pluginLastfm} lastfmData={pluginData.lastfm} key="lastfm" />;
   }
 
   if (env.pluginGithub) {
     console.log("RENDER GITHUB");
-    const githubData = await fetchGithubData(env.pluginGithub, env.ghToken);
-    pluginComponents.github = <RenderGithub githubPlugin={env.pluginGithub} githubData={githubData} key="github" />;
+    pluginComponents.github = <RenderGithub githubPlugin={env.pluginGithub} githubData={pluginData.github} key="github" />;
   }
 
   const activePlugins = Object.values(pluginComponents).filter(Boolean);

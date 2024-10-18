@@ -9,7 +9,7 @@ import getEnvVariables from "../../../../utils/getEnvVariables";
 import getPseudoCommands from "../../../../utils/getPseudoCommands";
 import Img64 from "../../../base/ImageComponent";
 import { LastUpdatesAnime, LastUpdatesManga, MalLastUpdatesResponse } from "../types/malLastUpdatesResponse";
-import PorcentageBar from "./Default_PorcetangeBar";
+import PercentageBar from "./Default_PercentageBar";
 
 function DefaultUpdate({ update }: { update: LastUpdatesAnime | LastUpdatesManga }): JSX.Element {
   const isAnime = "episodes_total" in update;
@@ -29,15 +29,15 @@ function DefaultUpdate({ update }: { update: LastUpdatesAnime | LastUpdatesManga
       <div className="flex-d w100 justify-evenly">
         <div className="title-grid">
           <h3 className="lg-text-bold text-nowrap text-overflow">{title}</h3>
-          <span className="flex items-center justify-center xl-text color-primary gap-2">
-            {score === 0 || !score ? "-" : score} <FaStar className="color-primary pb-4" />
+          <span className="flex items-baseline xl-text color-primary gap-2">
+            {score === 0 || !score ? "-" : score} <FaStar size={18} className="color-primary" />
           </span>
         </div>
 
-        <PorcentageBar current={current} total={total} status={status} />
+        <PercentageBar current={current} total={total} status={status} />
 
         <div className="flex justify-between">
-          <div className="md-text gap-4 flex items-center">
+          <div className="md-text gap-4 flex items-baseline">
             <span className={`default-${status === "Reading" ? "watching" : status === "Plan to Read" ? "plan-to-watch" : status.toLowerCase().split(" ").join("-")}`}>
               {status}
             </span>
@@ -61,12 +61,12 @@ function TerminalUpdate({ update }: { update: LastUpdatesAnime | LastUpdatesMang
   const date = format(new Date(update.date), "MMM d, h:mm a");
   const score = update.score ?? 0;
 
-  // Calcula a porcentagem e a representação na barra de progresso
+  // get percentage and create progress bar
   const percentage = Math.round((current / total) * 100) || 0;
   const progressBarLength = 30;
   const filledBlocks = Math.round((percentage / 100) * progressBarLength);
 
-  // Cria a barra de progresso com caracteres ASCII
+  // create progress bar
   const progressBar = "█".repeat(filledBlocks) + "░".repeat(progressBarLength - filledBlocks);
 
   const statusColor = `default-${status === "Reading" ? "watching" : status === "Plan to Read" ? "plan-to-watch" : status.toLowerCase().split(" ").join("-")}`;

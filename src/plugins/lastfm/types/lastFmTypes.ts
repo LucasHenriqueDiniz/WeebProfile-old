@@ -31,7 +31,7 @@ interface TopTrack {
   image: string | undefined;
 }
 
-interface LastFmData {
+interface LastFmResponse {
   [key: string]: any;
   totalScrobbles: string;
   totalArtists: string;
@@ -43,11 +43,11 @@ interface LastFmData {
   featuredTrack: LastFmFeaturedTrack | null;
 }
 
-interface LastFmResponse {
-  data: LastFmData;
+interface LastFmData {
+  data: LastFmResponse;
   topArtistsInterval?: string;
   topAlbumsInterval?: string;
   topTracksInterval?: string;
 }
 
-export type { LastFmData, LastFmTrack, LastFmArtist, LastFmAlbum, LastFmFeaturedTrack, TopTrack, LastFmResponse };
+export type { LastFmAlbum, LastFmArtist, LastFmData, LastFmFeaturedTrack, LastFmResponse, LastFmTrack, TopTrack };

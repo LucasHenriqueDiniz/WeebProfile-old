@@ -1,4 +1,4 @@
-export const allGIThubSections = "profile, repositories, favorite_languages, favorite_license";
+export const allGIThubSections = "profile, repositories_data, favorite_languages, favorite_license, repository";
 
 export interface GithubPlugin {
   plugin_github: boolean;
@@ -9,8 +9,12 @@ export interface GithubPlugin {
 
   profile_hide_title: boolean;
 
-  repositories_title: string;
-  repositories_hide_title: boolean;
+  repositories_data_title: string;
+  repositories_data_hide_title: boolean;
+
+  repository_title: string;
+  repository_hide_title: boolean;
+  repository_name: string;
 
   favorite_languages_title: string;
   favorite_languages_hide_title: boolean;

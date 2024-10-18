@@ -56,7 +56,7 @@
       <code>GITHUB_SECTIONS    <td rowspan="2">
       <p>Sections to display in the profile</p>
       <b>Available sections:</b>
-      <code>profile</code>, <code>repositories</code>, <code>favorite_languages</code>, <code>favorite_license</code>
+      <code>profile</code>, <code>repositories_data</code>, <code>favorite_languages</code>, <code>favorite_license</code>, <code>repository</code>
       <p><b>Example:</b></p>
       <code>GITHUB_SECTIONS="top_tracks"</code>
     </td>
@@ -194,7 +194,7 @@
 
 ## 🖼️ Supported sections
 
-<h4><b>GITHUB</b> has 4 sections with 2 styles each.</h4>
+<h4><b>GITHUB</b> has 5 sections with 2 styles each.</h4>
 
 <p>Here are the available sections and their respective images:</p>
 
@@ -212,8 +212,8 @@
     <td align="center" nowrap="nowrap"><span style="color: red;">Image for profile not found</span></td>
   </tr>
   <tr>
-    <td align="center" nowrap="nowrap"><code>repositories</code></td>
-    <td align="center" nowrap="nowrap"><span style="color: red;">Image for repositories not found</span></td>
+    <td align="center" nowrap="nowrap"><code>repositories_data</code></td>
+    <td align="center" nowrap="nowrap"><span style="color: red;">Image for repositories_data not found</span></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>favorite_languages</code></td>
@@ -222,6 +222,10 @@
   <tr>
     <td align="center" nowrap="nowrap"><code>favorite_license</code></td>
     <td align="center" nowrap="nowrap"><img src="./assets/default/favorite_license.svg"></td>
+  </tr>
+  <tr>
+    <td align="center" nowrap="nowrap"><code>repository</code></td>
+    <td align="center" nowrap="nowrap"><span style="color: red;">Image for repository not found</span></td>
   </tr>
 </table>
 
@@ -239,8 +243,8 @@
     <td align="center" nowrap="nowrap"><span style="color: red;">Image for profile not found</span></td>
   </tr>
   <tr>
-    <td align="center" nowrap="nowrap"><code>repositories</code></td>
-    <td align="center" nowrap="nowrap"><span style="color: red;">Image for repositories not found</span></td>
+    <td align="center" nowrap="nowrap"><code>repositories_data</code></td>
+    <td align="center" nowrap="nowrap"><span style="color: red;">Image for repositories_data not found</span></td>
   </tr>
   <tr>
     <td align="center" nowrap="nowrap"><code>favorite_languages</code></td>
@@ -249,5 +253,9 @@
   <tr>
     <td align="center" nowrap="nowrap"><code>favorite_license</code></td>
     <td align="center" nowrap="nowrap"><img src="./assets/terminal/favorite_license.svg"></td>
+  </tr>
+  <tr>
+    <td align="center" nowrap="nowrap"><code>repository</code></td>
+    <td align="center" nowrap="nowrap"><span style="color: red;">Image for repository not found</span></td>
   </tr>
 </table>

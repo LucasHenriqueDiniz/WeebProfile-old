@@ -2,10 +2,17 @@ import { useEffect, useState } from "react";
 import { AiOutlineLoading } from "react-icons/ai";
 import { CiDark, CiLight } from "react-icons/ci";
 import changeTheme from "../utils/changeHtmlTheme";
-import RenderBodyReact from "./RenderBodyReact";
+import RenderBodyReact from "./RenderBody";
+// @ts-ignore
 import config from "./config";
 import GithubProfile from "./dev/GithubProfile";
 import { ThemeName } from "./dev/types";
+
+import "./styles/default.css";
+import "./styles/fonts.css";
+import "./styles/half.css";
+import "./styles/main.css";
+import "./styles/terminal.css";
 
 function App() {
   const loadedEnv = config;
@@ -20,7 +27,7 @@ function App() {
   useEffect(() => {
     const fetchElement = async () => {
       const result = await RenderBodyReact({ env: loadedEnv });
-      setElement(result);
+      setElement(result as JSX.Element);
     };
     try {
       fetchElement();

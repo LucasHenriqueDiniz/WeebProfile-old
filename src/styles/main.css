@@ -240,7 +240,7 @@ section {
 }
 
 .h100 {
-  /* dont know why i did w100 instead of w-full :( */
+  /* don't know why i did w100 instead of w-full :( */
   height: 100%;
 }
 
@@ -357,6 +357,10 @@ px-4 {
 
 .text-shadow {
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.8);
+}
+
+.mr-8 {
+  margin-right: 6px;
 }
 
 .drop-shadow {
@@ -606,6 +610,17 @@ px-4 {
   border: 1px solid #9370db;
 }
 
+.color-black {
+  color: #000000;
+}
+.color-white {
+  color: #ffffff;
+}
+
+.bg-transparent {
+  background-color: transparent !important;
+}
+
 .airing,
 .watching {
   color: var(--color-watching);
@@ -656,4 +671,8 @@ px-4 {
 
 .min-h-120 {
   min-height: 120px;
+}
+
+.h-15 {
+  height: 15px;
 }

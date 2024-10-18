@@ -65,7 +65,7 @@
     <td nowrap="nowrap">
 <b>type:</b> <code>stringArray</code>
 
-<b>default:</b> top_tracks    </td>
+<b>default:</b> top_tracks, recent_tracks    </td>
   </tr>
   <tr>
     <td nowrap='nowrap'>

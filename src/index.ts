@@ -1,7 +1,7 @@
 import loadEnv from "./loadEnv";
 import storeInGist from "./methods/gist/storeInGist";
 import storeLocally from "./methods/local/storeLocally";
-import renderBodyString from "./RenderBodyString";
+import RenderBody from "./RenderBody";
 
 async function main() {
   console.log("Starting...");
@@ -10,7 +10,11 @@ async function main() {
   //destructure env
   const { gistId, ghToken, filename, storageMethod } = loadedEnv;
   //render body
-  const htmlString = await renderBodyString({ env: loadedEnv });
+  const htmlString = await RenderBody({ env: loadedEnv });
+
+  if (!htmlString || typeof htmlString !== "string") {
+    throw new Error(`Something went wrong while rendering body, make sure the function returns a string ${typeof htmlString}`);
+  }
 
   //store data
   switch (storageMethod) {

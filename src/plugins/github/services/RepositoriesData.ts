@@ -179,7 +179,7 @@ async function fetchAllRepositoriesData(login: string, token: string): Promise<R
     });
   });
 
-  // Encontra a licença mais usada e a quantidade de vezes que ela foi usada // bad performance but it's ok
+  // Get the most common license
   const mostCommonLicense = (arr: string[]) => arr.reduce((a, b, i, arr) => (arr.filter((v) => v === a).length >= arr.filter((v) => v === b).length ? a : b));
 
   favoriteLicense = {
@@ -205,6 +205,56 @@ async function fetchAllRepositoriesData(login: string, token: string): Promise<R
   };
 
   return repositoriesData;
+}
+
+export async function getSpecificRepository(login: string, token: string, repository: string) {
+  const query = `
+  query {
+    user(login: "${login}") {
+      repository(name: "${repository}") {
+        name
+        defaultBranchRef {
+          target {
+            ... on Commit {
+              history(first: 100) {
+                totalCount
+                edges {
+                  node {
+                    committedDate
+                    message
+                    author {
+                      user {
+                        login
+                      }
+                    }
+                    additions
+                    deletions
+                    changedFiles
+                  }
+                }
+
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  `;
+  const url = "https://api.github.com/graphql";
+  const response = await axios.post(
+    url,
+    { query },
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+
+  console.log(response);
+
+  return response;
 }
 
 export default fetchAllRepositoriesData;

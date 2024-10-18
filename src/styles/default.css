@@ -17,7 +17,7 @@
 }
 
 /* <html lang="en" data-color-mode="auto" data-light-theme="light" data-dark-theme="dark_tritanopia" data-a11y-animated-images="system" data-a11y-link-underlines="true" data-turbo-loaded=""><head><style type="text/css"> */
-/* dif colorsqueme in light mode */
+/* dif color scheme in light mode */
 [data-color-mode="light"] #svg-main.default {
   color: #333;
   --color-primary: rgba(127, 130, 140, 1);
@@ -50,7 +50,6 @@
 .stat-title {
   font-size: 14px;
   border-bottom: #222 1px solid;
-  font-family: Avenir, lucida grande, tahoma, verdana, arial, sans-serif;
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
