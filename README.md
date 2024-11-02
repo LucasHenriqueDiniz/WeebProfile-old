@@ -1,3 +1,5 @@
+# This repository will be discontinued because i did a complete refactor, The the new repository will be: [WeebProfile](https://github.com/LucasHenriqueDiniz/WeebProfile)
+
 <!-- This file is auto-generated, don't update it manually -->
 
 <div align='center'>
